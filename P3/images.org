@@ -8,3 +8,5 @@ Move images based on their rough aspect ratio into different directories. Write 
 
 *** Rotate images that are 3:2 to become 2:3.
 
+** Find duplicate/similar images using a conceptual hash.
+
