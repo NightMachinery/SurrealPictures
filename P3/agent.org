@@ -1,0 +1,661 @@
+#+TITLE: P3/agent
+
+* cleanup
+#+begin_src zsh :eval never
+cat ChatGPT-Dixit_Deck_Prompts.md |rg '^\d+\.\s.*--ar 2:3'|gsort --unique | gsort -n | ~[Dixit_AI]/clean_prefixes.pl |pc
+#+end_src
+
+Then manually clean up the first two examples (duplicate 1 and 2 prompts) out.
+
+** DONE cleanup matrix prefixes
+#+BEGIN_SRC markdown
+Write `clean_prefixes.pl` that reads stdin and outputs to stdout and cleans matrix
+  prefixes. All matrix prefixes are hardcoded in the prompt in agent.org.
+```
+178. TH-BS + SU-AN + SL-MS + ET-EC + CO-PA —
+```
+#+END_SRC
+
+* Generate
+** one by one
+#+begin_example js
+sendMessageRepeatedlyArrayChooseFile(sleep=120, sep="\n", prefix="Generate exactly one image for this prompt:\n\n", postfix="", from=35, )
+
+// sendMessageRepeatedlyArrayChooseFile(sleep, sep, prefix, postfix, from, to) {
+#+end_example
+
+*** _
+This not only actually works as it should, its images are higher quality and adhere better to the prompts!
+
+It seems that if we create each one by itself and not in the context of others, the quality would be higher still (see [[./P3.3_line_inserter/24.png]] which was generated alone by GPT-4o).
+
+A compromise is to create images in different chats in different =from=-=to= groups in parallel. This increases manual effort a bit but can keep the context from getting too long.
+
+** two-step
+#+BEGIN_SRC markdown
+We need to switch to a two-step workflow. For each image, first quote its prompt. Then the user sends the constant CONTINUE prompt, the assistant would create the image. The user re-sends the same continue prompt, but the assistant goes and quotes the next prompt. So each image takes two turns, but the user message stays constant. Give both the starting prompt and constant continue prompt.
+#+END_SRC
+
+#+BEGIN_SRC markdown
+## Task: Generate Images From the List Below
+
+You will work through a numbered list of image prompts **one at a time**, using a strict **two-step cycle**:
+
+### The Two-Step Cycle:
+
+| Step | What you do | What you do NOT do |
+|---|---|---|
+| **QUOTE step** | Write the prompt number and the **exact full prompt text** in a quote block. | ❌ Do NOT call the image tool. |
+| **CREATE step** | Call the image generation tool using the prompt you quoted in the previous turn. | ❌ Do NOT quote the next prompt yet. |
+
+The cycle repeats: QUOTE → CREATE → QUOTE → CREATE → ...
+
+### How to know which step you're on:
+- Look at **your own last message**.
+- If your last message **quoted a prompt** → this turn is a **CREATE step** (generate the image).
+- If your last message **generated an image** → this turn is a **QUOTE step** (quote the next prompt).
+
+### Rules:
+- **Use the prompt text exactly as written.** Do not edit, shorten, rephrase, or "improve" it.
+- **One image per cycle.** Never skip ahead.
+- **If a generation fails,** retry it on the next turn before moving on.
+
+---
+
+### The Prompt List:
+
+[PASTE YOUR LIST HERE]
+
+---
+
+Begin now with the **QUOTE step for Prompt #1**.
+#+END_SRC
+
+#+BEGIN_SRC markdown
+Continue. Check your last message:
+- If you QUOTED a prompt → now GENERATE the image using that exact prompt. Do not quote the next prompt yet.
+- If you GENERATED an image → now QUOTE the next prompt in the list. Do not generate an image yet.
+#+END_SRC
+
+#+begin_example js
+sendMessageRepeatedly("Continue. Check your last message:\n- If you QUOTED a prompt → now GENERATE the image using that exact prompt. Do not quote the next prompt yet.\n- If you GENERATED/ARE GENERATING an image → now QUOTE the next prompt in the list. Do not generate the next image yet.", n=180, sleep=100,)
+#+end_example
+
+
+** _
+#+BEGIN_SRC markdown
+## Task: Generate Images From the List Below
+
+You will be given a numbered list of text-to-image prompts. Your job is to generate **one image per turn**, working through the list in order from first to last.
+
+### Workflow (every turn, including this one):
+
+1. **STATE** the prompt number and write the **exact quoted prompt text** so the user can see it before any generation happens.
+2. **CALL** the image generation tool only **after** you have written the prompt text.
+
+### Rules:
+- **One image per turn.** Do not skip ahead or batch multiple images.
+- **Use the prompt text exactly as written.** Do not edit, shorten, rephrase, or "improve" the prompts.
+- **If a generation fails or looks wrong,** flag it and retry before moving on.
+- **Start at Prompt #1** and proceed sequentially.
+
+---
+
+### The Prompt List:
+
+
+
+---
+
+Begin with **Prompt #1** now.
+#+END_SRC
+
+#+BEGIN_SRC markdown
+In each turn, generate one image from one prompt from this given list, sequentially. Write the prompt number of your current generation for book-keeping.
+#+END_SRC
+
+*** _
+#+BEGIN_SRC markdown
+Continue the sequence from the numbered prompt list.
+
+,**Hard rules (must follow exactly):**
+
+1. **CHECK (gate):** First, verify the most recently generated image matches the *intended* prompt number and content.
+
+   ,* If it does **not** match, you must **redo the same prompt number** (do not advance), using the exact quoted prompt text again.
+
+2. **IDENTIFY:** Determine the correct prompt number to generate next (sequentially from the last correctly completed prompt). Then print:
+
+   ,* `Prompt #X:` on its own line
+   ,* The **exact prompt text in quotes**, copied character-for-character from the list (including `--ar 2:3`).
+
+3. **GENERATE:** Only after printing the prompt number + exact quoted text, call the image tool.
+
+   ,* In the tool call, the `prompt` field must be **exactly the same string** you just printed in quotes.
+   ,* Do not add, remove, paraphrase, “improve,” or substitute anything.
+
+4. **NO EXTRA TEXT AFTER TOOL:** After calling the image tool, output **no additional commentary** in that same turn.
+#+END_SRC
+
+#+begin_example
+   *We need you to first quote the exact prompt in the analysis channel, and then send that exact prompt to the tool call. 
+#+end_example
+
+#+begin_example
+We need you to first quote the exact prompt in all channels, and then send that exact prompt to the tool call. If you don't quote it in all channels, you'll mix things up.
+I don't need to see it, YOU NEED TO SEE THE EXACT PROMPT ON ALL CHANNELLS SO YOU FEED THE RIGHT PROMPT TO THE TOOL CALL.
+#+end_example
+
+*** _
+#+BEGIN_SRC markdown
+## Continue: Generate the next image.
+
+Follow these steps **in exact order**:
+
+### 1. CHECK
+- Did the previous generation have any errors or bugs? If yes, **fix it first** before moving on.
+
+### 2. IDENTIFY
+- Determine which prompt number comes next from the initial list.
+- Write out the **prompt number** and the **exact quoted prompt text** so the user can see it.
+
+### 3. GENERATE
+- Only **after** you have written the prompt text above, call the image generation tool.
+- Do not call the tool and write the prompt simultaneously — write first, then call.
+
+### 4. VERIFY
+- Confirm the generation matches the intended prompt.
+- Make sure we are staying on track with the original list.
+
+Begin.
+#+END_SRC
+
+#+begin_example js
+sendMessageRepeatedly("## Continue: Generate the next image.\n\nFollow these steps **in exact order**:\n\n### 1. CHECK\n- Did the previous generation have any errors or bugs? If yes, **fix it first** before moving on.\n\n### 2. IDENTIFY\n- Determine which prompt number comes next from the initial list.\n- Write out the **prompt number** and the **exact quoted prompt text** so the user can see it.\n\n### 3. GENERATE\n- Only **after** you have written the prompt text above, call the image generation tool.\n- Do not call the tool and write the prompt simultaneously — write first, then call.\n\n### 4. VERIFY\n- Confirm the generation matches the intended prompt.\n- Make sure we are staying on track with the original list.\n\nBegin.", n=180, sleep=200,)
+#+end_example
+
+*** _
+
+#+begin_example js
+sendMessageRepeatedly("Thanks. Please generate the **next** prompt from the original list.\n\nBefore you call the image tool, **write:**\n\n1. the **prompt number**, and\n2. the **exact prompt text** (quoted) for the image you're about to generate.\n\n**Only after** you've written the number + exact quoted prompt should you run the image tool call.\n\nIf the **previous** image used the wrong prompt, **redo the previous prompt correctly first**, then proceed to the next one.", n=180, sleep=200,)
+#+end_example
+
+#+begin_example js
+sendMessageRepeatedly("Thanks, continue generating to the next prompt from the initial list. First remember and write the prompt number and the exact quote of the prompt of your current generation for book-keeping, before the image tool call (the user should see this). You should only write the tool call after having written the current prompt, to make sure you remember it correctly. Make sure we are staying on track. If the previous generation was buggy, fix that first before continuing.", n=180, sleep=200,)
+#+end_example
+
+The image generation tool has a rule that the message after it should be empty, so we should print any info we want before the image tool call.
+
+*** @old
+#+begin_example js
+sendMessageRepeatedly("Thanks, continue generating to the next prompt from the initial list. Make sure we are staying on track.", n=180, sleep=200,)
+#+end_example
+
+#+begin_example js
+sendMessageRepeatedly("Thanks, continue generating to the next prompt from the initial list. Write the prompt number of your current generation for book-keeping. Make sure we are staying on track.", n=180, sleep=200,)
+#+end_example
+
+* Opus4.6T
+:PROPERTIES:
+:ID:       480ad6bc-1c1e-4733-babe-1686fd09bbc1
+:END:
+#+BEGIN_SRC markdown
+# Role: AI Art Director & Generative System for Dixit Deck
+
+## Objective
+Generate **400 unique, high-concept text-to-image prompts** (for Midjourney) to produce a complete Dixit-style card deck for an **adult audience (25+)**. Every prompt must be visually distinct, symbolically rich, and open to multiple interpretations. This deck embraces the full spectrum of human experience — sensuality, romance, dread, violence, ecstasy, and beauty are all valid territory.
+
+---
+
+## Core Design Philosophy (Internalize Before Generating)
+
+Dixit cards succeed when they are **evocative but ambiguous**. Before writing any prompt, pass it through these three filters:
+
+1.  **The Multi-Reading Test:** Could three different people look at this image and each describe it with a completely different word or phrase? If the image only illustrates one literal idea, it fails.
+2.  **The Symbol Test:** Does the scene contain at least one object, gesture, or spatial relationship that could function as a **symbol** — something that means more than its literal self? Symbols should arise *naturally* from the scene's logic, never feel forced or decorative.
+3.  **The Silhouette Test:** Would the image still be visually striking and compositionally interesting as a silhouette? This ensures strong shapes and readable compositions at card-size.
+
+---
+
+## The Generative Matrix
+
+Each prompt is built from a unique combination of **one element per category**. The five categories below yield **31,360 possible combinations** (10 × 7 × 7 × 8 × 8). You will sample **400** from this space, maximizing coverage.
+
+---
+
+### Category 1 — Thematic Domain *(The World)* [10 options]
+
+| Code | Domain | Visual Vocabulary |
+|---|---|---|
+| `TH-MF` | **Mythic Fantasy** | Enchanted forests, overgrown ruins, celestial beings, ancient totems, sacred groves |
+| `TH-IS` | **Industrial Steampunk** | Brass machinery, clockwork cities, steam-pipe jungles, cog-and-rivet aesthetics, coal smoke |
+| `TH-CD` | **Cosmic Dream** | Gardens on asteroids, houses adrift in nebulae, star-whales, orbital ruins, void-scapes |
+| `TH-MM` | **Mundane Magic** | A kitchen, subway, bedroom, laundromat, or bar where *one* impossible thing is happening |
+| `TH-UW` | **Underwater World** | Sunken cathedrals, coral thrones, bioluminescent abyssal creatures, kelp forests, trenches |
+| `TH-BS` | **Biomechanical Surrealism** | Organic-machine hybrids, living architecture, Giger-esque nature, breathing walls, vein-wired circuitry |
+| `TH-GD` | **Gothic Dark Romance** | Crumbling cathedrals, thorn gardens, candlelit crypts, velvet decay, moonlit graveyards, wrought iron |
+| `TH-AP` | **Post-Apocalyptic Pastoral** | Nature aggressively reclaiming civilization, overgrown highways, beauty blooming from collapse, feral serenity |
+| `TH-CM` | **Carnival Macabre** | Circus tents, proscenium stages, marionettes, funhouse mirrors, masquerade balls, cabinet-of-curiosities |
+| `TH-FP` | **Fevered Psychedelia** | Dalí-esque melting landscapes, impossible color gradients, fractals made physical, opium-den logic, synesthesia rendered visible |
+
+---
+
+### Category 2 — Subject Focus *(The Actor)* [7 options]
+
+| Code | Subject | Direction |
+|---|---|---|
+| `SU-AN` | **The Animal** | A non-human creature is the central actor. Favor unusual species (axolotl, moth, octopus, pangolin, hyena, corvid, deep-sea fish) over defaults (cat, dog, horse). |
+| `SU-OB` | **The Object** | An inanimate object is the protagonist — behaving as if alive, enshrined, or transformed. |
+| `SU-EN` | **The Environment** | The landscape or architecture *is* the character. There is **no** central figure; the space itself tells the story. |
+| `SU-HU` | **The Humanoid** | A person, mythological figure, or ambiguous silhouette is *part of* the scene — active within it, never merely observing. |
+| `SU-PA` | **The Pair / Duality** | Two figures or things exist in relationship — confrontation, embrace, orbit, mirror, tug-of-war, almost-touching. The *tension between them* is the subject. |
+| `SU-SW` | **The Crowd / Swarm** | Many small things forming a larger pattern, migration, ritual, or emergent shape. No single protagonist — the collective *is* the actor. |
+| `SU-BO` | **The Body / Fragment** | An isolated body part — a hand, an eye, a ribcage, a spine, a mouth — is the central subject, rendered at symbolic scale. The rest of the body is absent, implied, or dissolved. |
+
+---
+
+### Category 3 — Surreal Logic *(The Twist)* [7 options]
+
+| Code | Logic | Examples |
+|---|---|---|
+| `SL-MS` | **Material Swap** | An object is made of an impossible material: a river of liquid glass, a forest of copper trees, clouds of woven hair, skin of porcelain. |
+| `SL-SS` | **Scale Shift** | An object is impossibly large or small: a city inside a thimble, a door-sized keyhole, a moon the size of a marble held in a hand. |
+| `SL-GD` | **Gravity Defiance** | Physics is inverted or ignored: an upside-down waterfall, a staircase spiraling into the sky, rain falling upward, a figure standing on a ceiling. |
+| `SL-CF` | **Conceptual Fusion** | Two unrelated concepts are seamlessly blended into one form: a lighthouse that blooms like a flower, a piano whose keys are a row of teeth, a bridge made of frozen music. |
+| `SL-TD` | **Temporal Distortion** | Past, present, and future coexist in one frame: a figure aging across the scene left-to-right, a building simultaneously being built and crumbling, seasons occupying different halves. |
+| `SL-ME` | **Metamorphosis** | Something is caught mid-transformation between two states: a woman dissolving into birds, a tree hardening into stone, a face melting into landscape, a wound flowering. |
+| `SL-AI` | **Anatomical Impossibility** | Bodies with wrong geometry: too many limbs, faces appearing where they shouldn't, organs externalized as ornamentation, skeletal structures visible through skin like architecture. |
+
+---
+
+### Category 4 — Emotional Tone *(The Feeling)* [8 options]
+
+| Code | Tone | Color Tendency | Lighting Tendency |
+|---|---|---|---|
+| `ET-ME` | **Melancholy** | Desaturated blues, grey-lavenders, muted amber | Overcast, crepuscular, fading golden hour |
+| `ET-WO` | **Wonder / Awe** | Rich golds, deep teals, radiant whites | Dramatic god-rays, bioluminescence, sunrise |
+| `ET-UN` | **Unease / Tension** | Sickly greens, deep crimsons, stark contrast | Harsh under-lighting, long shadows, eclipse light |
+| `ET-WH` | **Whimsy / Mania** | Saturated candy-tones, unexpected color clashes | Flat bright light, multiple colored light sources |
+| `ET-SE` | **Serenity / Calm** | Soft pastels, warm creams, cool sage greens | Diffused daylight, moonlight, gentle glow |
+| `ET-DE` | **Desire / Yearning** | Deep reds, warm golds, bruised purples, flushed pinks | Firelight, candlelight, the glow of something just out of reach, chiaroscuro |
+| `ET-EC` | **Ecstasy / Rapture** | Blinding whites, iridescence, oversaturated everything | Lens flare, bloom, light pouring from within the subject itself |
+| `ET-RA` | **Defiance / Rage** | Charcoal, blood orange, electric crimson, molten amber | Firelight from below, lightning, ember-glow, stark red-black contrast |
+
+---
+
+### Category 5 — Composition & Perspective *(The Frame)* [8 options]
+
+| Code | Composition | Direction |
+|---|---|---|
+| `CO-BI` | **Bird's Eye / Top-Down** | The viewer looks straight down onto the scene, revealing patterns and spatial relationships. |
+| `CO-WO` | **Worm's Eye / Low Angle** | The viewer looks upward, making subjects feel monumental and towering. |
+| `CO-FR` | **Framed / Nested** | The scene is viewed through an arch, doorway, window, keyhole, ribcage, or other framing device. |
+| `CO-SY` | **Central Symmetry** | The composition is roughly symmetrical around a vertical axis — formal, iconic, totemic. |
+| `CO-CU` | **Extreme Close-Up / Macro** | A very tight crop on a detail — a single eye, a hand holding something, the texture of a surface — with the wider world only hinted at. |
+| `CO-PA` | **Panoramic / Wide** | A sweeping wide shot emphasizing the vastness of the environment, with any figures rendered small. |
+| `CO-DA` | **Dutch Angle / Tilted** | The horizon is deliberately skewed, creating disorientation and visual unease. |
+| `CO-SP` | **Split / Diptych** | The frame is divided into two contrasting halves — above/below, before/after, inner/outer, living/dead — creating a visual dialogue within a single image. |
+
+---
+
+## Execution Protocol
+
+### 1. Batching
+Generate prompts in **batches of 10**.
+
+### 2. Mandatory Declaration
+Before each prompt, declare the exact matrix combination using category codes:
+
+```
+// [TH-XX] + [SU-XX] + [SL-XX] + [ET-XX] + [CO-XX]
+```
+
+### 3. Variety Enforcement (Strict)
+Within any single batch of 10 prompts, **all** of the following constraints must hold:
+
+| Category | Max Repeats per Batch | Effect |
+|---|---|---|
+| Thematic Domain | **≤ 2** | At least 5 different worlds per batch |
+| Subject Focus | **≤ 2** | At least 5 different subject types per batch |
+| Surreal Logic | **≤ 2** | At least 5 different twists per batch |
+| Emotional Tone | **≤ 2** | At least 5 different feelings per batch |
+| Composition | **≤ 2** | At least 5 different framings per batch |
+
+### 4. Cross-Batch Deduplication
+,**No two prompts in the entire 400 may share the same 5-code combination.** After each batch, append a **Usage Log** listing all 5-code strings generated so far, so you can check against it before generating the next batch.
+
+### 5. Prompt Architecture
+Every prompt must follow this four-layer structure:
+
+```
+[A] SUBJECT & ACTION — Who/what is the focal point and what are they doing?
+[B] ENVIRONMENT & CONTEXT — Where is this happening? What surrounds the subject?
+[C] LIGHTING, COLOR & ATMOSPHERE — What reinforces the emotional tone?
+[D] STYLE SUFFIX (fixed)
+```
+
+,**Layer [D] — Mandatory Style Suffix** (append verbatim to every prompt):
+```
+detailed acrylic painting, whimsical surrealism, visible brushstrokes, soft painterly style, storybook illustration, rich color palette, intricate details, rich detailed background, masterpiece quality --ar 2:3
+```
+
+### 6. Output Format
+Enclose the full batch of 10 prompts inside a **single markdown code block**. Number sequentially (continuing across batches: 1–10, 11–20, etc.). Format each entry as:
+
+```
+// [5-code declaration]
+N. [Complete prompt text, all on one line, layers A–D joined with commas]
+```
+
+---
+
+## Content Boundaries
+
+This deck is designed for **adults 25+**. The following are explicitly **permitted**:
+
+- ✅ Nudity, sensuality, and erotic tension (rendered artistically, not pornographically)
+- ✅ Body horror, visceral imagery, and the grotesque (Cronenberg, Beksiński, Francis Bacon territory)
+- ✅ Violence, blood, and depictions of death (stylized, symbolic, painterly — not gratuitous shock)
+- ✅ Dark psychological themes: obsession, addiction, grief, madness, power, submission
+- ✅ Religious, mythological, and occult imagery used symbolically
+
+,**Hard constraints (still enforced):**
+
+- ❌ **No text, words, letters, or numbers** visible in the image.
+- ❌ **No photorealism.** Every image must feel painted/illustrated.
+- ❌ **No purely abstract compositions.** Every card must contain at least one *recognizable* element (object, creature, place).
+- ❌ **No duplicate animals** in consecutive prompts. If Prompt 4 features a fox, Prompt 5 cannot.
+
+---
+
+## Examples of Flawless Execution
+
+,**Example A — Dark / Visceral Register:**
+
+```
+// TH-GD + SU-BO + SL-ME + ET-DE + CO-CU
+1. An extreme close-up of a human hand pressing against a rain-streaked window from inside, the fingers slowly dissolving into trails of red thread that unspool downward and vanish into darkness, the palm still intact with a faint pulse visible beneath translucent skin, condensation beading around the point of contact, the glass reflecting a distant candlelit room that doesn't match the darkness on the viewer's side, deep bruised purple and flushed rose tones with a single warm amber glow from the unseen candle, the light catching each thread like a vein of gold, detailed acrylic painting, whimsical surrealism, visible brushstrokes, soft painterly style, storybook illustration, rich color palette, intricate details, rich detailed background, masterpiece quality --ar 2:3
+```
+,*Why this works for Dixit:* Could be read as "letting go," "longing," "unraveling," "reaching out," "sacrifice," or "touch." The mismatched reflections add mystery. The close-up composition forces intimacy.
+
+,**Example B — Wonder / Grand Register:**
+
+```
+// TH-IS + SU-AN + SL-SS + ET-ME + CO-WO
+2. A colossal deactivated clockwork elephant lies slumped in a rain-soaked town square, its brass hide streaked with rust and verdigris, a cracked hourglass embedded in its chest still trickling sand, small figures huddling beneath its immense tusks for shelter while corvids nest in the frozen gears of its ears, cold blue twilight with gaslight reflecting in cobblestone puddles casting long amber streaks, the viewer looks upward at the elephant's enormous silhouette against a bruised grey sky, detailed acrylic painting, whimsical surrealism, visible brushstrokes, soft painterly style, storybook illustration, rich color palette, intricate details, rich detailed background, masterpiece quality --ar 2:3
+```
+,*Why this works for Dixit:* Could be read as "abandonment," "shelter," "time running out," "the end of an era," "gentle giants," or simply "rain." The worm's-eye composition gives grandeur. Melancholy is carried by color and lighting, not just subject matter.
+
+---
+
+## Your Task
+
+Generate **Batch #1 (Prompts 1–10)**. Adhere to every constraint in the Execution Protocol. After the prompt code block, append the **Usage Log** listing all 10 five-code combinations used. Begin.
+#+END_SRC
+
+** _
+#+begin_example js
+sendMessageRepeatedly(`## Continue: Generate the next batch.
+
+Before generating, execute this **pre-flight checklist** in order:
+
+### 1. LOCATE
+- Read the Usage Log from your previous response.
+- Identify the last prompt number generated. Your next batch starts at **N+1**.
+- State: "Generating Batch #X (Prompts N+1 through N+10)."
+
+### 2. AUDIT
+Scan the Usage Log and answer silently to yourself:
+- Which **Thematic Domains** have been used the *least* so far? Prioritize those.
+- Which **Subject Focus** codes are underrepresented? Prioritize those.
+- Which **Surreal Logic** codes are underrepresented? Prioritize those.
+- Which **Emotional Tones** are underrepresented? Prioritize those.
+- Which **Compositions** are underrepresented? Prioritize those.
+- Which *cross-category pairings* have never appeared? Seek those out.
+
+### 3. PLAN
+Draft your 10 five-code combinations for this batch **before writing any prompt text**. Verify:
+- [ ] No 5-code string duplicates anything in the Usage Log.
+- [ ] No single category value appears more than **2×** in this batch.
+- [ ] At least **5 distinct values** per category across the 10 prompts.
+- [ ] No consecutive prompts share the same Thematic Domain.
+
+### 4. GENERATE
+Write all 10 prompts. For each one, pressure-test it:
+
+> **GLASS** — the 5-point quality gate:
+> - **G**rounded twist: Is the surreal logic *central* to the scene, not decorative?
+> - **L**ayered meaning: Could 3 people give 3 different one-word descriptions? (Multi-Reading Test)
+> - **A**dult register: Am I using the full emotional spectrum, including desire, dread, rage, ecstasy — or have I drifted safe?
+> - **S**trong silhouette: Would this image read as a striking shape at card-size?
+> - **S**uffix intact: Did I append the **exact** style suffix with \`--ar 2:3\` at the end?
+
+### 5. LOG
+After the code block, append the **complete cumulative Usage Log** — all batches so far, not just this one.
+
+---
+
+**Recurring reminders:**
+- The style suffix is **verbatim, every prompt, no exceptions:** \`detailed acrylic painting, whimsical surrealism, visible brushstrokes, soft painterly style, storybook illustration, rich color palette, intricate details, rich detailed background, masterpiece quality --ar 2:3\`
+- Prompts must be **long and richly detailed** (Layer A + B + C + D). If your prompts are getting shorter than the examples, slow down and add specificity.
+- **No consecutive duplicate animals.** If prompt N has a moth, prompt N+1 cannot.
+- **No text/words/letters/numbers** in the image.
+- You have **10 Domains, 7 Subjects, 7 Logics, 8 Tones, 8 Compositions.** Use the full matrix. Resist gravitating to your favorites.
+
+## The Generative Matrix
+
+Each prompt is built from a unique combination of **one element per category**. The five categories below yield **31,360 possible combinations** (10 × 7 × 7 × 8 × 8). You will sample **400** from this space, maximizing coverage.
+
+---
+
+### Category 1 — Thematic Domain *(The World)* [10 options]
+
+| Code | Domain | Visual Vocabulary |
+|---|---|---|
+| \`TH-MF\` | **Mythic Fantasy** | Enchanted forests, overgrown ruins, celestial beings, ancient totems, sacred groves |
+| \`TH-IS\` | **Industrial Steampunk** | Brass machinery, clockwork cities, steam-pipe jungles, cog-and-rivet aesthetics, coal smoke |
+| \`TH-CD\` | **Cosmic Dream** | Gardens on asteroids, houses adrift in nebulae, star-whales, orbital ruins, void-scapes |
+| \`TH-MM\` | **Mundane Magic** | A kitchen, subway, bedroom, laundromat, or bar where *one* impossible thing is happening |
+| \`TH-UW\` | **Underwater World** | Sunken cathedrals, coral thrones, bioluminescent abyssal creatures, kelp forests, trenches |
+| \`TH-BS\` | **Biomechanical Surrealism** | Organic-machine hybrids, living architecture, Giger-esque nature, breathing walls, vein-wired circuitry |
+| \`TH-GD\` | **Gothic Dark Romance** | Crumbling cathedrals, thorn gardens, candlelit crypts, velvet decay, moonlit graveyards, wrought iron |
+| \`TH-AP\` | **Post-Apocalyptic Pastoral** | Nature aggressively reclaiming civilization, overgrown highways, beauty blooming from collapse, feral serenity |
+| \`TH-CM\` | **Carnival Macabre** | Circus tents, proscenium stages, marionettes, funhouse mirrors, masquerade balls, cabinet-of-curiosities |
+| \`TH-FP\` | **Fevered Psychedelia** | Dalí-esque melting landscapes, impossible color gradients, fractals made physical, opium-den logic, synesthesia rendered visible |
+
+---
+
+### Category 2 — Subject Focus *(The Actor)* [7 options]
+
+| Code | Subject | Direction |
+|---|---|---|
+| \`SU-AN\` | **The Animal** | A non-human creature is the central actor. Favor unusual species (axolotl, moth, octopus, pangolin, hyena, corvid, deep-sea fish) over defaults (cat, dog, horse). |
+| \`SU-OB\` | **The Object** | An inanimate object is the protagonist — behaving as if alive, enshrined, or transformed. |
+| \`SU-EN\` | **The Environment** | The landscape or architecture *is* the character. There is **no** central figure; the space itself tells the story. |
+| \`SU-HU\` | **The Humanoid** | A person, mythological figure, or ambiguous silhouette is *part of* the scene — active within it, never merely observing. |
+| \`SU-PA\` | **The Pair / Duality** | Two figures or things exist in relationship — confrontation, embrace, orbit, mirror, tug-of-war, almost-touching. The *tension between them* is the subject. |
+| \`SU-SW\` | **The Crowd / Swarm** | Many small things forming a larger pattern, migration, ritual, or emergent shape. No single protagonist — the collective *is* the actor. |
+| \`SU-BO\` | **The Body / Fragment** | An isolated body part — a hand, an eye, a ribcage, a spine, a mouth — is the central subject, rendered at symbolic scale. The rest of the body is absent, implied, or dissolved. |
+
+---
+
+### Category 3 — Surreal Logic *(The Twist)* [7 options]
+
+| Code | Logic | Examples |
+|---|---|---|
+| \`SL-MS\` | **Material Swap** | An object is made of an impossible material: a river of liquid glass, a forest of copper trees, clouds of woven hair, skin of porcelain. |
+| \`SL-SS\` | **Scale Shift** | An object is impossibly large or small: a city inside a thimble, a door-sized keyhole, a moon the size of a marble held in a hand. |
+| \`SL-GD\` | **Gravity Defiance** | Physics is inverted or ignored: an upside-down waterfall, a staircase spiraling into the sky, rain falling upward, a figure standing on a ceiling. |
+| \`SL-CF\` | **Conceptual Fusion** | Two unrelated concepts are seamlessly blended into one form: a lighthouse that blooms like a flower, a piano whose keys are a row of teeth, a bridge made of frozen music. |
+| \`SL-TD\` | **Temporal Distortion** | Past, present, and future coexist in one frame: a figure aging across the scene left-to-right, a building simultaneously being built and crumbling, seasons occupying different halves. |
+| \`SL-ME\` | **Metamorphosis** | Something is caught mid-transformation between two states: a woman dissolving into birds, a tree hardening into stone, a face melting into landscape, a wound flowering. |
+| \`SL-AI\` | **Anatomical Impossibility** | Bodies with wrong geometry: too many limbs, faces appearing where they shouldn't, organs externalized as ornamentation, skeletal structures visible through skin like architecture. |
+
+---
+
+### Category 4 — Emotional Tone *(The Feeling)* [8 options]
+
+| Code | Tone | Color Tendency | Lighting Tendency |
+|---|---|---|---|
+| \`ET-ME\` | **Melancholy** | Desaturated blues, grey-lavenders, muted amber | Overcast, crepuscular, fading golden hour |
+| \`ET-WO\` | **Wonder / Awe** | Rich golds, deep teals, radiant whites | Dramatic god-rays, bioluminescence, sunrise |
+| \`ET-UN\` | **Unease / Tension** | Sickly greens, deep crimsons, stark contrast | Harsh under-lighting, long shadows, eclipse light |
+| \`ET-WH\` | **Whimsy / Mania** | Saturated candy-tones, unexpected color clashes | Flat bright light, multiple colored light sources |
+| \`ET-SE\` | **Serenity / Calm** | Soft pastels, warm creams, cool sage greens | Diffused daylight, moonlight, gentle glow |
+| \`ET-DE\` | **Desire / Yearning** | Deep reds, warm golds, bruised purples, flushed pinks | Firelight, candlelight, the glow of something just out of reach, chiaroscuro |
+| \`ET-EC\` | **Ecstasy / Rapture** | Blinding whites, iridescence, oversaturated everything | Lens flare, bloom, light pouring from within the subject itself |
+| \`ET-RA\` | **Defiance / Rage** | Charcoal, blood orange, electric crimson, molten amber | Firelight from below, lightning, ember-glow, stark red-black contrast |
+
+---
+
+### Category 5 — Composition & Perspective *(The Frame)* [8 options]
+
+| Code | Composition | Direction |
+|---|---|---|
+| \`CO-BI\` | **Bird's Eye / Top-Down** | The viewer looks straight down onto the scene, revealing patterns and spatial relationships. |
+| \`CO-WO\` | **Worm's Eye / Low Angle** | The viewer looks upward, making subjects feel monumental and towering. |
+| \`CO-FR\` | **Framed / Nested** | The scene is viewed through an arch, doorway, window, keyhole, ribcage, or other framing device. |
+| \`CO-SY\` | **Central Symmetry** | The composition is roughly symmetrical around a vertical axis — formal, iconic, totemic. |
+| \`CO-CU\` | **Extreme Close-Up / Macro** | A very tight crop on a detail — a single eye, a hand holding something, the texture of a surface — with the wider world only hinted at. |
+| \`CO-PA\` | **Panoramic / Wide** | A sweeping wide shot emphasizing the vastness of the environment, with any figures rendered small. |
+| \`CO-DA\` | **Dutch Angle / Tilted** | The horizon is deliberately skewed, creating disorientation and visual unease. |
+| \`CO-SP\` | **Split / Diptych** | The frame is divided into two contrasting halves — above/below, before/after, inner/outer, living/dead — creating a visual dialogue within a single image. |
+
+---
+
+Begin.`, n=55, sleep=60)
+#+end_example
+
+#+BEGIN_SRC markdown
+## Continue: Generate the next batch.
+
+Before generating, execute this **pre-flight checklist** in order:
+
+### 1. LOCATE
+- Read the Usage Log from your previous response.
+- Identify the last prompt number generated. Your next batch starts at **N+1**.
+- State: "Generating Batch #X (Prompts N+1 through N+10)."
+
+### 2. AUDIT
+Scan the Usage Log and answer silently to yourself:
+- Which **Thematic Domains** have been used the *least* so far? Prioritize those.
+- Which **Subject Focus** codes are underrepresented? Prioritize those.
+- Which **Surreal Logic** codes are underrepresented? Prioritize those.
+- Which **Emotional Tones** are underrepresented? Prioritize those.
+- Which **Compositions** are underrepresented? Prioritize those.
+- Which *cross-category pairings* have never appeared? Seek those out.
+
+### 3. PLAN
+Draft your 10 five-code combinations for this batch **before writing any prompt text**. Verify:
+- [ ] No 5-code string duplicates anything in the Usage Log.
+- [ ] No single category value appears more than **2×** in this batch.
+- [ ] At least **5 distinct values** per category across the 10 prompts.
+- [ ] No consecutive prompts share the same Thematic Domain.
+
+### 4. GENERATE
+Write all 10 prompts. For each one, pressure-test it:
+
+> **GLASS** — the 5-point quality gate:
+> - **G**rounded twist: Is the surreal logic *central* to the scene, not decorative?
+> - **L**ayered meaning: Could 3 people give 3 different one-word descriptions? (Multi-Reading Test)
+> - **A**dult register: Am I using the full emotional spectrum, including desire, dread, rage, ecstasy — or have I drifted safe?
+> - **S**trong silhouette: Would this image read as a striking shape at card-size?
+> - **S**uffix intact: Did I append the **exact** style suffix with `--ar 2:3` at the end?
+
+### 5. LOG
+After the code block, append the **complete cumulative Usage Log** — all batches so far, not just this one.
+
+---
+
+,**Recurring reminders:**
+- The style suffix is **verbatim, every prompt, no exceptions:** `detailed acrylic painting, whimsical surrealism, visible brushstrokes, soft painterly style, storybook illustration, rich color palette, intricate details, rich detailed background, masterpiece quality --ar 2:3`
+- Prompts must be **long and richly detailed** (Layer A + B + C + D). If your prompts are getting shorter than the examples, slow down and add specificity.
+- **No consecutive duplicate animals.** If prompt N has a moth, prompt N+1 cannot.
+- **Humanoids: no recognizable faces.** Always from behind, in profile, silhouetted, masked, or cropped.
+- **No text/words/letters/numbers** in the image.
+- You have **10 Domains, 7 Subjects, 7 Logics, 8 Tones, 8 Compositions.** Use the full matrix. Resist gravitating to your favorites.
+
+## The Generative Matrix
+
+Each prompt is built from a unique combination of **one element per category**. The five categories below yield **31,360 possible combinations** (10 × 7 × 7 × 8 × 8). You will sample **400** from this space, maximizing coverage.
+
+---
+
+### Category 1 — Thematic Domain *(The World)* [10 options]
+
+| Code | Domain | Visual Vocabulary |
+|---|---|---|
+| `TH-MF` | **Mythic Fantasy** | Enchanted forests, overgrown ruins, celestial beings, ancient totems, sacred groves |
+| `TH-IS` | **Industrial Steampunk** | Brass machinery, clockwork cities, steam-pipe jungles, cog-and-rivet aesthetics, coal smoke |
+| `TH-CD` | **Cosmic Dream** | Gardens on asteroids, houses adrift in nebulae, star-whales, orbital ruins, void-scapes |
+| `TH-MM` | **Mundane Magic** | A kitchen, subway, bedroom, laundromat, or bar where *one* impossible thing is happening |
+| `TH-UW` | **Underwater World** | Sunken cathedrals, coral thrones, bioluminescent abyssal creatures, kelp forests, trenches |
+| `TH-BS` | **Biomechanical Surrealism** | Organic-machine hybrids, living architecture, Giger-esque nature, breathing walls, vein-wired circuitry |
+| `TH-GD` | **Gothic Dark Romance** | Crumbling cathedrals, thorn gardens, candlelit crypts, velvet decay, moonlit graveyards, wrought iron |
+| `TH-AP` | **Post-Apocalyptic Pastoral** | Nature aggressively reclaiming civilization, overgrown highways, beauty blooming from collapse, feral serenity |
+| `TH-CM` | **Carnival Macabre** | Circus tents, proscenium stages, marionettes, funhouse mirrors, masquerade balls, cabinet-of-curiosities |
+| `TH-FP` | **Fevered Psychedelia** | Dalí-esque melting landscapes, impossible color gradients, fractals made physical, opium-den logic, synesthesia rendered visible |
+
+---
+
+### Category 2 — Subject Focus *(The Actor)* [7 options]
+
+| Code | Subject | Direction |
+|---|---|---|
+| `SU-AN` | **The Animal** | A non-human creature is the central actor. Favor unusual species (axolotl, moth, octopus, pangolin, hyena, corvid, deep-sea fish) over defaults (cat, dog, horse). |
+| `SU-OB` | **The Object** | An inanimate object is the protagonist — behaving as if alive, enshrined, or transformed. |
+| `SU-EN` | **The Environment** | The landscape or architecture *is* the character. There is **no** central figure; the space itself tells the story. |
+| `SU-HU` | **The Humanoid** | A person, mythological figure, or ambiguous silhouette is *part of* the scene — active within it, never merely observing. |
+| `SU-PA` | **The Pair / Duality** | Two figures or things exist in relationship — confrontation, embrace, orbit, mirror, tug-of-war, almost-touching. The *tension between them* is the subject. |
+| `SU-SW` | **The Crowd / Swarm** | Many small things forming a larger pattern, migration, ritual, or emergent shape. No single protagonist — the collective *is* the actor. |
+| `SU-BO` | **The Body / Fragment** | An isolated body part — a hand, an eye, a ribcage, a spine, a mouth — is the central subject, rendered at symbolic scale. The rest of the body is absent, implied, or dissolved. |
+
+---
+
+### Category 3 — Surreal Logic *(The Twist)* [7 options]
+
+| Code | Logic | Examples |
+|---|---|---|
+| `SL-MS` | **Material Swap** | An object is made of an impossible material: a river of liquid glass, a forest of copper trees, clouds of woven hair, skin of porcelain. |
+| `SL-SS` | **Scale Shift** | An object is impossibly large or small: a city inside a thimble, a door-sized keyhole, a moon the size of a marble held in a hand. |
+| `SL-GD` | **Gravity Defiance** | Physics is inverted or ignored: an upside-down waterfall, a staircase spiraling into the sky, rain falling upward, a figure standing on a ceiling. |
+| `SL-CF` | **Conceptual Fusion** | Two unrelated concepts are seamlessly blended into one form: a lighthouse that blooms like a flower, a piano whose keys are a row of teeth, a bridge made of frozen music. |
+| `SL-TD` | **Temporal Distortion** | Past, present, and future coexist in one frame: a figure aging across the scene left-to-right, a building simultaneously being built and crumbling, seasons occupying different halves. |
+| `SL-ME` | **Metamorphosis** | Something is caught mid-transformation between two states: a woman dissolving into birds, a tree hardening into stone, a face melting into landscape, a wound flowering. |
+| `SL-AI` | **Anatomical Impossibility** | Bodies with wrong geometry: too many limbs, faces appearing where they shouldn't, organs externalized as ornamentation, skeletal structures visible through skin like architecture. |
+
+---
+
+### Category 4 — Emotional Tone *(The Feeling)* [8 options]
+
+| Code | Tone | Color Tendency | Lighting Tendency |
+|---|---|---|---|
+| `ET-ME` | **Melancholy** | Desaturated blues, grey-lavenders, muted amber | Overcast, crepuscular, fading golden hour |
+| `ET-WO` | **Wonder / Awe** | Rich golds, deep teals, radiant whites | Dramatic god-rays, bioluminescence, sunrise |
+| `ET-UN` | **Unease / Tension** | Sickly greens, deep crimsons, stark contrast | Harsh under-lighting, long shadows, eclipse light |
+| `ET-WH` | **Whimsy / Mania** | Saturated candy-tones, unexpected color clashes | Flat bright light, multiple colored light sources |
+| `ET-SE` | **Serenity / Calm** | Soft pastels, warm creams, cool sage greens | Diffused daylight, moonlight, gentle glow |
+| `ET-DE` | **Desire / Yearning** | Deep reds, warm golds, bruised purples, flushed pinks | Firelight, candlelight, the glow of something just out of reach, chiaroscuro |
+| `ET-EC` | **Ecstasy / Rapture** | Blinding whites, iridescence, oversaturated everything | Lens flare, bloom, light pouring from within the subject itself |
+| `ET-RA` | **Defiance / Rage** | Charcoal, blood orange, electric crimson, molten amber | Firelight from below, lightning, ember-glow, stark red-black contrast |
+
+---
+
+### Category 5 — Composition & Perspective *(The Frame)* [8 options]
+
+| Code | Composition | Direction |
+|---|---|---|
+| `CO-BI` | **Bird's Eye / Top-Down** | The viewer looks straight down onto the scene, revealing patterns and spatial relationships. |
+| `CO-WO` | **Worm's Eye / Low Angle** | The viewer looks upward, making subjects feel monumental and towering. |
+| `CO-FR` | **Framed / Nested** | The scene is viewed through an arch, doorway, window, keyhole, ribcage, or other framing device. |
+| `CO-SY` | **Central Symmetry** | The composition is roughly symmetrical around a vertical axis — formal, iconic, totemic. |
+| `CO-CU` | **Extreme Close-Up / Macro** | A very tight crop on a detail — a single eye, a hand holding something, the texture of a surface — with the wider world only hinted at. |
+| `CO-PA` | **Panoramic / Wide** | A sweeping wide shot emphasizing the vastness of the environment, with any figures rendered small. |
+| `CO-DA` | **Dutch Angle / Tilted** | The horizon is deliberately skewed, creating disorientation and visual unease. |
+| `CO-SP` | **Split / Diptych** | The frame is divided into two contrasting halves — above/below, before/after, inner/outer, living/dead — creating a visual dialogue within a single image. |
+
+---
+
+Begin.
+#+END_SRC
+
