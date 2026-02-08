@@ -5,3 +5,6 @@
 #+BEGIN_SRC markdown
 Move images based on their rough aspect ratio into different directories. Write a Python script to do this `images_group_by_aspect_ratio.py`.
 #+END_SRC
+
+*** Rotate images that are 3:2 to become 2:3.
+
