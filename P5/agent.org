@@ -507,6 +507,11 @@ Ensure every prompt is crowded, surreal, and richly textured.
 Distribute elements across the full matrix — avoid clustering in any single category.
 #+END_SRC
 
+** Codex
+#+BEGIN_SRC markdown
+Write the prompts into `./prompts.md`. Loop until you have generated 400 prompts. Write the randomization script to `./matrix_gen.py`.
+#+END_SRC
+
 ** continue step
 *** pyrnd
 - [[id:c7684407-12da-41b7-b7a7-2a3e3e5ae79b][tonal balance enforcement]]

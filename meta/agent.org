@@ -1,5 +1,17 @@
 #+TITLE: meta/agent
 
+* Terminal Agent
+#+BEGIN_SRC markdown
+adapt this agent prompt for Chatgpt codex cli (can write files and run them).
+The original version given to you was written for a web agent that couldn't access files so it was not optimal for Codex CLI. Just rewrite the prompt in a markdown code block and change the little details to suit an terminal coding agent. Do not change anything else and also you should absolutely not run this prompt yourself. We want to just refine the prompt for the terminal coding agent.
+
+```speech-to-text
+I already gave you the script this agent should run, you know. Simply tell it, you know, to loop, run that script to get 10 new matrix codes, then create directory prompts/slash/number of the batch dot md and write that patch to that file. So at the end, we'll have a subdirectory prompts, and in that sub-directory, we'll have the for each batch one markdown file full of the prompts that the agent wrote for that batch. And the agent should write the prompts themselves. You know, the only part where code is used is when the agent needs to generate the matrix codes. And also, the agent should first, you know, generate the matrix codes for the batch in the prompt directory too. It should use the extension dot matrix. So it will first run the script that you will, you know, you will give it the complete script. I mean, yes, it will first, you know, I to reiterate, I'll tell it to you from the start. The first step is to actually save the script into the file. We'll give it the script, but it needs to save the script into the file. Then it will loop for the number of batches, which is here 40 batches. Then it should run the matrix generator. You know, now it should loop in the loop. It should first run the matrix generator and save its output into the prompt subdirectory number of batch dot matrix. Then it should read this prompt. It should read this matrix code. Then it should write another file, number of the current batch dot md, a markdown file, and it should just write the prompts inside the prompts of this batch inside this file. Okay? And it should keep the numbers for each prompt cumulative. So it should number the prompts and the numbers should be cumulative from 1 to 400. And when it finishes, it should, after the loop finishes, it should simply concatenate all the prompt files in the prompts subdirectory into one total file prompt underline all.md which contains all the generated prompts questions any questions?
+```
+
+The script should include the full name of each thing, not refer to the knowledge base.
+#+END_SRC
+
 * continue step
 #+BEGIN_SRC markdown
 Now give me the "continue" prompt that I give to the agent each time it finishes a turn, to continue to the next turn. You can ask the agent to do anything in this prompt (think, review, stay on track, assess, ...). This prompt can heavily influence the agent, as it keeps getting injected each turn. You should repeat all key instructions, including the matrix, as the first message in the context will get truncated as the conversation goes on.
