@@ -49,7 +49,7 @@ This workflow generates **400 unique, high-detail, ambiguous prompts** using `ma
 Useful inspection command:
 
 ```bash
-bash -lc 'python3 matrix_generator.py --list-buckets'
+python3 matrix_generator.py --list-buckets
 ```
 
 ### Fractional behavior
@@ -80,13 +80,11 @@ If `EE` appears in a matrix line:
 - Treat it as a **vibe/cue only**
 - EE buckets in the script may explicitly name franchises (Harry Potter, Disney, Pixar, DreamWorks, etc.) for internal indexing only
 - Do **not** explicitly name a copyrighted franchise, character, studio, title, logo, or direct quote in the final prompt
-- Manually invent an oblique homage that *reminds* the viewer of that pop-culture lineage without explicit naming
+- Manually invent an oblique visual homage that *reminds* the viewer of that pop-culture lineage without explicit naming
 
 ---
 
 ## 4) File Layout
-
-- Root: `/Users/evar/Pictures/SurrealPictures/P5/pyrand`
 - Generator: `matrix_generator.py`
 - Output dir: `prompts/`
 - Per batch:
@@ -123,16 +121,16 @@ bash -lc 'python3 matrix_generator.py > prompts/<batch>.matrix'
 
 4. For each prompt entry:
    - First line:
-     - `N. // <full matrix line exactly>`
+     - `// <full matrix line exactly>`
    - Next line:
-     - full prompt text authored manually using the line components
+     - `N. ` + full prompt text authored manually using the line components
 
 ### Step C — Final concatenation
 
 After batch 40:
 
 ```bash
-bash -lc 'cat prompts/{1..40}.md > prompts/prompt_all.md'
+cat prompts/{1..40}.md > prompts/prompt_all.md
 ```
 
 ---
@@ -147,13 +145,13 @@ Good policy:
 - Occasional targeted variation:
   - e.g. heavier atmosphere: `--se 2 --cp 2`
   - denser symbolism: `--sy 2.5`
-  - lighter conceptual abstraction: `--cn 0.7`
-  - sparse occasional easter egg: `--ee 0.2`
+  - no conceptual abstraction: `--cn 0.0`
+  - heavy easter eggs: `--ee 1.0`
 
 Example tuned batch command:
 
 ```bash
-bash -lc 'python3 matrix_generator.py --se 2 --cp 1.5 --sy 1.4 --ee 0.2 > prompts/<batch>.matrix'
+python3 matrix_generator.py --se 2 --cp 1.5 --sy 1.4 --ee 0.2 > prompts/<batch>.matrix
 ```
 
 Keep variation intentional; avoid chaotic overstuffing every batch.
@@ -178,4 +176,3 @@ Any category may appear multiple times in one line, or be absent if knob is 0/di
 
 - Do not auto-generate prompt prose with a script.
 - Do not add extra MJ parameters beyond the mandatory suffix.
-- Do not write direct copyrighted franchise names when using EE cues.
