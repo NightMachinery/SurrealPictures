@@ -1,0 +1,15 @@
+#+TITLE: meta/agent
+
+* continue step
+#+BEGIN_SRC markdown
+Now give me the "continue" prompt that I give to the agent each time it finishes a turn, to continue to the next turn. You can ask the agent to do anything in this prompt (think, review, stay on track, assess, ...). This prompt can heavily influence the agent, as it keeps getting injected each turn. You should repeat all key instructions, including the matrix, as the first message in the context will get truncated as the conversation goes on.
+
+The continue prompt must not hardcode the batch number.
+#+END_SRC
+
+#+BEGIN_SRC markdown
+Put it in 
+```
+sendMessageRepeatedly("", n=180, sleep=100,)
+```
+#+END_SRC

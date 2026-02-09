@@ -2,7 +2,7 @@
 
 * cleanup
 #+begin_src zsh :eval never
-cat ChatGPT-Dixit_Deck_Prompts.md |rg '^\d+\.\s.*--ar 2:3'|gsort --unique | gsort -n | ~[Dixit_AI]/clean_prefixes.pl |pc
+cat ChatGPT-Dixit_Deck_Prompts.md |rg '^\d+(?:\.|\))\s.*--ar 2:3'|gsort --unique | gsort -n | ~[SurrealPictures]/clean_prefixes.pl | sponge prompts.md
 #+end_src
 
 Then manually clean up the first two examples (duplicate 1 and 2 prompts) out.
@@ -22,6 +22,67 @@ Write `clean_prefixes.pl` that reads stdin and outputs to stdout and cleans matr
 sendMessageRepeatedlyArrayChooseFile(sleep=120, sep="\n", prefix="Generate exactly one image for this prompt:\n\n", postfix="", from=35, )
 
 // sendMessageRepeatedlyArrayChooseFile(sleep, sep, prefix, postfix, from, to) {
+#+end_example
+
+#+begin_example
+sendMessageRepeatedlyArrayChooseFile(sleep=120, sep="\n", prefix="Generate exactly one image for this prompt:\n\n", postfix="", from=35, to=40)
+
+sendMessageRepeatedlyArrayChooseFile(sleep=120, sep="\n", prefix="Generate exactly one image for this prompt:\n\n", postfix="", from=40, to=70)
+
+sendMessageRepeatedlyArrayChooseFile(sleep=120, sep="\n", prefix="Generate exactly one image for this prompt:\n\n", postfix="", from=100, to=106)
+
+sendMessageRepeatedlyArrayChooseFile(sleep=120, sep="\n", prefix="Generate exactly one image for this prompt:\n\n", postfix="", from=106, to=110)
+
+sendMessageRepeatedlyArrayChooseFile(sleep=120, sep="\n", prefix="Generate exactly one image for this prompt:\n\n", postfix="", from=110, to=130)
+
+sendMessageRepeatedlyArrayChooseFile(sleep=120, sep="\n", prefix="Generate exactly one image for this prompt:\n\n", postfix="", from=130, to=134)
+
+sendMessageRepeatedlyArrayChooseFile(sleep=120, sep="\n", prefix="Generate exactly one image for this prompt:\n\n", postfix="", from=134, to=158)
+#+end_example
+
+*** @todo
+#+begin_example js
+sendMessageRepeatedlyArrayChooseFile(sleep=120, sep="\n", prefix="Generate exactly one image for this prompt:\n\n", postfix="", from=70, to=100)
+#+end_example
+
+*** until time
+This is broken; it prompts the user to select a file for uploading at the time. We need to upload the file first and then wait for the time.
+
+#+begin_example js
+(() => {
+  const POLL_MS = 10_000; // poll every 10s
+  const TARGET_HOUR = 3, TARGET_MIN = 55;
+
+  const nextTarget = () => {
+    const now = new Date();                 // LOCAL timezone
+    const t = new Date(now);
+    t.setHours(TARGET_HOUR, TARGET_MIN, 0, 0);
+    if (now >= t) t.setDate(t.getDate() + 1); // if already passed today, use tomorrow
+    return t;
+  };
+
+  const start = () => {
+    sendMessageRepeatedlyArrayChooseFile(
+      120,
+      "\n",
+      "Generate exactly one image for this prompt:\n\n",
+      "",
+      35,
+      100
+    );
+  };
+
+  const target = nextTarget();
+
+  if (new Date() >= target) return start();
+
+  const timer = setInterval(() => {
+    if (new Date() >= target) {
+      clearInterval(timer);
+      start();
+    }
+  }, POLL_MS);
+})();
 #+end_example
 
 *** _
@@ -203,7 +264,7 @@ sendMessageRepeatedly("Thanks, continue generating to the next prompt from the i
 # Role: AI Art Director & Generative System for Dixit Deck
 
 ## Objective
-Generate **400 unique, high-concept text-to-image prompts** (for Midjourney) to produce a complete Dixit-style card deck for an **adult audience (25+)**. Every prompt must be visually distinct, symbolically rich, and open to multiple interpretations. This deck embraces the full spectrum of human experience — sensuality, romance, dread, violence, ecstasy, and beauty are all valid territory.
+Generate **400 unique, high-concept text-to-image prompts** to produce a complete Dixit-style card deck for an **adult audience (25+)**. Every prompt must be visually distinct, symbolically rich, and open to multiple interpretations. This deck embraces the full spectrum of human experience — sensuality, romance, dread, violence, ecstasy, and beauty are all valid territory.
 
 ---
 

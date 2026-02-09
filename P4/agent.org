@@ -1,0 +1,340 @@
+#+TITLE: P4/agent
+
+* [[https://chatgpt.com/c/69896081-0560-832c-960c-ac428d18aaf8][Surrealist Dixit Prompts]]
+
+* cleanup
+#+begin_src zsh :eval never
+cat ChatGPT-Surrealist_Dixit_Prompts.md |rg '^\d+(?:\\?\.|\))\s.*--ar 2:3'|gsort --unique | gsort -n | sponge prompts.md
+#+end_src
+
+Then manually clean up the first two examples (duplicate 1 and 2 prompts) out.
+
+* Generate
+** one by one
+#+begin_example js
+sendMessageRepeatedlyArrayChooseFile(sleep=120, sep="\n", prefix="Generate exactly one image for this prompt:\n\n", postfix="", from=0, )
+
+// sendMessageRepeatedlyArrayChooseFile(sleep, sep, prefix, postfix, from, to) {
+#+end_example
+
+#+begin_example js
+sendMessageRepeatedlyArrayChooseFile(sleep=120, sep="\n", prefix="Generate exactly one image for this prompt:\n\n", postfix="", from=0, to=14)
+
+sendMessageRepeatedlyArrayChooseFile(sleep=120, sep="\n", prefix="Generate exactly one image for this prompt:\n\n", postfix="", from=14, to=20)
+
+
+sendMessageRepeatedlyArrayChooseFile(sleep=120, sep="\n", prefix="Generate exactly one image for this prompt:\n\n", postfix="", from=20, to=30)
+#+end_example
+
+* @Gemini3
+** style
+#+BEGIN_SRC markdown
+This is a fantastic pivot. The style of **Gankutsuou: The Count of Monte Cristo** is visually revolutionary and perfect for a high-concept Dixit deck.
+
+For those unfamiliar, *Gankutsuou* uses a technique called **texture mapping** where static layers of ornate textures (brocade, floral patterns, gold leaf) are masked by the characters' outlines. It creates a dizzying, psychedelic, "flat-yet-deep" look that feels like a moving Gustav Klimt painting. It is naturally surreal, opulent, and mature.
+
+Here are **3 Style Options** based on your request. Please choose the one you want me to bake into the "Style Suffix" of the new agent.
+
+### Option 1: The "Gankutsuou" (Psychedelic Art Nouveau)
+,*This creates the specific look you asked for: 2D distinct shapes filled with rich, static textures. It feels expensive, dizzying, and deeply symbolic.*
+
+> **The Style Suffix:**
+> `in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque --ar 2:3 --nijiji 6`
+> *(Note: Using `--niji 6` is often better for this specific anime-art-house aesthetic, but standard `--v 6` works too).*
+
+### Option 2: The "Dreaming" (Surreal Mixed-Media)
+,*If you like the "adult" vibe but want something grittier than Gankutsuou. This mimics Dave McKean (Sandman covers). It is darker, messier, and very psychological.*
+
+> **The Style Suffix:**
+> `mixed media collage, decayed elegance, surreal assemblage, juxtaposition of photography and acrylic paint, distressed textures, abstract symbolism, Dave McKean and Francis Bacon influence, emotionally raw, dream logic, high contrast, brooding atmosphere --ar 2:3`
+
+### Option 3: The "Modern Tarot" (Vector & Foil)
+,*Clean, sharp, and highly symbolic. This moves away from the "painterly" look entirely and leans into bold graphic design, similar to the Dragon Age Inquisition tarot cards.*
+
+> **The Style Suffix:**
+> `stylized tarot card aesthetic, bold geometric shapes, flat gold foil textures on black background, high-contrast vector art, meaningful negative space, elegant minimalist surrealism, sharp vectors, mature and esoteric symbolism --ar 2:3`
+
+---
+
+### Phase 2: The Agent Rewrite Plan
+Once you pick a style, I will rewrite the agent with these changes to meet your "Adult" and "Variety" requirements:
+
+1.  **The Emotional Matrix:** I will strip out the lighting instructions (e.g., "use blue for sad") and replace them with raw, adult abstract concepts: **Euphoria, Grief, Hysteria, Lust, Serenity, Malice.**
+2.  **The Subject Matrix:** I will add more complex relationship dynamics (Power Dynamics, Betrayal, Intimacy) rather than just "Animal" or "Object."
+3.  **The Content:** I will unlock the safety rails regarding themes. The prompts will explicitly ask for scenes implying heavy themes (intoxication, sensual touch, existential dread) without using banned words.
+
+,**Which style should we use? Option 1 (Gankutsuou), or something else?**
+#+END_SRC
+
+** agent
+#+BEGIN_SRC markdown
+# Role: The "Surrealist Auteur" (Dixit Gankutsuou Edition)
+
+## Objective
+Generate **400 unique, high-density, text-to-image prompts** for a professional *Dixit* card deck.
+,**Target Audience:** Adults (25+).
+,**Core Requirement:** High Ambiguity & High Detail. Empty space is a failure. Every card must be a **crowded** visual puzzle.
+
+---
+
+## Visual Philosophy: "The Frozen Dream"
+You are not painting a landscape; you are constructing a **paradox**.
+Every prompt must layer **Three Realities**:
+1.  **The Subject:** The anchor archetype.
+2.  **The Surreal Twist:** The specific law of physics or logic being broken (The "Artistic Direction").
+3.  **The Texture:** The *Gankutsuou* style (flat patterns on moving shapes).
+
+---
+
+## The Infinite Matrix (Expanded)
+
+Construct every prompt by combining elements from these 6 categories.
+
+### 1. The Archetype (The Anchor)
+`AR-01` The Weaver
+`AR-02` The Architect
+`AR-03` The Vessel
+`AR-04` The Mirror
+`AR-05` The Monarch
+`AR-06` The Child
+`AR-07` The Beast
+`AR-08` The Guardian
+`AR-09` The Lovers
+`AR-10` The Dancer
+`AR-11` The Healer
+`AR-12` The Shadow
+`AR-13` The Fool
+`AR-14` The Giant
+`AR-15` The Swarm
+`AR-16` The Traveler
+`AR-17` The Idol
+`AR-18` The Gardener
+`AR-19` The Prisoner
+`AR-20` The Phoenix
+
+### 2. The Concept (The Theme)
+`CN-01` Resonance / Echo
+`CN-02` Gravity / Weight
+`CN-03` Bloom / Growth
+`CN-04` Entropy / Decay
+`CN-05` Velocity / Motion
+`CN-06` Silence / Pause
+`CN-07` Hunger / Desire
+`CN-08` Anchor / Safety
+`CN-09` Threshold / Doorway
+`CN-10` Labyrinth / Complexity
+`CN-11` Clarity / Epiphany
+`CN-12` Fusion / Union
+`CN-13` Balance / Symmetry
+`CN-14` Memory / Nostalgia
+`CN-15` Illusion / Mask
+`CN-16` Flight / Liberation
+`CN-17` Shelter / Home
+`CN-18` Ritual / Cycle
+`CN-19` Abundance / Harvest
+`CN-20` Mystery / Void
+
+### 3. The Surreal Logic (Artistic Direction)
+,*You MUST apply this logic to the scene to break reality.*
+`SL-01` **Scale Inversion:** Small objects become titanic; titans become microscopic.
+`SL-02` **Material Transmutation:** Soft things become hard (stone clouds); hard things become soft (melting clocks).
+`SL-03` **Gravity Reversal:** The ground is the sky; rain falls upward; objects float.
+`SL-04` **Object Personification:** Inanimate objects grow limbs or faces.
+`SL-05` **Literal Metaphor:** "Raining cats and dogs" visualized literally.
+`SL-06` **Portal Displacement:** Windows/Doors lead to impossible environments (ocean in a cupboard).
+`SL-07` **Anatomical Impossibility:** Detached limbs, floating eyes, bodies made of objects.
+`SL-08` **Flora/Fauna Fusion:** Animals growing leaves; plants with fur or feathers.
+`SL-09` **Architecture/Nature Fusion:** Buildings growing like trees; trees with windows.
+`SL-10` **Celestial Descent:** Stars, moons, or clouds brought down to touchable ground level.
+`SL-11` **Fluid Solidity:** Water acting like fabric; ocean waves freezing into glass.
+`SL-12` **Solid Liquidity:** Stone or metal dripping like wax or water.
+`SL-13` **Infinite Recursion:** The Droste effect; a picture containing itself infinitely.
+`SL-14` **Time Collapse:** Four seasons co-existing in one frame; youth and old age reflected simultaneously.
+`SL-15` **Invisible Presence:** Clothes or armor moving with no body inside.
+`SL-16` **Displacement:** An environment indoors that belongs outdoors (forest in a library).
+`SL-17` **Gigantism:** One single ordinary object scaled up to dominate the landscape.
+`SL-18` **Containment:** A vast landscape trapped inside a small jar, bottle, or bubble.
+`SL-19` **Sensory Synesthesia:** Music notes becoming visible objects; sound manifesting as color.
+`SL-20` **Shadow Autonomy:** Shadows casting different shapes than the object (e.g., bird casting airplane shadow).
+`SL-21` **Sky Replacement:** The sky is replaced by water, stone, patterned wallpaper, or a ceiling.
+`SL-22` **Fragmentation:** The world is shattering into shards, cubes, or puzzle pieces.
+`SL-23` **Levitation:** Islands, rocks, or buildings floating freely in the air.
+`SL-24` **Mechanical Nature:** Animals or plants revealed to be clockwork or machinery.
+`SL-25` **Soft Sculpture:** Everything is made of pillows, quilts, or fabric.
+`SL-26` **Inside-Out:** The interior of a room is on the outside of a building.
+`SL-27` **Duplication:** Dozens of identical copies of the same object/person.
+`SL-28` **Facelessness:** Faces replaced by objects (clocks, flowers, mirrors, birds).
+`SL-29` **Dream Logic:** Non-sequitur combinations (a lobster on a telephone).
+`SL-30` **Weather Containment:** A storm or rain cloud localized entirely inside a room or object.
+
+### 4. The Texture Palette (The Materials)
+`TX-01` Stained Glass & Magma
+`TX-02` Velvet & Ash
+`TX-03` Gold Leaf & Circuitry
+`TX-04` Floral Chintz & Bone
+`TX-05` Watercolors & Ink
+`TX-06` Porcelain & Cracks
+`TX-07` Neon & Concrete
+`TX-08` Silk & Smoke
+`TX-09` Constellations & Void
+`TX-10` Marble & Moss
+`TX-11` Origami & Paper
+`TX-12` Feathers & Tar
+`TX-13` Gemstones & Rust
+`TX-14` Lace & Steel
+`TX-15` Fire & Ice
+`TX-16` Woodgrain & Chrome
+`TX-17` Clouds & Maps
+`TX-18` Sand & Mirrors
+`TX-19` Coral & Pearl
+`TX-20` Oil Paint & Pixels
+
+### 5. The Scatter (The Crowding Elements)
+`SC-01` Floating Keys & Locks
+`SC-02` Unraveling Ribbons
+`SC-03` Broken Clock Gears
+`SC-04` Falling Playing Cards
+`SC-05` Tiny Origami Birds
+`SC-06` Drifting Lanterns
+`SC-07` Spilled Liquid / Wine
+`SC-08` Floating Islands / Rocks
+`SC-09` Tangled Vines / Roots
+`SC-10` Shattered Glass Shards
+`SC-11` Ancient Books / Pages
+`SC-12` Bubbles / Orbs
+`SC-13` Ladders to Nowhere
+`SC-14` Empty Frames
+`SC-15` Chess Pieces
+`SC-16` Musical Notes
+`SC-17` Falling Leaves / Petals
+`SC-18` Tiny Stars / Moons
+`SC-19` Strings / Marionette Lines
+`SC-20` Eyes / Watching Orbs
+
+### 6. Emotional Tone
+`EM-01` Euphoria (Blinding Joy)
+`EM-02` Serenity (Deep Calm)
+`EM-03` Nostalgia (Warm Sadness)
+`EM-04` Awe (Cosmic Scale)
+`EM-05` Intimacy (Quiet Closeness)
+`EM-06` Vitality (Explosive Life)
+`EM-07` Whimsy (Playful Absurdity)
+`EM-08` Relief (Weight Lifted)
+`EM-09` Determination (Stoic Strength)
+`EM-10` Melancholy (Beautiful Grief)
+
+---
+
+## Execution Protocol
+
+### 1. The "Logic" Check
+Ensure the **Surreal Logic (Category 3)** is the primary driver of the scene's weirdness.
+,*   *Weak:* A flying man.
+,*   *Strong (SL-03 Gravity Reversal):* An ocean suspended upside down in the sky, with ships sailing on the underside of the clouds, dropping anchors upward into the blue void.
+
+### 2. Prompt Structure (Maximalist)
+Write a dense, descriptive paragraph.
+`[The Anchor Subject] + [Applying the Surreal Logic to the Environment] + [The Scatter/Details] + [Textures & Lighting]`
+
+### 3. Mandatory Style Suffix
+Append exactly:
+```
+in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background --ar 2:3 --niji 6
+```
+
+### 4. Output Format
+Provide the 6-code declaration (e.g., `// AR-01 + CN-12 + SL-16 + TX-05 + SC-09 + EM-01`) before the prompt.
+
+An example:
+```markdown
+// AR-16 (Traveler) + CN-16 (Flight) + SL-16 (Displacement) + TX-17 (Clouds/Maps) + SC-13 (Ladders) + EM-07 (Whimsy)
+1. A silhouette of a traveler wearing a trench coat filled with a vintage topographical map pattern, standing in a grand Victorian library, but the environment is displaced: the ceiling has been replaced by a bright blue open sky filled with flat, stylized clouds. Instead of bookshelves, the walls are lined with floating wooden ladders that lead infinitely upward into the clouds. The floor is covered in open suitcases spilling out birds made of paper maps. Hundreds of books are flapping their covers and flying like seagulls through the library-sky fusion. The lighting is bright and pastel, creating a sense of playful disorientation, in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background --ar 2:3 --niji 6
+```
+
+---
+
+## Task
+Generate **Batch #1 (Prompts 1–10)** using the **Expanded Surreal Matrix**.
+Ensure every prompt is crowded, surreal, and richly textured.
+#+END_SRC
+
+*** continue step
+#+begin_example js
+sendMessageRepeatedly(`Great. Please generate the **Next Batch of 10 Prompts**.
+
+**🛑 CRITICAL QUALITY CONTROL & SELF-CORRECTION:**
+Before writing, review the previous batch.
+1.  **Check Density:** Were any backgrounds empty? If yes, fill this next batch with more "Scatter" elements (floating debris, birds, patterned clouds). **Horror Vacui** (fear of empty space) is the rule.
+2.  **Check Ambiguity:** Are the images too literal? Ensure every prompt uses a **Surreal Logic** (Category 3) to break physics.
+3.  **Check Style:** Ensure every description focuses on **Flat Patterns** and **Texture Mapping** (Gankutsuou/Klimt), not 3D lighting.
+
+**🔄 RE-INJECTING GENERATIVE MATRIX (DO NOT DEVIATE):**
+*Combine 1 from each category:*
+
+**1. ARCHETYPE (The Anchor):**
+AR-01 Weaver | AR-02 Architect | AR-03 Vessel | AR-04 Mirror | AR-05 Monarch | AR-06 Child | AR-07 Beast | AR-08 Guardian | AR-09 Lovers | AR-10 Dancer | AR-11 Healer | AR-12 Shadow | AR-13 Fool | AR-14 Giant | AR-15 Swarm | AR-16 Traveler | AR-17 Idol | AR-18 Gardener | AR-19 Prisoner | AR-20 Phoenix
+
+**2. CONCEPT (The Theme):**
+CN-01 Resonance | CN-02 Gravity | CN-03 Bloom | CN-04 Entropy | CN-05 Velocity | CN-06 Silence | CN-07 Hunger | CN-08 Anchor | CN-09 Threshold | CN-10 Labyrinth | CN-11 Clarity | CN-12 Fusion | CN-13 Balance | CN-14 Memory | CN-15 Illusion | CN-16 Flight | CN-17 Shelter | CN-18 Ritual | CN-19 Abundance | CN-20 Mystery
+
+**3. SURREAL LOGIC (The Twist - MANDATORY):**
+SL-01 Scale Inversion | SL-02 Material Transmutation | SL-03 Gravity Reversal | SL-04 Object Personification | SL-05 Literal Metaphor | SL-06 Portal Displacement | SL-07 Anatomical Impossibility | SL-08 Flora/Fauna Fusion | SL-09 Architecture/Nature Fusion | SL-10 Celestial Descent | SL-11 Fluid Solidity | SL-12 Solid Liquidity | SL-13 Infinite Recursion | SL-14 Time Collapse | SL-15 Invisible Presence | SL-16 Displacement | SL-17 Gigantism | SL-18 Containment | SL-19 Synesthesia | SL-20 Shadow Autonomy | SL-21 Sky Replacement | SL-22 Fragmentation | SL-23 Levitation | SL-24 Mechanical Nature | SL-25 Soft Sculpture | SL-26 Inside-Out | SL-27 Duplication | SL-28 Facelessness | SL-29 Dream Logic | SL-30 Weather Containment
+
+**4. TEXTURE PALETTE (The Look):**
+TX-01 Stained Glass/Magma | TX-02 Velvet/Ash | TX-03 Gold Leaf/Circuitry | TX-04 Floral/Bone | TX-05 Watercolor/Ink | TX-06 Porcelain/Cracks | TX-07 Neon/Concrete | TX-08 Silk/Smoke | TX-09 Constellation/Void | TX-10 Marble/Moss | TX-11 Origami/Paper | TX-12 Feathers/Tar | TX-13 Gemstones/Rust | TX-14 Lace/Steel | TX-15 Fire/Ice | TX-16 Woodgrain/Chrome | TX-17 Clouds/Maps | TX-18 Sand/Mirrors | TX-19 Coral/Pearl | TX-20 Oil Paint/Pixels
+
+**5. SCATTER (The Crowd - MANDATORY):**
+SC-01 Floating Keys | SC-02 Ribbons | SC-03 Gears | SC-04 Playing Cards | SC-05 Origami Birds | SC-06 Lanterns | SC-07 Spilled Liquid | SC-08 Floating Rocks | SC-09 Vines | SC-10 Glass Shards | SC-11 Ancient Books | SC-12 Bubbles | SC-13 Ladders | SC-14 Empty Frames | SC-15 Chess Pieces | SC-16 Music Notes | SC-17 Falling Leaves | SC-18 Stars/Moons | SC-19 Strings | SC-20 Eyes
+
+**6. EMOTION:**
+EM-01 Euphoria | EM-02 Serenity | EM-03 Nostalgia | EM-04 Awe | EM-05 Intimacy | EM-06 Vitality | EM-07 Whimsy | EM-08 Relief | EM-09 Determination | EM-10 Melancholy
+
+**📝 FORMAT:**
+\`// [Codes]\`
+\`N. [Long, crowded description] + [Mandatory Style Suffix]\`
+
+**MANDATORY STYLE SUFFIX:**
+\`in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background --ar 2:3 --niji 6\`
+
+Proceed.`, n=40, sleep=100)
+#+end_example
+
+#+BEGIN_SRC markdown
+Great. Please generate the **Next Batch of 10 Prompts**.
+
+,**🛑 CRITICAL QUALITY CONTROL & SELF-CORRECTION:**
+Before writing, review the previous batch.
+1.  **Check Density:** Were any backgrounds empty? If yes, fill this next batch with more "Scatter" elements (floating debris, birds, patterned clouds). **Horror Vacui** (fear of empty space) is the rule.
+2.  **Check Ambiguity:** Are the images too literal? Ensure every prompt uses a **Surreal Logic** (Category 3) to break physics.
+3.  **Check Style:** Ensure every description focuses on **Flat Patterns** and **Texture Mapping** (Gankutsuou/Klimt), not 3D lighting.
+
+,**🔄 RE-INJECTING GENERATIVE MATRIX (DO NOT DEVIATE):**
+,*Combine 1 from each category:*
+
+,**1. ARCHETYPE (The Anchor):**
+AR-01 Weaver | AR-02 Architect | AR-03 Vessel | AR-04 Mirror | AR-05 Monarch | AR-06 Child | AR-07 Beast | AR-08 Guardian | AR-09 Lovers | AR-10 Dancer | AR-11 Healer | AR-12 Shadow | AR-13 Fool | AR-14 Giant | AR-15 Swarm | AR-16 Traveler | AR-17 Idol | AR-18 Gardener | AR-19 Prisoner | AR-20 Phoenix
+
+,**2. CONCEPT (The Theme):**
+CN-01 Resonance | CN-02 Gravity | CN-03 Bloom | CN-04 Entropy | CN-05 Velocity | CN-06 Silence | CN-07 Hunger | CN-08 Anchor | CN-09 Threshold | CN-10 Labyrinth | CN-11 Clarity | CN-12 Fusion | CN-13 Balance | CN-14 Memory | CN-15 Illusion | CN-16 Flight | CN-17 Shelter | CN-18 Ritual | CN-19 Abundance | CN-20 Mystery
+
+,**3. SURREAL LOGIC (The Twist - MANDATORY):**
+SL-01 Scale Inversion | SL-02 Material Transmutation | SL-03 Gravity Reversal | SL-04 Object Personification | SL-05 Literal Metaphor | SL-06 Portal Displacement | SL-07 Anatomical Impossibility | SL-08 Flora/Fauna Fusion | SL-09 Architecture/Nature Fusion | SL-10 Celestial Descent | SL-11 Fluid Solidity | SL-12 Solid Liquidity | SL-13 Infinite Recursion | SL-14 Time Collapse | SL-15 Invisible Presence | SL-16 Displacement | SL-17 Gigantism | SL-18 Containment | SL-19 Synesthesia | SL-20 Shadow Autonomy | SL-21 Sky Replacement | SL-22 Fragmentation | SL-23 Levitation | SL-24 Mechanical Nature | SL-25 Soft Sculpture | SL-26 Inside-Out | SL-27 Duplication | SL-28 Facelessness | SL-29 Dream Logic | SL-30 Weather Containment
+
+,**4. TEXTURE PALETTE (The Look):**
+TX-01 Stained Glass/Magma | TX-02 Velvet/Ash | TX-03 Gold Leaf/Circuitry | TX-04 Floral/Bone | TX-05 Watercolor/Ink | TX-06 Porcelain/Cracks | TX-07 Neon/Concrete | TX-08 Silk/Smoke | TX-09 Constellation/Void | TX-10 Marble/Moss | TX-11 Origami/Paper | TX-12 Feathers/Tar | TX-13 Gemstones/Rust | TX-14 Lace/Steel | TX-15 Fire/Ice | TX-16 Woodgrain/Chrome | TX-17 Clouds/Maps | TX-18 Sand/Mirrors | TX-19 Coral/Pearl | TX-20 Oil Paint/Pixels
+
+,**5. SCATTER (The Crowd - MANDATORY):**
+SC-01 Floating Keys | SC-02 Ribbons | SC-03 Gears | SC-04 Playing Cards | SC-05 Origami Birds | SC-06 Lanterns | SC-07 Spilled Liquid | SC-08 Floating Rocks | SC-09 Vines | SC-10 Glass Shards | SC-11 Ancient Books | SC-12 Bubbles | SC-13 Ladders | SC-14 Empty Frames | SC-15 Chess Pieces | SC-16 Music Notes | SC-17 Falling Leaves | SC-18 Stars/Moons | SC-19 Strings | SC-20 Eyes
+
+,**6. EMOTION:**
+EM-01 Euphoria | EM-02 Serenity | EM-03 Nostalgia | EM-04 Awe | EM-05 Intimacy | EM-06 Vitality | EM-07 Whimsy | EM-08 Relief | EM-09 Determination | EM-10 Melancholy
+
+,**📝 FORMAT:**
+`// [Codes]`
+`N. [Long, crowded description] + [Mandatory Style Suffix]`
+
+,**MANDATORY STYLE SUFFIX:**
+`in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background --ar 2:3 --niji 6`
+
+Proceed.
+#+END_SRC

@@ -10,3 +10,5 @@ Move images based on their rough aspect ratio into different directories. Write 
 
 ** Find duplicate/similar images using a conceptual hash.
 
+** @agent View each image in this repo recursively. If it has a nonsense name like =ChatGPT Image Feb 9, 2026, 09_11_08 AM (1).png=, rename it to something semantic based on the image itself. Do NOT rename simple numerical names like =10.png=.
+

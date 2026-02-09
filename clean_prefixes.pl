@@ -35,10 +35,10 @@ my $matrix_pattern = qr{
   (?:$co)
 }x;
 
-my $separator_pattern = qr{[ \t]*(?:\x{2014}|--+|-)[ \t]*};
+my $separator_pattern = qr{[ \t]*(?:\x{2014}|--+|-|:)[ \t]*};
 
 while (my $line = <STDIN>) {
-  $line =~ s/^(\s*\d+\.\s*)$matrix_pattern(?:$separator_pattern)?/$1/;
+  $line =~ s/^(\s*\d+(?:\.|\))\s*)$matrix_pattern(?:$separator_pattern)?/$1/;
   $line =~ s/^(\s*)$matrix_pattern(?:$separator_pattern)?/$1/;
   print $line;
 }
