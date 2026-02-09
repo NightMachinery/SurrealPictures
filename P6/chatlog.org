@@ -1,0 +1,6 @@
+#+TITLE: P6/chatlog
+
+* _
+#+BEGIN_SRC markdown
+What's YOUR suggested best MatrixConfig, for generating adult-themed Dixit cards?
+#+END_SRC

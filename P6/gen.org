@@ -1,0 +1,6 @@
+#+TITLE: P6
+
+* Usage
+#+begin_src zsh :eval never
+python3 preprompter.py --prompts 10 --output "P6.1/preprompts"
+#+end_src

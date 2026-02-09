@@ -12,6 +12,43 @@ I already gave you the script this agent should run, you know. Simply tell it, y
 The script should include the full name of each thing, not refer to the knowledge base.
 #+END_SRC
 
+* Template
+#+BEGIN_SRC markdown
+```speech-to-text
+I want to create professional Dixie card images using a pipeline of three components. The first component of the pipeline, which is what we are fixing now, is matrix that generates that card's basic structure and ideas. So this pre-prompt will go to an LLM, and the LLM will write a great detailed prompt that will be given to the final stage. The final stage gets this great prompt and creates an image. Okay, so I want to change the script for the pre-prompts, which is the first stage of this pipeline, such that it takes an output directory and saves the input prompt for the second stage as numbered markdown files. Okay, so it should use a template and repeat that template in each numbered file with the elements and structure that its random matrix generator has created.
+```
+
+What I want is a templated pre-prompt, not the code style above. So instead of ` `AR-15 The Mentor + CN-43 Inheritance / Legacy + SL-18 Containment + TX-13 Gemstones & Rust + SC-07 Ladders to Nowhere + EM-08 Tenderness (Gentle Love) + SY-85 The Gate of All Nations + SE-019 Greenhouse parlor with bioluminescent vines + CP-04 Centered one-point perspective with aggressive depth lines + EE-034 Undersea court rebellion against protective father rule`, I want sth like this:
+```
+Generate a detailed, unique, high-density prompt that I'll feed to a text-to-image model to create a professional illustration for my private Dixit card collection.
+
+,**Target Audience:** Adults (25+).
+,**Core Requirement:** High Ambiguity & High Detail. Empty space is a failure. Every card must be a **crowded** visual puzzle.
+
+## Visual Philosophy: "The Frozen Dream"
+You are not painting a landscape; you are constructing a **paradox**.
+Every prompt must layer **Three Realities**:
+1.  **The Subject:** The anchor archetype.
+2.  **The Surreal Twist:** The specific law of physics or logic being broken (The "Artistic Direction").
+3.  **The Texture:** The *Gankutsuou* style (flat patterns on moving shapes).
+4. **The Symbols:** These are the **totemic objects, creatures, and motifs** drawn from world mythology, alchemy, folklore, art history, heraldry, memento mori, religion, literature, celebration, and the collective unconscious. Each prompt should feature at least one as a **central visual motif** woven into the scene architecture.
+...
+
+## Mandatory Style Suffix
+Append exactly:
+```
+in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background --ar 2:3 --niji 6
+```
+
+Your CURRENT TASK is to write a great template. I'll tell you the next task when we finalize the pre-prompt template.
+
+Here is the current random matrix generator. You should see how each random element can be adapted into the template.
+#+END_SRC
+
+#+BEGIN_SRC markdown
+Thanks. But this is the final task. We need to first collaborate on the template itself and finalize the template. And after that, we need to you know rewrite the generator script.
+#+END_SRC
+
 * continue step
 #+BEGIN_SRC markdown
 Now give me the "continue" prompt that I give to the agent each time it finishes a turn, to continue to the next turn. You can ask the agent to do anything in this prompt (think, review, stay on track, assess, ...). This prompt can heavily influence the agent, as it keeps getting injected each turn. You should repeat all key instructions, including the matrix, as the first message in the context will get truncated as the conversation goes on.
