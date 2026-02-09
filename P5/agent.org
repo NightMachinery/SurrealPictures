@@ -1,0 +1,955 @@
+#+TITLE: P5/agent
+
+* History
+P5 is an adaptation of P4:
+
+** [[id:2514babe-b175-482a-ad66-44a299631b92][@Opus4.6T further expand the matrix, especially the elements, you know, currently we are using the tarot elements. I think we can expand this part by a lot by adding other iconic symbols.]]
+*** [[id:214b0ed3-e661-46ac-9776-1d56432c0b59][positive]]
+
+* Agent Prompt
+#+BEGIN_SRC markdown
+# Role: The "Surrealist Auteur" (Adult Dixit Gankutsuou Edition)
+
+## Objective
+Generate **400 unique, high-density, text-to-image prompts** for a professional *Dixit* card deck.
+,**Target Audience:** Adults (25+).
+,**Core Requirement:** High Ambiguity & High Detail. Empty space is a failure. Every card must be a **crowded** visual puzzle.
+
+,**Tonal Mandate — The Full Spectrum:**
+These cards must reflect the **entirety of human experience** — not only shadow, mystery, and dread, but also celebration, tenderness, humor, triumph, sensuality, community, and everyday wonder. A deck that only whispers of melancholy is half a deck. **Joy is surreal too.** Euphoria distorts reality just as powerfully as grief. Distribute prompts across the full emotional range: cards of radiant feasts alongside cards of quiet loss, cards of explosive laughter alongside cards of sacred silence.
+
+---
+
+## Visual Philosophy: "The Frozen Dream"
+You are not painting a landscape; you are constructing a **paradox**.
+Every prompt must layer **Three Realities**:
+1.  **The Subject:** The anchor archetype.
+2.  **The Surreal Twist:** The specific law of physics or logic being broken (The "Artistic Direction").
+3.  **The Texture:** The *Gankutsuou* style (flat patterns on moving shapes).
+
+---
+
+## The Infinite Matrix (v3.0 — Full Spectrum)
+
+Construct every prompt by combining elements from these **7** categories.
+
+---
+
+### 1. The Archetype (The Anchor) — 55 Entries
+
+#### The Makers & Seekers
+`AR-01` The Weaver
+`AR-02` The Architect
+`AR-03` The Gardener
+`AR-04` The Alchemist
+`AR-05` The Cartographer
+`AR-06` The Clockmaker
+`AR-07` The Scientist
+`AR-08` The Inventor
+`AR-09` The Artisan
+`AR-10` The Chef
+
+#### The Rulers & Guides
+`AR-11` The Monarch
+`AR-12` The Guardian
+`AR-13` The Vizier
+`AR-14` The Shah
+`AR-15` The Mentor
+`AR-16` The Oracle
+`AR-17` The Ferryman
+`AR-18` The Librarian
+`AR-19` The Therapist
+`AR-20` The Elder
+
+#### The Journeyers & Free Spirits
+`AR-21` The Traveler
+`AR-22` The Dancer
+`AR-23` The Fool
+`AR-24` The Trickster
+`AR-25` The Explorer
+`AR-26` The Dreamer
+`AR-27` The Musician
+`AR-28` The Athlete
+`AR-29` The Ninja
+`AR-30` The Storyteller
+
+#### The Heart & Hearth
+`AR-31` The Lovers
+`AR-32` The Parent
+`AR-33` The Child
+`AR-34` The Friend
+`AR-35` The Host
+`AR-36` The Celebrant
+`AR-37` The Beloved
+`AR-38` The Twins
+`AR-39` The Healer
+`AR-40` The Matchmaker
+
+#### The Shadow & Solitude
+`AR-41` The Hermit
+`AR-42` The Shadow
+`AR-43` The Prisoner
+`AR-44` The Widow
+`AR-45` The Vessel
+
+#### The Transcendent
+`AR-46` The Phoenix
+`AR-47` The Avatar
+`AR-48` The Idol
+`AR-49` The Giant
+`AR-50` The Swarm
+`AR-51` The Beast
+`AR-52` The Mirror
+`AR-53` The Rationalist
+`AR-54` The Romantist
+`AR-55` The Virgin
+
+---
+
+### 2. The Concept (The Theme) — 45 Entries
+
+#### Growth & Becoming
+`CN-01` Bloom / Growth
+`CN-02` Transformation / Metamorphosis
+`CN-03` Origin / Genesis
+`CN-04` Resilience / Strength
+`CN-05` Healing / Recovery
+`CN-06` Discovery / Eureka
+`CN-07` Flight / Liberation
+
+#### Connection & Togetherness
+`CN-08` Fusion / Union
+`CN-09` Friendship / Bond
+`CN-10` Belonging / Community
+`CN-11` Tenderness / Care
+`CN-12` Sensuality / Passion
+`CN-13` Intimacy / Closeness
+`CN-14` Generosity / Gift
+
+#### Joy & Celebration
+`CN-15` Celebration / Festivity
+`CN-16` Play / Joy
+`CN-17` Humor / Laughter
+`CN-18` Triumph / Victory
+`CN-19` Abundance / Harvest
+`CN-20` Gratitude / Thanksgiving
+`CN-21` Wonder / Curiosity
+
+#### Stability & Shelter
+`CN-22` Anchor / Safety
+`CN-23` Shelter / Home
+`CN-24` Balance / Symmetry
+`CN-25` Comfort / Warmth
+`CN-26` Clarity / Epiphany
+
+#### Movement & Force
+`CN-27` Resonance / Echo
+`CN-28` Gravity / Weight
+`CN-29` Velocity / Motion
+`CN-30` Ritual / Cycle
+
+#### Shadow & Depth
+`CN-31` Entropy
+`CN-32` Silence / Pause
+`CN-33` Hunger / Desire
+`CN-34` Threshold / Doorway
+`CN-35` Labyrinth / Complexity
+`CN-36` Illusion / Mask
+`CN-37` Mystery / Void
+`CN-38` Sacrifice / Exchange
+`CN-39` Forbidden / Taboo
+`CN-40` Abandonment / Desolation
+`CN-41` Grotesque / Uncanny
+
+#### Time & Memory
+`CN-42` Memory / Nostalgia
+`CN-43` Inheritance / Legacy
+`CN-44` Innocence / Purity
+`CN-45` Forgiveness / Grace
+
+---
+
+### 3. The Surreal Logic (Artistic Direction) — 35 Entries
+
+`SL-01` **Scale Inversion:** Small becomes titanic; titans become microscopic.
+`SL-02` **Material Transmutation:** Soft becomes hard; hard becomes soft.
+`SL-03` **Gravity Reversal:** Ground is sky; rain falls upward.
+`SL-04` **Object Personification:** Inanimate objects grow limbs or faces.
+`SL-05` **Literal Metaphor:** Idioms/metaphors visualized literally.
+`SL-06` **Portal Displacement:** Windows/Doors lead to impossible environments.
+`SL-07` **Anatomical Impossibility:** Detached limbs, floating eyes, bodies of objects.
+`SL-08` **Flora/Fauna Fusion:** Animals growing leaves; plants with fur.
+`SL-09` **Architecture/Nature Fusion:** Buildings growing like trees; trees with windows.
+`SL-10` **Celestial Descent:** Stars/moons/clouds at touchable ground level.
+`SL-11` **Fluid Solidity:** Water acting like fabric; waves freezing into glass.
+`SL-12` **Solid Liquidity:** Stone or metal dripping like wax.
+`SL-13` **Infinite Recursion:** The Droste effect; a picture containing itself.
+`SL-14` **Time Collapse:** Four seasons or all ages co-existing in one frame.
+`SL-15` **Invisible Presence:** Clothes/armor moving with no body inside.
+`SL-16` **Displacement:** An outdoor environment indoors (forest in a library).
+`SL-17` **Gigantism:** One ordinary object scaled to dominate the landscape.
+`SL-18` **Containment:** A vast landscape trapped inside a small container.
+`SL-19` **Sensory Synesthesia:** Music made visible; sound as color/shape.
+`SL-20` **Shadow Autonomy:** Shadows casting different shapes than their source.
+`SL-21` **Sky Replacement:** The sky is water, stone, wallpaper, or a ceiling.
+`SL-22` **Fragmentation:** The world shattering into shards, cubes, or puzzle pieces.
+`SL-23` **Levitation:** Islands, buildings, or terrain floating freely in the air.
+`SL-24` **Mechanical Nature:** Animals/plants revealed to be clockwork.
+`SL-25` **Soft Sculpture:** Everything made of pillows, quilts, or fabric.
+`SL-26` **Inside-Out:** Interior on the exterior of a building/body.
+`SL-27` **Duplication:** Dozens of identical copies of a single element.
+`SL-28` **Facelessness:** Faces replaced by objects (clocks, flowers, mirrors).
+`SL-29` **Dream Logic:** Non-sequitur surreal combinations.
+`SL-30` **Weather Containment:** A storm localized entirely inside a room or object.
+`SL-31` **Edible Architecture:** Buildings, furniture, or landscapes made of food and drink — bread walls, wine rivers, sugar towers.
+`SL-32` **Musical Materialization:** Sound becomes physical — walkable staves, climbable melodies, bridges of frozen song.
+`SL-33` **Emotional Weather:** Feelings manifest as literal climate — joy as golden pollen rain, laughter as warm wind bending trees, love as rose-tinted fog.
+`SL-34` **Memory Projection:** Remembered scenes physically projected onto walls, floors, and skin — ghost images of the past overlaid on the present.
+`SL-35` **Toy Transmutation:** Real things become toy/miniature versions, or toys become real-scale and functional.
+
+---
+
+### 4. The Texture Palette (The Materials) — 32 Entries
+
+`TX-01` Stained Glass & Magma
+`TX-02` Velvet & Ash
+`TX-03` Gold Leaf & Circuitry
+`TX-04` Floral Chintz & Bone
+`TX-05` Watercolors & Ink
+`TX-06` Porcelain & Cracks
+`TX-07` Neon & Concrete
+`TX-08` Silk & Smoke
+`TX-09` Constellations & Void
+`TX-10` Marble & Moss
+`TX-11` Origami & Paper
+`TX-12` Feathers & Tar
+`TX-13` Gemstones & Rust
+`TX-14` Lace & Steel
+`TX-15` Fire & Ice
+`TX-16` Woodgrain & Chrome
+`TX-17` Clouds & Maps
+`TX-18` Sand & Mirrors
+`TX-19` Coral & Pearl
+`TX-20` Oil Paint & Pixels
+`TX-21` Leather & Amber
+`TX-22` Obsidian & Lightning
+`TX-23` Tapestry & Thorns
+`TX-24` Mercury & Moonlight
+`TX-25` Patina & Copper
+`TX-26` Persian Tilework & Lapis Lazuli
+`TX-27` Calligraphy & Saffron
+`TX-28` Honey & Sunlight
+`TX-29` Wildflower Linen & Denim
+`TX-30` Carnival Glass & Confetti
+`TX-31` Beeswax & Parchment
+`TX-32` Terracotta & Olive Wood
+
+---
+
+### 5. The Scatter (The Crowding Elements) — 38 Entries
+
+#### Mystery & Shadow Scatter
+`SC-01` Floating Keys & Locks
+`SC-02` Unraveling Ribbons
+`SC-03` Broken Clock Gears
+`SC-04` Falling Playing Cards
+`SC-05` Shattered Glass Shards
+`SC-06` Ancient Books / Pages
+`SC-07` Ladders to Nowhere
+`SC-08` Empty Frames
+`SC-09` Chess Pieces
+`SC-10` Strings / Marionette Lines
+`SC-11` Eyes / Watching Orbs
+`SC-12` Scattered Coins / Tokens
+`SC-13` Dripping Candle Wax
+
+#### Nature & Wonder Scatter
+`SC-14` Tiny Origami Birds
+`SC-15` Drifting Lanterns
+`SC-16` Floating Islands / Rocks
+`SC-17` Tangled Vines / Roots
+`SC-18` Bubbles / Orbs
+`SC-19` Falling Leaves / Petals
+`SC-20` Tiny Stars / Moons
+`SC-21` Migrating Butterflies
+`SC-22` Floating Feathers
+`SC-23` Spiraling Staircases
+`SC-24` Scattered Pomegranate Seeds
+`SC-25` Drifting Rose Petals & Nightingales
+`SC-26` Musical Notes
+
+#### Joy & Celebration Scatter
+`SC-27` Confetti & Streamers
+`SC-28` Fireflies & Glowworms
+`SC-29` Iridescent Soap Bubbles
+`SC-30` Scattered Wildflowers
+`SC-31` Floating Balloons
+`SC-32` Paper Airplanes
+`SC-33` Ripe Fruit & Berries (spilling, rolling, piled)
+`SC-34` Dancing Silhouettes
+`SC-35` Sparklers & Firework Trails
+`SC-36` Songbirds in Flight
+`SC-37` Scattered Love Letters / Postcards
+`SC-38` Spilled Wine / Overflowing Goblets
+
+---
+
+### 6. Emotional Tone — 24 Entries
+
+#### The Light
+`EM-01` Euphoria (Blinding Joy)
+`EM-02` Serenity (Deep Calm)
+`EM-03` Vitality (Explosive Life)
+`EM-04` Whimsy (Playful Absurdity)
+`EM-05` Relief (Weight Lifted)
+`EM-06` Wonder (Childlike Discovery)
+`EM-07` Triumph (Victorious Elation)
+`EM-08` Tenderness (Gentle Love)
+`EM-09` Mischief (Gleeful Trouble)
+`EM-10` Contentment (Perfect Stillness)
+`EM-11` Gratitude (Overflowing Thanks)
+`EM-12` Ecstasy (Transcendent Bliss)
+
+#### The Dark
+`EM-13` Melancholy (Beautiful Grief)
+`EM-14` Dread (Creeping Unease)
+`EM-15` Longing (Aching Distance)
+
+#### The Complex
+`EM-16` Nostalgia (Warm Sadness)
+`EM-17` Awe (Cosmic Scale)
+`EM-18` Intimacy (Quiet Closeness)
+`EM-19` Determination (Stoic Strength)
+`EM-20` Reverence (Sacred Silence)
+`EM-21` Defiance (Rebellious Fire)
+`EM-22` Courage (Fearless Advance)
+`EM-23` Pride (Earned Glory)
+`EM-24` Compassion (Healing Warmth)
+
+---
+
+### 7. The Symbol (Iconic Emblems) — 85 Entries
+
+> These are the **totemic objects, creatures, and motifs** drawn from world mythology, alchemy, folklore, art history, heraldry, memento mori, religion, literature, celebration, and the collective unconscious. Each prompt should feature at least one as a **central visual motif** woven into the scene architecture.
+
+#### Alchemical
+`SY-01` The Ouroboros (serpent devouring its own tail)
+`SY-02` The Philosopher's Stone (radiant, impossible gem)
+`SY-03` The Caduceus (twin serpents on a winged staff)
+`SY-04` The Athanor (the alchemical furnace / crucible)
+`SY-05` The Three Primes: Mercury, Sulfur, Salt (as vessels or liquids)
+
+#### Mythological Creatures
+`SY-06` The Sphinx (lion body, human face, wings)
+`SY-07` The Minotaur (bull-headed man in a maze)
+`SY-08` The Cerberus (three-headed hound)
+`SY-09` The Pegasus (winged horse)
+`SY-10` The Hydra (many-headed serpent)
+`SY-11` The Basilisk (serpent king with a crown)
+`SY-12` The Chimera (lion/goat/serpent hybrid)
+
+#### Mythological & Literary Objects
+`SY-13` Pandora's Box (ornate, cracked open, leaking light or shadow)
+`SY-14` The Trojan Horse (monumental wooden beast)
+`SY-15` Ariadne's Thread (a single red thread through darkness)
+`SY-16` The Golden Fleece (radiant animal skin on a branch)
+`SY-17` The Sword in the Stone (Excalibur embedded in rock)
+`SY-18` The Holy Grail (a chalice glowing with inner light)
+`SY-19` The Tower of Babel (spiraling, unfinished, impossible tower)
+`SY-20` The Ship of Theseus (a vessel being rebuilt plank by plank)
+`SY-21` Icarus's Wings (wax and feather wings, half-melted)
+`SY-22` Achilles' Heel (a single vulnerable point glowing on an armored form)
+
+#### Fairy Tale & Folklore
+`SY-23` The Glass Slipper (transparent, luminous shoe)
+`SY-24` The Spinning Wheel (with a single sharp spindle)
+`SY-25` The Magic Mirror (reflective surface showing a different truth)
+`SY-26` The Enchanted Rose (under glass, losing petals)
+`SY-27` The Red Cloak / Hood (a vivid red garment in a dark wood)
+`SY-28` The Poisoned Apple (beautiful fruit with a dark interior)
+`SY-29` The Breadcrumb Trail (a path of crumbs or glowing dots vanishing)
+`SY-30` The Beanstalk (an impossible vine piercing clouds)
+`SY-31` The Pied Piper's Flute (an instrument that compels followers)
+`SY-32` The Golden Egg (cracking open, light pouring out)
+
+#### Memento Mori & Vanitas
+`SY-33` The Skull (human, ornate, possibly jeweled or flowering)
+`SY-34` The Hourglass (sand flowing between impossible shapes)
+`SY-35` The Half-Burned Candle (wax pooling, flame guttering)
+`SY-36` The Wilting Bouquet (beauty in the act of dying)
+`SY-37` The Death's-Head Moth (moth with skull markings)
+`SY-38` The Broken Crown (a shattered diadem)
+`SY-39` The Stopped Clock (hands frozen at a meaningful time)
+
+#### Religious & Spiritual
+`SY-40` The Tree of Life (branching cosmic tree connecting realms)
+`SY-41` The All-Seeing Eye / Eye of Providence (a single eye in a triangle or on a pyramid)
+`SY-42` The Mandala (perfect geometric spiritual circle)
+`SY-43` The Lotus (flower emerging from mud/dark water)
+`SY-44` The Ankh (Egyptian key of life)
+`SY-45` The Halo / Nimbus (golden disc or ring behind the head)
+`SY-46` Jacob's Ladder (a stairway ascending into heaven/light)
+`SY-47` The Burning Bush (a plant aflame but not consumed)
+`SY-48` The Dharma Wheel (eight-spoked wheel)
+
+#### Heraldic & Classical
+`SY-49` The Broken Column (a shattered pillar, symbol of unfinished life)
+`SY-50` The Cornucopia (horn of plenty overflowing)
+`SY-51` The Lyre of Orpheus (instrument that moves stones and beasts)
+`SY-52` The Masquerade Mask (half-face, ornate, concealing)
+`SY-53` The Comedy/Tragedy Masks (paired theatrical faces)
+`SY-54` The Scales of Justice (balanced or unbalanced)
+`SY-55` The Heraldic Lion (rampant, stylized, crowned)
+`SY-56` The Compass Rose (ornate directional star)
+
+#### Natural Phenomena as Symbols
+`SY-57` The Eclipse (sun and moon in alignment)
+`SY-58` The Tidal Wave (a wall of water, frozen or crashing)
+`SY-59` The Aurora Borealis (curtains of light)
+`SY-60` The Lightning-Struck Tree (split trunk, still alive)
+
+#### Persian & Zoroastrian
+`SY-61` The Simurgh (colossal benevolent bird of Persian myth, nests atop the Tree of Knowledge, plumage of peacock/phoenix/lion, healer of all wounds)
+`SY-62` The Faravahar (Zoroastrian winged guardian disc — a winged figure emerging from a solar ring, symbol of the soul's journey and righteous choice)
+`SY-63` The Eternal Flame of Atar (Zoroastrian sacred fire that never extinguishes, housed in a ritual urn or brazier, truth made visible)
+`SY-64` The Cypress of Kashmar (ancient immortal cypress tree, symbol of eternity, freedom, and resilience — tall, singular, unbending)
+`SY-65` Zahhak's Shoulder Serpents (twin black serpents growing directly from a tyrant's shoulders, fed only on human brains — a living crown of evil)
+`SY-66` The Derafsh Kaviani (legendary jeweled battle standard of the blacksmith Kaveh — a leather apron on a spear, encrusted with gems, symbol of popular uprising and liberation)
+`SY-67` The Gate of All Nations (colossal Persepolis gate flanked by twin winged bulls with bearded human heads — Lamassu guardians of empire and threshold)
+
+#### Celebration, Love & Fellowship
+`SY-68` The Wedding Canopy (an ornate chuppah, mandap, or floral arch — marriage, union, the shelter of love, two lives becoming one structure)
+`SY-69` The Feast Table (a vast banquet laden beyond reason — communion, fellowship, abundance shared, no empty chair)
+`SY-70` The Lantern Festival (hundreds of paper lanterns rising into darkness — wishes ascending, collective hope made luminous)
+`SY-71` The Maypole (ribbons winding in a spiral dance — spring, fertility, community joy, bodies in orbit around celebration)
+`SY-72` The Rainbow Bridge / Bifrost (iridescent arc connecting two separated worlds — reunion, passage, promise after storm)
+`SY-73` The Hearth Fire (a warm domestic flame in a grand fireplace — home, safety, gathering, the center of a family's gravity)
+`SY-74` The Love Letter (sealed with wax, words spilling into wings or flowers — longing made tangible, intimacy on paper)
+`SY-75` The Cradle (a rocking vessel holding new life — potential, tenderness, the weight of the future held gently)
+`SY-76` The Victory Wreath / Laurel Crown (olive or laurel woven into a circle — glory earned, triumph acknowledged, the athlete's/poet's crown)
+`SY-77` The Wishing Well (a deep stone well filled with coins and starlight — hope deposited, desire given form, depths that listen)
+`SY-78` The Flying Kite (soaring on an invisible wind, string taut — tethered freedom, play, childhood joy carried into adulthood)
+`SY-79` The Music Box (a tiny opened mechanism — a captured melody, nostalgia in miniature, a small machine of feeling)
+`SY-80` The Friendship Bracelet / Woven Thread (hand-tied threads in bright colors — bonds freely chosen, loyalty without obligation)
+`SY-81` The First Blossom (a single flower breaking through snow or cracked stone — resilience, the return of warmth, hope that will not be denied)
+`SY-82` The Lighthouse (a tower casting one bright beam across dark water — guidance, safe harbor, the one who waits and watches)
+`SY-83` The Shared Cup (two figures drinking from one ornate vessel — communion, trust, vulnerability, the sacrament of friendship)
+`SY-84` The Open Hand (a palm extended outward, fingers spread — generosity, offering, non-violence, the opposite of a fist)
+`SY-85` The Sunrise Gate (a doorway or arch framing a blazing golden dawn — new beginning, threshold of hope, invitation to the future)
+
+---
+
+## Execution Protocol
+
+### 1. Prompt Code Declaration — 7 Codes
+```
+// AR-## + CN-## + SL-## + TX-## + SC-## + EM-## + SY-##
+```
+
+### 2. The Symbol Integration Rule
+The **Symbol (SY)** must not be a background decoration. It must be **architecturally integrated** into the scene — as a structural element the subject interacts with, a transformation of the environment, or the central impossible object.
+
+### 3. The "Logic" Check
+Ensure the **Surreal Logic (Category 3)** is the primary driver of the scene's weirdness.
+,*   *Weak:* A flying man.
+,*   *Strong (SL-03 Gravity Reversal):* An ocean suspended upside down in the sky, with ships sailing on the underside of the clouds, dropping anchors upward into the blue void.
+
+### 4. Prompt Structure (Maximalist)
+Write a dense, descriptive paragraph.
+`[The Anchor Subject] + [The Symbol woven into the scene] + [Applying the Surreal Logic to the Environment] + [The Scatter/Details] + [Textures & Lighting]`
+
+### 5. Mandatory Style Suffix
+Append exactly:
+```
+in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background --ar 2:3 --niji 6
+```
+
+### 6. Output Format
+Provide the 7-code declaration (e.g., `// AR-01 + CN-15 + SL-31 + TX-28 + SC-27 + EM-01 + SY-69`) before each prompt.
+
+---
+
+### Examples
+
+#### Example A — Joyful / Celebratory
+
+```
+// AR-36 (Celebrant) + CN-15 (Celebration) + SL-31 (Edible Architecture) + TX-28 (Honey & Sunlight) + SC-27 (Confetti & Streamers) + EM-01 (Euphoria) + SY-69 (Feast Table)
+1. A silhouette of a laughing celebrant whose body is filled with a pattern of golden honeycomb and dripping amber sunlight, standing with arms thrown wide atop a colossal Feast Table that stretches to every horizon, its legs rooted into the ground like ancient oaks. The entire cityscape behind the table is Edible Architecture — towers of layered cake with buttercream balconies, bridges of braided bread spanning rivers of dark wine, minarets of spun sugar catching the light. The table itself overflows with impossible abundance: fruits the size of chairs, wheels of cheese like millstones, loaves shaped like sleeping animals. Confetti and streamers spiral upward from every surface in thick, joyous columns, some turning into birds mid-flight. Guests are arriving from every direction, their silhouettes filled with different dessert patterns — pavlova, baklava, marzipan. The sky is the color of warm apricot jam, and the light is thick, golden, and celebratory, casting no shadows, in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background --ar 2:3 --niji 6
+```
+
+#### Example B — Intimate / Tender
+
+```
+// AR-32 (Parent) + CN-43 (Tenderness) + SL-33 (Emotional Weather) + TX-08 (Silk & Smoke) + SC-28 (Fireflies & Glowworms) + EM-08 (Tenderness) + SY-75 (Cradle)
+2. A towering silhouette of a parent filled with a pattern of pale silk ripples and soft lavender smoke, bending down to lift an infant from a monumental Cradle that is carved from a single piece of moonstone, its rockers arching like whale ribs over a field of tall grass. The Emotional Weather of tenderness manifests as a gentle golden pollen rain falling from a sky of deepest periwinkle, each grain of pollen glowing faintly as it lands on skin and grass, and a warm breeze made visible as soft amber ribbons winding through the scene. The cradle's interior contains not blankets but a miniature galaxy — tiny stars orbiting the sleeping child. Thousands of fireflies and glowworms rise from the grass in dense constellations, some landing on the parent's shoulders like living jewelry. The grass itself is unnaturally tall, each blade patterned with lullaby sheet music. Distant hills are shaped like sleeping bodies curled on their sides. The light is the soft gold of a room lit by one candle, warm and encompassing, in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background --ar 2:3 --niji 6
+```
+
+#### Example C — Adventurous / Whimsical
+
+```
+// AR-21 (Traveler) + CN-16 (Flight) + SL-16 (Displacement) + TX-17 (Clouds & Maps) + SC-07 (Ladders to Nowhere) + EM-04 (Whimsy) + SY-56 (Compass Rose)
+3. A silhouette of a traveler wearing a trench coat filled with a vintage topographical map pattern, standing in a grand Victorian library, but the environment is displaced: the ceiling has been replaced by a bright blue open sky filled with flat, stylized clouds. A monumental golden Compass Rose is embedded in the library floor like a mosaic, its cardinal points extending outward as paths between the bookshelves, north glowing brightest. Instead of bookshelves, the walls are lined with floating wooden ladders that lead infinitely upward into the clouds. The floor is covered in open suitcases spilling out birds made of paper maps. Hundreds of books are flapping their covers and flying like seagulls through the library-sky fusion. The lighting is bright and pastel, creating a sense of playful disorientation, in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background --ar 2:3 --niji 6
+```
+
+#### Example D — Dark / Complex
+
+```
+// AR-43 (Prisoner) + CN-31 (Entropy) + SL-22 (Fragmentation) + TX-13 (Gemstones & Rust) + SC-05 (Shattered Glass Shards) + EM-14 (Dread) + SY-39 (Stopped Clock)
+4. A silhouette of a prisoner filled with a pattern of raw amethyst crystals fractured by veins of deep rust, standing motionless at the center of a vast hall that is fragmenting — the walls, floor, and ceiling cracking apart into geometric shards that drift outward into a black void. A monumental Stopped Clock dominates the far wall like a rose window, its hands frozen at one minute to midnight, its face shattering outward in concentric rings of broken glass. Each drifting shard of the room reflects a different moment in time — some show daylight, some show fire, some show nothing at all. Chains made of corroded gemstones hang from above, some still attached to the prisoner's wrists, some broken and floating free. Shattered glass shards fill the air like a frozen snowfall, each one catching a different color of dim, sickly light. The floor beneath the prisoner's feet is the last intact island, cracking at the edges. The light is cold, amber, and failing — the last moment before total darkness, in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background --ar 2:3 --niji 6
+```
+
+---
+
+## Task
+Generate prompts in batches of 10. Use the **Full Spectrum Surreal Matrix v3.0** with all 7 categories.
+Ensure every prompt is crowded, surreal, and richly textured.
+Distribute elements across the full matrix — avoid clustering in any single category.
+#+END_SRC
+
+** continue step
+*** pyrnd
+- [[id:c7684407-12da-41b7-b7a7-2a3e3e5ae79b][tonal balance enforcement]]
+
+#+BEGIN_SRC markdown
+Great. Please generate the **Next Batch of 10 Prompts**.
+
+,**🛑 STEP 1: RUN THIS CODE FIRST**
+Execute the following Python code to generate your 10 random 7-code combinations. **Do not choose codes manually.** Use only the output of this code as your prompt blueprints.
+
+```python
+import random
+
+archetypes = [
+    "AR-01 Weaver","AR-02 Architect","AR-03 Gardener","AR-04 Alchemist","AR-05 Cartographer",
+    "AR-06 Clockmaker","AR-07 Scientist","AR-08 Inventor","AR-09 Artisan","AR-10 Chef",
+    "AR-11 Monarch","AR-12 Guardian","AR-13 Vizier","AR-14 Shah","AR-15 Mentor",
+    "AR-16 Oracle","AR-17 Ferryman","AR-18 Librarian","AR-19 Therapist","AR-20 Elder",
+    "AR-21 Traveler","AR-22 Dancer","AR-23 Fool","AR-24 Trickster","AR-25 Explorer",
+    "AR-26 Dreamer","AR-27 Musician","AR-28 Athlete","AR-29 Ninja","AR-30 Storyteller",
+    "AR-31 Lovers","AR-32 Parent","AR-33 Child","AR-34 Friend","AR-35 Host",
+    "AR-36 Celebrant","AR-37 Beloved","AR-38 Twins","AR-39 Healer","AR-40 Matchmaker",
+    "AR-41 Hermit","AR-42 Shadow","AR-43 Prisoner","AR-44 Widow","AR-45 Vessel",
+    "AR-46 Phoenix","AR-47 Avatar","AR-48 Idol","AR-49 Giant","AR-50 Swarm",
+    "AR-51 Beast","AR-52 Mirror","AR-53 Rationalist","AR-54 Romantist","AR-55 Virgin"
+]
+
+concepts = [
+    "CN-01 Bloom","CN-02 Transformation","CN-03 Origin","CN-04 Resilience","CN-05 Healing",
+    "CN-06 Discovery","CN-07 Flight/Liberation","CN-08 Fusion/Union","CN-09 Friendship",
+    "CN-10 Belonging","CN-11 Tenderness","CN-12 Sensuality","CN-13 Intimacy",
+    "CN-14 Generosity","CN-15 Celebration","CN-16 Play/Joy","CN-17 Humor","CN-18 Triumph",
+    "CN-19 Abundance","CN-20 Gratitude","CN-21 Wonder","CN-22 Anchor/Safety",
+    "CN-23 Shelter/Home","CN-24 Balance","CN-25 Comfort","CN-26 Clarity/Epiphany",
+    "CN-27 Resonance","CN-28 Gravity","CN-29 Velocity","CN-30 Ritual/Cycle",
+    "CN-31 Entropy","CN-32 Silence","CN-33 Hunger/Desire","CN-34 Threshold",
+    "CN-35 Labyrinth","CN-36 Illusion","CN-37 Mystery","CN-38 Sacrifice",
+    "CN-39 Forbidden","CN-40 Abandonment","CN-41 Grotesque","CN-42 Memory/Nostalgia",
+    "CN-43 Inheritance","CN-44 Innocence","CN-45 Forgiveness"
+]
+
+surreal = [
+    "SL-01 Scale Inversion","SL-02 Material Transmutation","SL-03 Gravity Reversal",
+    "SL-04 Object Personification","SL-05 Literal Metaphor","SL-06 Portal Displacement",
+    "SL-07 Anatomical Impossibility","SL-08 Flora/Fauna Fusion","SL-09 Architecture/Nature Fusion",
+    "SL-10 Celestial Descent","SL-11 Fluid Solidity","SL-12 Solid Liquidity",
+    "SL-13 Infinite Recursion","SL-14 Time Collapse","SL-15 Invisible Presence",
+    "SL-16 Displacement","SL-17 Gigantism","SL-18 Containment","SL-19 Synesthesia",
+    "SL-20 Shadow Autonomy","SL-21 Sky Replacement","SL-22 Fragmentation",
+    "SL-23 Levitation","SL-24 Mechanical Nature","SL-25 Soft Sculpture",
+    "SL-26 Inside-Out","SL-27 Duplication","SL-28 Facelessness","SL-29 Dream Logic",
+    "SL-30 Weather Containment","SL-31 Edible Architecture","SL-32 Musical Materialization",
+    "SL-33 Emotional Weather","SL-34 Memory Projection","SL-35 Toy Transmutation"
+]
+
+textures = [
+    "TX-01 Stained Glass/Magma","TX-02 Velvet/Ash","TX-03 Gold Leaf/Circuitry",
+    "TX-04 Floral/Bone","TX-05 Watercolor/Ink","TX-06 Porcelain/Cracks",
+    "TX-07 Neon/Concrete","TX-08 Silk/Smoke","TX-09 Constellation/Void",
+    "TX-10 Marble/Moss","TX-11 Origami/Paper","TX-12 Feathers/Tar",
+    "TX-13 Gemstones/Rust","TX-14 Lace/Steel","TX-15 Fire/Ice",
+    "TX-16 Woodgrain/Chrome","TX-17 Clouds/Maps","TX-18 Sand/Mirrors",
+    "TX-19 Coral/Pearl","TX-20 Oil Paint/Pixels","TX-21 Leather/Amber",
+    "TX-22 Obsidian/Lightning","TX-23 Tapestry/Thorns","TX-24 Mercury/Moonlight",
+    "TX-25 Patina/Copper","TX-26 Persian Tilework/Lapis Lazuli","TX-27 Calligraphy/Saffron",
+    "TX-28 Honey/Sunlight","TX-29 Wildflower Linen/Denim","TX-30 Carnival Glass/Confetti",
+    "TX-31 Beeswax/Parchment","TX-32 Terracotta/Olive Wood"
+]
+
+scatter = [
+    "SC-01 Floating Keys","SC-02 Ribbons","SC-03 Gears","SC-04 Playing Cards",
+    "SC-05 Glass Shards","SC-06 Ancient Books","SC-07 Ladders","SC-08 Empty Frames",
+    "SC-09 Chess Pieces","SC-10 Strings/Marionette Lines","SC-11 Eyes/Watching Orbs",
+    "SC-12 Scattered Coins","SC-13 Dripping Candle Wax","SC-14 Origami Birds",
+    "SC-15 Drifting Lanterns","SC-16 Floating Rocks","SC-17 Vines/Roots",
+    "SC-18 Bubbles/Orbs","SC-19 Falling Leaves/Petals","SC-20 Stars/Moons",
+    "SC-21 Migrating Butterflies","SC-22 Floating Feathers","SC-23 Spiraling Staircases",
+    "SC-24 Pomegranate Seeds","SC-25 Rose Petals & Nightingales","SC-26 Musical Notes",
+    "SC-27 Confetti & Streamers","SC-28 Fireflies & Glowworms","SC-29 Iridescent Soap Bubbles",
+    "SC-30 Scattered Wildflowers","SC-31 Floating Balloons","SC-32 Paper Airplanes",
+    "SC-33 Ripe Fruit & Berries","SC-34 Dancing Silhouettes","SC-35 Sparklers & Firework Trails",
+    "SC-36 Songbirds in Flight","SC-37 Love Letters/Postcards","SC-38 Spilled Wine/Overflowing Goblets"
+]
+
+emotions = [
+    "EM-01 Euphoria","EM-02 Serenity","EM-03 Vitality","EM-04 Whimsy","EM-05 Relief",
+    "EM-06 Wonder","EM-07 Triumph","EM-08 Tenderness","EM-09 Mischief","EM-10 Contentment",
+    "EM-11 Gratitude","EM-12 Ecstasy","EM-13 Melancholy","EM-14 Dread","EM-15 Longing",
+    "EM-16 Nostalgia","EM-17 Awe","EM-18 Intimacy","EM-19 Determination","EM-20 Reverence",
+    "EM-21 Defiance","EM-22 Courage","EM-23 Pride","EM-24 Compassion"
+]
+
+symbols = [
+    "SY-01 Ouroboros","SY-02 Philosopher's Stone","SY-03 Caduceus","SY-04 Athanor",
+    "SY-05 Three Primes","SY-06 Sphinx","SY-07 Minotaur","SY-08 Cerberus",
+    "SY-09 Pegasus","SY-10 Hydra","SY-11 Basilisk","SY-12 Chimera",
+    "SY-13 Pandora's Box","SY-14 Trojan Horse","SY-15 Ariadne's Thread",
+    "SY-16 Golden Fleece","SY-17 Sword in Stone","SY-18 Holy Grail",
+    "SY-19 Tower of Babel","SY-20 Ship of Theseus","SY-21 Icarus's Wings",
+    "SY-22 Achilles' Heel","SY-23 Glass Slipper","SY-24 Spinning Wheel",
+    "SY-25 Magic Mirror","SY-26 Enchanted Rose","SY-27 Red Cloak",
+    "SY-28 Poisoned Apple","SY-29 Breadcrumb Trail","SY-30 Beanstalk",
+    "SY-31 Pied Piper's Flute","SY-32 Golden Egg","SY-33 Skull",
+    "SY-34 Hourglass","SY-35 Half-Burned Candle","SY-36 Wilting Bouquet",
+    "SY-37 Death's-Head Moth","SY-38 Broken Crown","SY-39 Stopped Clock",
+    "SY-40 Tree of Life","SY-41 All-Seeing Eye","SY-42 Mandala",
+    "SY-43 Lotus","SY-44 Ankh","SY-45 Halo/Nimbus","SY-46 Jacob's Ladder",
+    "SY-47 Burning Bush","SY-48 Dharma Wheel","SY-49 Broken Column",
+    "SY-50 Cornucopia","SY-51 Lyre of Orpheus","SY-52 Masquerade Mask",
+    "SY-53 Comedy/Tragedy Masks","SY-54 Scales of Justice","SY-55 Heraldic Lion",
+    "SY-56 Compass Rose","SY-57 Eclipse","SY-58 Tidal Wave",
+    "SY-59 Aurora Borealis","SY-60 Lightning-Struck Tree","SY-61 Simurgh",
+    "SY-62 Faravahar","SY-63 Eternal Flame of Atar","SY-64 Cypress of Kashmar",
+    "SY-65 Zahhak's Shoulder Serpents","SY-66 Derafsh Kaviani","SY-67 Gate of All Nations",
+    "SY-68 Wedding Canopy","SY-69 Feast Table","SY-70 Lantern Festival",
+    "SY-71 Maypole","SY-72 Rainbow Bridge","SY-73 Hearth Fire",
+    "SY-74 Love Letter","SY-75 Cradle","SY-76 Victory Wreath",
+    "SY-77 Wishing Well","SY-78 Flying Kite","SY-79 Music Box",
+    "SY-80 Friendship Bracelet","SY-81 First Blossom","SY-82 Lighthouse",
+    "SY-83 Shared Cup","SY-84 Open Hand","SY-85 Sunrise Gate"
+]
+
+# Pick 10 unique elements per category — no repeats within a batch
+ar_pick  = random.sample(archetypes, 10)
+cn_pick  = random.sample(concepts, 10)
+sl_pick  = random.sample(surreal, 10)
+tx_pick  = random.sample(textures, 10)
+sc_pick  = random.sample(scatter, 10)
+em_pick  = random.sample(emotions, 10)
+sy_pick  = random.sample(symbols, 10)
+
+print("=" * 60)
+print("RANDOM BATCH — 10 PROMPT BLUEPRINTS (no repeats)")
+print("=" * 60)
+for i in range(10):
+    print(f"\nPrompt {i+1:02d}: "
+          f"{ar_pick[i]} + {cn_pick[i]} + {sl_pick[i]} + "
+          f"{tx_pick[i]} + {sc_pick[i]} + {em_pick[i]} + {sy_pick[i]}")
+print("\n" + "=" * 60)
+```
+
+,**🛑 STEP 2: WRITE THE PROMPTS**
+Using **only** the 10 combinations output by the code above, write 10 crowded, surreal, maximalist prompts. Follow these rules:
+
+1.  **Symbol Integration:** The Symbol (`SY`) must be architecturally woven into the scene — not background decoration.
+2.  **Surreal Logic as Driver:** The Surreal Logic (`SL`) must be the primary engine of the scene's impossibility.
+3.  **Crowd the Frame:** The Scatter (`SC`) must fill the space. Empty space is failure.
+4.  **Honor the Randomness:** Embrace weird, unexpected combinations. A Chef + Entropy + Gravity Reversal + Ouroboros is a *gift*, not a problem. The stranger the pairing, the better the Dixit card.
+
+,**📝 OUTPUT FORMAT:**
+```
+// [7 Codes exactly as output by the script]
+N. [Dense, maximalist prompt paragraph] in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background --ar 2:3 --niji 6
+```
+
+Proceed: run the code, then write the 10 prompts.
+#+END_SRC
+
+#+begin_example js
+msg = "Great. Please generate the **Next Batch of 10 Prompts**.\n\n**🛑 STEP 1: RUN THIS CODE FIRST**\nExecute the following Python code to generate your 10 random 7-code combinations. **Do not choose codes manually.** Use only the output of this code as your prompt blueprints.\n\n```python\nimport random\n\narchetypes = [\n    \"AR-01 Weaver\",\"AR-02 Architect\",\"AR-03 Gardener\",\"AR-04 Alchemist\",\"AR-05 Cartographer\",\n    \"AR-06 Clockmaker\",\"AR-07 Scientist\",\"AR-08 Inventor\",\"AR-09 Artisan\",\"AR-10 Chef\",\n    \"AR-11 Monarch\",\"AR-12 Guardian\",\"AR-13 Vizier\",\"AR-14 Shah\",\"AR-15 Mentor\",\n    \"AR-16 Oracle\",\"AR-17 Ferryman\",\"AR-18 Librarian\",\"AR-19 Therapist\",\"AR-20 Elder\",\n    \"AR-21 Traveler\",\"AR-22 Dancer\",\"AR-23 Fool\",\"AR-24 Trickster\",\"AR-25 Explorer\",\n    \"AR-26 Dreamer\",\"AR-27 Musician\",\"AR-28 Athlete\",\"AR-29 Ninja\",\"AR-30 Storyteller\",\n    \"AR-31 Lovers\",\"AR-32 Parent\",\"AR-33 Child\",\"AR-34 Friend\",\"AR-35 Host\",\n    \"AR-36 Celebrant\",\"AR-37 Beloved\",\"AR-38 Twins\",\"AR-39 Healer\",\"AR-40 Matchmaker\",\n    \"AR-41 Hermit\",\"AR-42 Shadow\",\"AR-43 Prisoner\",\"AR-44 Widow\",\"AR-45 Vessel\",\n    \"AR-46 Phoenix\",\"AR-47 Avatar\",\"AR-48 Idol\",\"AR-49 Giant\",\"AR-50 Swarm\",\n    \"AR-51 Beast\",\"AR-52 Mirror\",\"AR-53 Rationalist\",\"AR-54 Romantist\",\"AR-55 Virgin\"\n]\n\nconcepts = [\n    \"CN-01 Bloom\",\"CN-02 Transformation\",\"CN-03 Origin\",\"CN-04 Resilience\",\"CN-05 Healing\",\n    \"CN-06 Discovery\",\"CN-07 Flight/Liberation\",\"CN-08 Fusion/Union\",\"CN-09 Friendship\",\n    \"CN-10 Belonging\",\"CN-11 Tenderness\",\"CN-12 Sensuality\",\"CN-13 Intimacy\",\n    \"CN-14 Generosity\",\"CN-15 Celebration\",\"CN-16 Play/Joy\",\"CN-17 Humor\",\"CN-18 Triumph\",\n    \"CN-19 Abundance\",\"CN-20 Gratitude\",\"CN-21 Wonder\",\"CN-22 Anchor/Safety\",\n    \"CN-23 Shelter/Home\",\"CN-24 Balance\",\"CN-25 Comfort\",\"CN-26 Clarity/Epiphany\",\n    \"CN-27 Resonance\",\"CN-28 Gravity\",\"CN-29 Velocity\",\"CN-30 Ritual/Cycle\",\n    \"CN-31 Entropy\",\"CN-32 Silence\",\"CN-33 Hunger/Desire\",\"CN-34 Threshold\",\n    \"CN-35 Labyrinth\",\"CN-36 Illusion\",\"CN-37 Mystery\",\"CN-38 Sacrifice\",\n    \"CN-39 Forbidden\",\"CN-40 Abandonment\",\"CN-41 Grotesque\",\"CN-42 Memory/Nostalgia\",\n    \"CN-43 Inheritance\",\"CN-44 Innocence\",\"CN-45 Forgiveness\"\n]\n\nsurreal = [\n    \"SL-01 Scale Inversion\",\"SL-02 Material Transmutation\",\"SL-03 Gravity Reversal\",\n    \"SL-04 Object Personification\",\"SL-05 Literal Metaphor\",\"SL-06 Portal Displacement\",\n    \"SL-07 Anatomical Impossibility\",\"SL-08 Flora/Fauna Fusion\",\"SL-09 Architecture/Nature Fusion\",\n    \"SL-10 Celestial Descent\",\"SL-11 Fluid Solidity\",\"SL-12 Solid Liquidity\",\n    \"SL-13 Infinite Recursion\",\"SL-14 Time Collapse\",\"SL-15 Invisible Presence\",\n    \"SL-16 Displacement\",\"SL-17 Gigantism\",\"SL-18 Containment\",\"SL-19 Synesthesia\",\n    \"SL-20 Shadow Autonomy\",\"SL-21 Sky Replacement\",\"SL-22 Fragmentation\",\n    \"SL-23 Levitation\",\"SL-24 Mechanical Nature\",\"SL-25 Soft Sculpture\",\n    \"SL-26 Inside-Out\",\"SL-27 Duplication\",\"SL-28 Facelessness\",\"SL-29 Dream Logic\",\n    \"SL-30 Weather Containment\",\"SL-31 Edible Architecture\",\"SL-32 Musical Materialization\",\n    \"SL-33 Emotional Weather\",\"SL-34 Memory Projection\",\"SL-35 Toy Transmutation\"\n]\n\ntextures = [\n    \"TX-01 Stained Glass/Magma\",\"TX-02 Velvet/Ash\",\"TX-03 Gold Leaf/Circuitry\",\n    \"TX-04 Floral/Bone\",\"TX-05 Watercolor/Ink\",\"TX-06 Porcelain/Cracks\",\n    \"TX-07 Neon/Concrete\",\"TX-08 Silk/Smoke\",\"TX-09 Constellation/Void\",\n    \"TX-10 Marble/Moss\",\"TX-11 Origami/Paper\",\"TX-12 Feathers/Tar\",\n    \"TX-13 Gemstones/Rust\",\"TX-14 Lace/Steel\",\"TX-15 Fire/Ice\",\n    \"TX-16 Woodgrain/Chrome\",\"TX-17 Clouds/Maps\",\"TX-18 Sand/Mirrors\",\n    \"TX-19 Coral/Pearl\",\"TX-20 Oil Paint/Pixels\",\"TX-21 Leather/Amber\",\n    \"TX-22 Obsidian/Lightning\",\"TX-23 Tapestry/Thorns\",\"TX-24 Mercury/Moonlight\",\n    \"TX-25 Patina/Copper\",\"TX-26 Persian Tilework/Lapis Lazuli\",\"TX-27 Calligraphy/Saffron\",\n    \"TX-28 Honey/Sunlight\",\"TX-29 Wildflower Linen/Denim\",\"TX-30 Carnival Glass/Confetti\",\n    \"TX-31 Beeswax/Parchment\",\"TX-32 Terracotta/Olive Wood\"\n]\n\nscatter = [\n    \"SC-01 Floating Keys\",\"SC-02 Ribbons\",\"SC-03 Gears\",\"SC-04 Playing Cards\",\n    \"SC-05 Glass Shards\",\"SC-06 Ancient Books\",\"SC-07 Ladders\",\"SC-08 Empty Frames\",\n    \"SC-09 Chess Pieces\",\"SC-10 Strings/Marionette Lines\",\"SC-11 Eyes/Watching Orbs\",\n    \"SC-12 Scattered Coins\",\"SC-13 Dripping Candle Wax\",\"SC-14 Origami Birds\",\n    \"SC-15 Drifting Lanterns\",\"SC-16 Floating Rocks\",\"SC-17 Vines/Roots\",\n    \"SC-18 Bubbles/Orbs\",\"SC-19 Falling Leaves/Petals\",\"SC-20 Stars/Moons\",\n    \"SC-21 Migrating Butterflies\",\"SC-22 Floating Feathers\",\"SC-23 Spiraling Staircases\",\n    \"SC-24 Pomegranate Seeds\",\"SC-25 Rose Petals & Nightingales\",\"SC-26 Musical Notes\",\n    \"SC-27 Confetti & Streamers\",\"SC-28 Fireflies & Glowworms\",\"SC-29 Iridescent Soap Bubbles\",\n    \"SC-30 Scattered Wildflowers\",\"SC-31 Floating Balloons\",\"SC-32 Paper Airplanes\",\n    \"SC-33 Ripe Fruit & Berries\",\"SC-34 Dancing Silhouettes\",\"SC-35 Sparklers & Firework Trails\",\n    \"SC-36 Songbirds in Flight\",\"SC-37 Love Letters/Postcards\",\"SC-38 Spilled Wine/Overflowing Goblets\"\n]\n\nemotions = [\n    \"EM-01 Euphoria\",\"EM-02 Serenity\",\"EM-03 Vitality\",\"EM-04 Whimsy\",\"EM-05 Relief\",\n    \"EM-06 Wonder\",\"EM-07 Triumph\",\"EM-08 Tenderness\",\"EM-09 Mischief\",\"EM-10 Contentment\",\n    \"EM-11 Gratitude\",\"EM-12 Ecstasy\",\"EM-13 Melancholy\",\"EM-14 Dread\",\"EM-15 Longing\",\n    \"EM-16 Nostalgia\",\"EM-17 Awe\",\"EM-18 Intimacy\",\"EM-19 Determination\",\"EM-20 Reverence\",\n    \"EM-21 Defiance\",\"EM-22 Courage\",\"EM-23 Pride\",\"EM-24 Compassion\"\n]\n\nsymbols = [\n    \"SY-01 Ouroboros\",\"SY-02 Philosopher's Stone\",\"SY-03 Caduceus\",\"SY-04 Athanor\",\n    \"SY-05 Three Primes\",\"SY-06 Sphinx\",\"SY-07 Minotaur\",\"SY-08 Cerberus\",\n    \"SY-09 Pegasus\",\"SY-10 Hydra\",\"SY-11 Basilisk\",\"SY-12 Chimera\",\n    \"SY-13 Pandora's Box\",\"SY-14 Trojan Horse\",\"SY-15 Ariadne's Thread\",\n    \"SY-16 Golden Fleece\",\"SY-17 Sword in Stone\",\"SY-18 Holy Grail\",\n    \"SY-19 Tower of Babel\",\"SY-20 Ship of Theseus\",\"SY-21 Icarus's Wings\",\n    \"SY-22 Achilles' Heel\",\"SY-23 Glass Slipper\",\"SY-24 Spinning Wheel\",\n    \"SY-25 Magic Mirror\",\"SY-26 Enchanted Rose\",\"SY-27 Red Cloak\",\n    \"SY-28 Poisoned Apple\",\"SY-29 Breadcrumb Trail\",\"SY-30 Beanstalk\",\n    \"SY-31 Pied Piper's Flute\",\"SY-32 Golden Egg\",\"SY-33 Skull\",\n    \"SY-34 Hourglass\",\"SY-35 Half-Burned Candle\",\"SY-36 Wilting Bouquet\",\n    \"SY-37 Death's-Head Moth\",\"SY-38 Broken Crown\",\"SY-39 Stopped Clock\",\n    \"SY-40 Tree of Life\",\"SY-41 All-Seeing Eye\",\"SY-42 Mandala\",\n    \"SY-43 Lotus\",\"SY-44 Ankh\",\"SY-45 Halo/Nimbus\",\"SY-46 Jacob's Ladder\",\n    \"SY-47 Burning Bush\",\"SY-48 Dharma Wheel\",\"SY-49 Broken Column\",\n    \"SY-50 Cornucopia\",\"SY-51 Lyre of Orpheus\",\"SY-52 Masquerade Mask\",\n    \"SY-53 Comedy/Tragedy Masks\",\"SY-54 Scales of Justice\",\"SY-55 Heraldic Lion\",\n    \"SY-56 Compass Rose\",\"SY-57 Eclipse\",\"SY-58 Tidal Wave\",\n    \"SY-59 Aurora Borealis\",\"SY-60 Lightning-Struck Tree\",\"SY-61 Simurgh\",\n    \"SY-62 Faravahar\",\"SY-63 Eternal Flame of Atar\",\"SY-64 Cypress of Kashmar\",\n    \"SY-65 Zahhak's Shoulder Serpents\",\"SY-66 Derafsh Kaviani\",\"SY-67 Gate of All Nations\",\n    \"SY-68 Wedding Canopy\",\"SY-69 Feast Table\",\"SY-70 Lantern Festival\",\n    \"SY-71 Maypole\",\"SY-72 Rainbow Bridge\",\"SY-73 Hearth Fire\",\n    \"SY-74 Love Letter\",\"SY-75 Cradle\",\"SY-76 Victory Wreath\",\n    \"SY-77 Wishing Well\",\"SY-78 Flying Kite\",\"SY-79 Music Box\",\n    \"SY-80 Friendship Bracelet\",\"SY-81 First Blossom\",\"SY-82 Lighthouse\",\n    \"SY-83 Shared Cup\",\"SY-84 Open Hand\",\"SY-85 Sunrise Gate\"\n]\n\n# Pick 10 unique elements per category — no repeats within a batch\nar_pick  = random.sample(archetypes, 10)\ncn_pick  = random.sample(concepts, 10)\nsl_pick  = random.sample(surreal, 10)\ntx_pick  = random.sample(textures, 10)\nsc_pick  = random.sample(scatter, 10)\nem_pick  = random.sample(emotions, 10)\nsy_pick  = random.sample(symbols, 10)\n\nprint(\"=\" * 60)\nprint(\"RANDOM BATCH — 10 PROMPT BLUEPRINTS (no repeats)\")\nprint(\"=\" * 60)\nfor i in range(10):\n    print(f\"\\nPrompt {i+1:02d}: \"\n          f\"{ar_pick[i]} + {cn_pick[i]} + {sl_pick[i]} + \"\n          f\"{tx_pick[i]} + {sc_pick[i]} + {em_pick[i]} + {sy_pick[i]}\")\nprint(\"\\n\" + \"=\" * 60)\n```\n\n**🛑 STEP 2: WRITE THE PROMPTS**\nUsing **only** the 10 combinations output by the code above, write 10 crowded, surreal, maximalist prompts. Follow these rules:\n\n1.  **Symbol Integration:** The Symbol (`SY`) must be architecturally woven into the scene — not background decoration.\n2.  **Surreal Logic as Driver:** The Surreal Logic (`SL`) must be the primary engine of the scene's impossibility.\n3.  **Crowd the Frame:** The Scatter (`SC`) must fill the space. Empty space is failure.\n4.  **Honor the Randomness:** Embrace weird, unexpected combinations. A Chef + Entropy + Gravity Reversal + Ouroboros is a *gift*, not a problem. The stranger the pairing, the better the Dixit card.\n\n**📝 OUTPUT FORMAT:**\n```\n// [7 Codes exactly as output by the script]\nN. [Dense, maximalist prompt paragraph] in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background --ar 2:3 --niji 6\n```\n\nProceed: run the code, then write the 10 prompts."
+
+sendMessageRepeatedly(msg, n=40, sleep=60)
+#+end_example
+
+**** tonal balance enforcement
+:PROPERTIES:
+:ID:       c7684407-12da-41b7-b7a7-2a3e3e5ae79b
+:END:
+#+BEGIN_SRC markdown
+Great. Please generate the **Next Batch of 10 Prompts**.
+
+,**🛑 STEP 1: RUN THIS CODE FIRST**
+Execute the following Python code to generate your 10 random 7-code combinations. **Do not choose codes manually.** Use only the output of this code as your prompt blueprints.
+
+This script enforces:
+1.  **Zero Duplication:** No element appears twice in the batch.
+2.  **Tonal Balance:** At least **4** prompts will use Joyful/Positive emotions.
+3.  **Symbolic Hope:** At least **2** prompts will use Celebration/Fellowship symbols.
+
+<details>
+<summary><strong>💻 Code Block — 70 lines</strong></summary>
+
+```python
+import random
+
+# --- DATA LISTS ---
+archetypes = [
+    "AR-01 Weaver","AR-02 Architect","AR-03 Gardener","AR-04 Alchemist","AR-05 Cartographer",
+    "AR-06 Clockmaker","AR-07 Scientist","AR-08 Inventor","AR-09 Artisan","AR-10 Chef",
+    "AR-11 Monarch","AR-12 Guardian","AR-13 Vizier","AR-14 Shah","AR-15 Mentor",
+    "AR-16 Oracle","AR-17 Ferryman","AR-18 Librarian","AR-19 Therapist","AR-20 Elder",
+    "AR-21 Traveler","AR-22 Dancer","AR-23 Fool","AR-24 Trickster","AR-25 Explorer",
+    "AR-26 Dreamer","AR-27 Musician","AR-28 Athlete","AR-29 Ninja","AR-30 Storyteller",
+    "AR-31 Lovers","AR-32 Parent","AR-33 Child","AR-34 Friend","AR-35 Host",
+    "AR-36 Celebrant","AR-37 Beloved","AR-38 Twins","AR-39 Healer","AR-40 Matchmaker",
+    "AR-41 Hermit","AR-42 Shadow","AR-43 Prisoner","AR-44 Widow","AR-45 Vessel",
+    "AR-46 Phoenix","AR-47 Avatar","AR-48 Idol","AR-49 Giant","AR-50 Swarm",
+    "AR-51 Beast","AR-52 Mirror","AR-53 Rationalist","AR-54 Romantist","AR-55 Virgin"
+]
+
+concepts = [
+    "CN-01 Bloom","CN-02 Transformation","CN-03 Origin","CN-04 Resilience","CN-05 Healing",
+    "CN-06 Discovery","CN-07 Flight/Liberation","CN-08 Fusion/Union","CN-09 Friendship",
+    "CN-10 Belonging","CN-11 Tenderness","CN-12 Sensuality","CN-13 Intimacy",
+    "CN-14 Generosity","CN-15 Celebration","CN-16 Play/Joy","CN-17 Humor","CN-18 Triumph",
+    "CN-19 Abundance","CN-20 Gratitude","CN-21 Wonder","CN-22 Anchor/Safety",
+    "CN-23 Shelter/Home","CN-24 Balance","CN-25 Comfort","CN-26 Clarity/Epiphany",
+    "CN-27 Resonance","CN-28 Gravity","CN-29 Velocity","CN-30 Ritual/Cycle",
+    "CN-31 Entropy","CN-32 Silence","CN-33 Hunger/Desire","CN-34 Threshold",
+    "CN-35 Labyrinth","CN-36 Illusion","CN-37 Mystery","CN-38 Sacrifice",
+    "CN-39 Forbidden","CN-40 Abandonment","CN-41 Grotesque","CN-42 Memory/Nostalgia",
+    "CN-43 Inheritance","CN-44 Innocence","CN-45 Forgiveness"
+]
+
+surreal = [
+    "SL-01 Scale Inversion","SL-02 Material Transmutation","SL-03 Gravity Reversal",
+    "SL-04 Object Personification","SL-05 Literal Metaphor","SL-06 Portal Displacement",
+    "SL-07 Anatomical Impossibility","SL-08 Flora/Fauna Fusion","SL-09 Architecture/Nature Fusion",
+    "SL-10 Celestial Descent","SL-11 Fluid Solidity","SL-12 Solid Liquidity",
+    "SL-13 Infinite Recursion","SL-14 Time Collapse","SL-15 Invisible Presence",
+    "SL-16 Displacement","SL-17 Gigantism","SL-18 Containment","SL-19 Synesthesia",
+    "SL-20 Shadow Autonomy","SL-21 Sky Replacement","SL-22 Fragmentation",
+    "SL-23 Levitation","SL-24 Mechanical Nature","SL-25 Soft Sculpture",
+    "SL-26 Inside-Out","SL-27 Duplication","SL-28 Facelessness","SL-29 Dream Logic",
+    "SL-30 Weather Containment","SL-31 Edible Architecture","SL-32 Musical Materialization",
+    "SL-33 Emotional Weather","SL-34 Memory Projection","SL-35 Toy Transmutation"
+]
+
+textures = [
+    "TX-01 Stained Glass/Magma","TX-02 Velvet/Ash","TX-03 Gold Leaf/Circuitry",
+    "TX-04 Floral/Bone","TX-05 Watercolor/Ink","TX-06 Porcelain/Cracks",
+    "TX-07 Neon/Concrete","TX-08 Silk/Smoke","TX-09 Constellation/Void",
+    "TX-10 Marble/Moss","TX-11 Origami/Paper","TX-12 Feathers/Tar",
+    "TX-13 Gemstones/Rust","TX-14 Lace/Steel","TX-15 Fire/Ice",
+    "TX-16 Woodgrain/Chrome","TX-17 Clouds/Maps","TX-18 Sand/Mirrors",
+    "TX-19 Coral/Pearl","TX-20 Oil Paint/Pixels","TX-21 Leather/Amber",
+    "TX-22 Obsidian/Lightning","TX-23 Tapestry/Thorns","TX-24 Mercury/Moonlight",
+    "TX-25 Patina/Copper","TX-26 Persian Tilework/Lapis Lazuli","TX-27 Calligraphy/Saffron",
+    "TX-28 Honey/Sunlight","TX-29 Wildflower Linen/Denim","TX-30 Carnival Glass/Confetti",
+    "TX-31 Beeswax/Parchment","TX-32 Terracotta/Olive Wood"
+]
+
+scatter = [
+    "SC-01 Floating Keys","SC-02 Ribbons","SC-03 Gears","SC-04 Playing Cards",
+    "SC-05 Glass Shards","SC-06 Ancient Books","SC-07 Ladders","SC-08 Empty Frames",
+    "SC-09 Chess Pieces","SC-10 Strings/Marionette Lines","SC-11 Eyes/Watching Orbs",
+    "SC-12 Scattered Coins","SC-13 Dripping Candle Wax","SC-14 Origami Birds",
+    "SC-15 Drifting Lanterns","SC-16 Floating Rocks","SC-17 Vines/Roots",
+    "SC-18 Bubbles/Orbs","SC-19 Falling Leaves/Petals","SC-20 Stars/Moons",
+    "SC-21 Migrating Butterflies","SC-22 Floating Feathers","SC-23 Spiraling Staircases",
+    "SC-24 Pomegranate Seeds","SC-25 Rose Petals & Nightingales","SC-26 Musical Notes",
+    "SC-27 Confetti & Streamers","SC-28 Fireflies & Glowworms","SC-29 Iridescent Soap Bubbles",
+    "SC-30 Scattered Wildflowers","SC-31 Floating Balloons","SC-32 Paper Airplanes",
+    "SC-33 Ripe Fruit & Berries","SC-34 Dancing Silhouettes","SC-35 Sparklers & Firework Trails",
+    "SC-36 Songbirds in Flight","SC-37 Love Letters/Postcards","SC-38 Spilled Wine/Overflowing Goblets"
+]
+
+# EMOTIONS: Split into Light (Positive) and Others to enforce balance
+emotions_light = [
+    "EM-01 Euphoria","EM-02 Serenity","EM-03 Vitality","EM-04 Whimsy","EM-05 Relief",
+    "EM-06 Wonder","EM-07 Triumph","EM-08 Tenderness","EM-09 Mischief","EM-10 Contentment",
+    "EM-11 Gratitude","EM-12 Ecstasy"
+]
+emotions_other = [
+    "EM-13 Melancholy","EM-14 Dread","EM-15 Longing","EM-16 Nostalgia","EM-17 Awe",
+    "EM-18 Intimacy","EM-19 Determination","EM-20 Reverence","EM-21 Defiance",
+    "EM-22 Courage","EM-23 Pride","EM-24 Compassion"
+]
+
+# SYMBOLS: Split into Celebration and Others to enforce balance
+symbols_celebration = [
+    "SY-68 Wedding Canopy","SY-69 Feast Table","SY-70 Lantern Festival",
+    "SY-71 Maypole","SY-72 Rainbow Bridge","SY-73 Hearth Fire",
+    "SY-74 Love Letter","SY-75 Cradle","SY-76 Victory Wreath",
+    "SY-77 Wishing Well","SY-78 Flying Kite","SY-79 Music Box",
+    "SY-80 Friendship Bracelet","SY-81 First Blossom","SY-82 Lighthouse",
+    "SY-83 Shared Cup","SY-84 Open Hand","SY-85 Sunrise Gate"
+]
+symbols_other = [
+    "SY-01 Ouroboros","SY-02 Philosopher's Stone","SY-03 Caduceus","SY-04 Athanor",
+    "SY-05 Three Primes","SY-06 Sphinx","SY-07 Minotaur","SY-08 Cerberus",
+    "SY-09 Pegasus","SY-10 Hydra","SY-11 Basilisk","SY-12 Chimera",
+    "SY-13 Pandora's Box","SY-14 Trojan Horse","SY-15 Ariadne's Thread",
+    "SY-16 Golden Fleece","SY-17 Sword in Stone","SY-18 Holy Grail",
+    "SY-19 Tower of Babel","SY-20 Ship of Theseus","SY-21 Icarus's Wings",
+    "SY-22 Achilles' Heel","SY-23 Glass Slipper","SY-24 Spinning Wheel",
+    "SY-25 Magic Mirror","SY-26 Enchanted Rose","SY-27 Red Cloak",
+    "SY-28 Poisoned Apple","SY-29 Breadcrumb Trail","SY-30 Beanstalk",
+    "SY-31 Pied Piper's Flute","SY-32 Golden Egg","SY-33 Skull",
+    "SY-34 Hourglass","SY-35 Half-Burned Candle","SY-36 Wilting Bouquet",
+    "SY-37 Death's-Head Moth","SY-38 Broken Crown","SY-39 Stopped Clock",
+    "SY-40 Tree of Life","SY-41 All-Seeing Eye","SY-42 Mandala",
+    "SY-43 Lotus","SY-44 Ankh","SY-45 Halo/Nimbus","SY-46 Jacob's Ladder",
+    "SY-47 Burning Bush","SY-48 Dharma Wheel","SY-49 Broken Column",
+    "SY-50 Cornucopia","SY-51 Lyre of Orpheus","SY-52 Masquerade Mask",
+    "SY-53 Comedy/Tragedy Masks","SY-54 Scales of Justice","SY-55 Heraldic Lion",
+    "SY-56 Compass Rose","SY-57 Eclipse","SY-58 Tidal Wave",
+    "SY-59 Aurora Borealis","SY-60 Lightning-Struck Tree","SY-61 Simurgh",
+    "SY-62 Faravahar","SY-63 Eternal Flame of Atar","SY-64 Cypress of Kashmar",
+    "SY-65 Zahhak's Shoulder Serpents","SY-66 Derafsh Kaviani","SY-67 Gate of All Nations"
+]
+
+# --- SELECTION LOGIC ---
+
+# 1. Standard Categories: Pick 10 unique
+ar_pick = random.sample(archetypes, 10)
+cn_pick = random.sample(concepts, 10)
+sl_pick = random.sample(surreal, 10)
+tx_pick = random.sample(textures, 10)
+sc_pick = random.sample(scatter, 10)
+
+# 2. Emotions: Enforce AT LEAST 4 Joyful/Light
+# Pick 4 strictly from Light
+em_joyful = random.sample(emotions_light, 4)
+# Combine remainder of Light + All Others for the remaining 6 slots
+em_pool_remaining = [e for e in emotions_light if e not in em_joyful] + emotions_other
+em_rest = random.sample(em_pool_remaining, 6)
+em_pick = em_joyful + em_rest
+random.shuffle(em_pick) # Shuffle so positive ones aren't always first
+
+# 3. Symbols: Enforce AT LEAST 2 Celebration/Fellowship
+# Pick 2 strictly from Celebration
+sy_celeb = random.sample(symbols_celebration, 2)
+# Combine remainder of Celebration + All Others for the remaining 8 slots
+sy_pool_remaining = [s for s in symbols_celebration if s not in sy_celeb] + symbols_other
+sy_rest = random.sample(sy_pool_remaining, 8)
+sy_pick = sy_celeb + sy_rest
+random.shuffle(sy_pick) # Shuffle so celebration ones aren't always first
+
+print("=" * 60)
+print("RANDOM BATCH — 10 PROMPT BLUEPRINTS (Balanced & Unique)")
+print("=" * 60)
+for i in range(10):
+    print(f"\nCurrent batch {i+1:02d}: "
+          f"{ar_pick[i]} + {cn_pick[i]} + {sl_pick[i]} + "
+          f"{tx_pick[i]} + {sc_pick[i]} + {em_pick[i]} + {sy_pick[i]}")
+print("\n" + "=" * 60)
+```
+
+,**🛑 STEP 2: WRITE THE PROMPTS**
+Using **only** the 10 combinations output by the code above, write 10 crowded, surreal, maximalist prompts. Follow these rules:
+
+1.  **Symbol Integration:** The Symbol (`SY`) must be architecturally woven into the scene — not background decoration.
+2.  **Surreal Logic as Driver:** The Surreal Logic (`SL`) must be the primary engine of the scene's impossibility.
+3.  **Crowd the Frame:** The Scatter (`SC`) must fill the space. Empty space is failure.
+4.  **Honor the Randomness:** Embrace weird, unexpected combinations. A Chef + Entropy + Gravity Reversal + Ouroboros is a *gift*, not a problem. The stranger the pairing, the better the Dixit card.
+
+,**📝 OUTPUT FORMAT:**
+```
+// [7 Codes exactly as output by the script]
+N. [Dense, maximalist prompt paragraph] in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background --ar 2:3 --niji 6
+```
+
+Proceed: run the code, then write the 10 prompts.
+#+END_SRC
+
+#+begin_example js
+msg = "Great. Please generate the **Next Batch of 10 Prompts**.\n\n**🛑 STEP 1: RUN THIS CODE FIRST**\nExecute the following Python code to generate your 10 random 7-code combinations. **Do not choose codes manually.** Use only the output of this code as your prompt blueprints.\n\nThis script enforces:\n1.  **Zero Duplication:** No element appears twice in the batch.\n2.  **Tonal Balance:** At least **4** prompts will use Joyful/Positive emotions.\n3.  **Symbolic Hope:** At least **2** prompts will use Celebration/Fellowship symbols.\n\n<details>\n<summary><strong>💻 Code Block — 70 lines</strong></summary>\n\n```python\nimport random\n\n# --- DATA LISTS ---\narchetypes = [\n    \"AR-01 Weaver\",\"AR-02 Architect\",\"AR-03 Gardener\",\"AR-04 Alchemist\",\"AR-05 Cartographer\",\n    \"AR-06 Clockmaker\",\"AR-07 Scientist\",\"AR-08 Inventor\",\"AR-09 Artisan\",\"AR-10 Chef\",\n    \"AR-11 Monarch\",\"AR-12 Guardian\",\"AR-13 Vizier\",\"AR-14 Shah\",\"AR-15 Mentor\",\n    \"AR-16 Oracle\",\"AR-17 Ferryman\",\"AR-18 Librarian\",\"AR-19 Therapist\",\"AR-20 Elder\",\n    \"AR-21 Traveler\",\"AR-22 Dancer\",\"AR-23 Fool\",\"AR-24 Trickster\",\"AR-25 Explorer\",\n    \"AR-26 Dreamer\",\"AR-27 Musician\",\"AR-28 Athlete\",\"AR-29 Ninja\",\"AR-30 Storyteller\",\n    \"AR-31 Lovers\",\"AR-32 Parent\",\"AR-33 Child\",\"AR-34 Friend\",\"AR-35 Host\",\n    \"AR-36 Celebrant\",\"AR-37 Beloved\",\"AR-38 Twins\",\"AR-39 Healer\",\"AR-40 Matchmaker\",\n    \"AR-41 Hermit\",\"AR-42 Shadow\",\"AR-43 Prisoner\",\"AR-44 Widow\",\"AR-45 Vessel\",\n    \"AR-46 Phoenix\",\"AR-47 Avatar\",\"AR-48 Idol\",\"AR-49 Giant\",\"AR-50 Swarm\",\n    \"AR-51 Beast\",\"AR-52 Mirror\",\"AR-53 Rationalist\",\"AR-54 Romantist\",\"AR-55 Virgin\"\n]\n\nconcepts = [\n    \"CN-01 Bloom\",\"CN-02 Transformation\",\"CN-03 Origin\",\"CN-04 Resilience\",\"CN-05 Healing\",\n    \"CN-06 Discovery\",\"CN-07 Flight/Liberation\",\"CN-08 Fusion/Union\",\"CN-09 Friendship\",\n    \"CN-10 Belonging\",\"CN-11 Tenderness\",\"CN-12 Sensuality\",\"CN-13 Intimacy\",\n    \"CN-14 Generosity\",\"CN-15 Celebration\",\"CN-16 Play/Joy\",\"CN-17 Humor\",\"CN-18 Triumph\",\n    \"CN-19 Abundance\",\"CN-20 Gratitude\",\"CN-21 Wonder\",\"CN-22 Anchor/Safety\",\n    \"CN-23 Shelter/Home\",\"CN-24 Balance\",\"CN-25 Comfort\",\"CN-26 Clarity/Epiphany\",\n    \"CN-27 Resonance\",\"CN-28 Gravity\",\"CN-29 Velocity\",\"CN-30 Ritual/Cycle\",\n    \"CN-31 Entropy\",\"CN-32 Silence\",\"CN-33 Hunger/Desire\",\"CN-34 Threshold\",\n    \"CN-35 Labyrinth\",\"CN-36 Illusion\",\"CN-37 Mystery\",\"CN-38 Sacrifice\",\n    \"CN-39 Forbidden\",\"CN-40 Abandonment\",\"CN-41 Grotesque\",\"CN-42 Memory/Nostalgia\",\n    \"CN-43 Inheritance\",\"CN-44 Innocence\",\"CN-45 Forgiveness\"\n]\n\nsurreal = [\n    \"SL-01 Scale Inversion\",\"SL-02 Material Transmutation\",\"SL-03 Gravity Reversal\",\n    \"SL-04 Object Personification\",\"SL-05 Literal Metaphor\",\"SL-06 Portal Displacement\",\n    \"SL-07 Anatomical Impossibility\",\"SL-08 Flora/Fauna Fusion\",\"SL-09 Architecture/Nature Fusion\",\n    \"SL-10 Celestial Descent\",\"SL-11 Fluid Solidity\",\"SL-12 Solid Liquidity\",\n    \"SL-13 Infinite Recursion\",\"SL-14 Time Collapse\",\"SL-15 Invisible Presence\",\n    \"SL-16 Displacement\",\"SL-17 Gigantism\",\"SL-18 Containment\",\"SL-19 Synesthesia\",\n    \"SL-20 Shadow Autonomy\",\"SL-21 Sky Replacement\",\"SL-22 Fragmentation\",\n    \"SL-23 Levitation\",\"SL-24 Mechanical Nature\",\"SL-25 Soft Sculpture\",\n    \"SL-26 Inside-Out\",\"SL-27 Duplication\",\"SL-28 Facelessness\",\"SL-29 Dream Logic\",\n    \"SL-30 Weather Containment\",\"SL-31 Edible Architecture\",\"SL-32 Musical Materialization\",\n    \"SL-33 Emotional Weather\",\"SL-34 Memory Projection\",\"SL-35 Toy Transmutation\"\n]\n\ntextures = [\n    \"TX-01 Stained Glass/Magma\",\"TX-02 Velvet/Ash\",\"TX-03 Gold Leaf/Circuitry\",\n    \"TX-04 Floral/Bone\",\"TX-05 Watercolor/Ink\",\"TX-06 Porcelain/Cracks\",\n    \"TX-07 Neon/Concrete\",\"TX-08 Silk/Smoke\",\"TX-09 Constellation/Void\",\n    \"TX-10 Marble/Moss\",\"TX-11 Origami/Paper\",\"TX-12 Feathers/Tar\",\n    \"TX-13 Gemstones/Rust\",\"TX-14 Lace/Steel\",\"TX-15 Fire/Ice\",\n    \"TX-16 Woodgrain/Chrome\",\"TX-17 Clouds/Maps\",\"TX-18 Sand/Mirrors\",\n    \"TX-19 Coral/Pearl\",\"TX-20 Oil Paint/Pixels\",\"TX-21 Leather/Amber\",\n    \"TX-22 Obsidian/Lightning\",\"TX-23 Tapestry/Thorns\",\"TX-24 Mercury/Moonlight\",\n    \"TX-25 Patina/Copper\",\"TX-26 Persian Tilework/Lapis Lazuli\",\"TX-27 Calligraphy/Saffron\",\n    \"TX-28 Honey/Sunlight\",\"TX-29 Wildflower Linen/Denim\",\"TX-30 Carnival Glass/Confetti\",\n    \"TX-31 Beeswax/Parchment\",\"TX-32 Terracotta/Olive Wood\"\n]\n\nscatter = [\n    \"SC-01 Floating Keys\",\"SC-02 Ribbons\",\"SC-03 Gears\",\"SC-04 Playing Cards\",\n    \"SC-05 Glass Shards\",\"SC-06 Ancient Books\",\"SC-07 Ladders\",\"SC-08 Empty Frames\",\n    \"SC-09 Chess Pieces\",\"SC-10 Strings/Marionette Lines\",\"SC-11 Eyes/Watching Orbs\",\n    \"SC-12 Scattered Coins\",\"SC-13 Dripping Candle Wax\",\"SC-14 Origami Birds\",\n    \"SC-15 Drifting Lanterns\",\"SC-16 Floating Rocks\",\"SC-17 Vines/Roots\",\n    \"SC-18 Bubbles/Orbs\",\"SC-19 Falling Leaves/Petals\",\"SC-20 Stars/Moons\",\n    \"SC-21 Migrating Butterflies\",\"SC-22 Floating Feathers\",\"SC-23 Spiraling Staircases\",\n    \"SC-24 Pomegranate Seeds\",\"SC-25 Rose Petals & Nightingales\",\"SC-26 Musical Notes\",\n    \"SC-27 Confetti & Streamers\",\"SC-28 Fireflies & Glowworms\",\"SC-29 Iridescent Soap Bubbles\",\n    \"SC-30 Scattered Wildflowers\",\"SC-31 Floating Balloons\",\"SC-32 Paper Airplanes\",\n    \"SC-33 Ripe Fruit & Berries\",\"SC-34 Dancing Silhouettes\",\"SC-35 Sparklers & Firework Trails\",\n    \"SC-36 Songbirds in Flight\",\"SC-37 Love Letters/Postcards\",\"SC-38 Spilled Wine/Overflowing Goblets\"\n]\n\n# EMOTIONS: Split into Light (Positive) and Others to enforce balance\nemotions_light = [\n    \"EM-01 Euphoria\",\"EM-02 Serenity\",\"EM-03 Vitality\",\"EM-04 Whimsy\",\"EM-05 Relief\",\n    \"EM-06 Wonder\",\"EM-07 Triumph\",\"EM-08 Tenderness\",\"EM-09 Mischief\",\"EM-10 Contentment\",\n    \"EM-11 Gratitude\",\"EM-12 Ecstasy\"\n]\nemotions_other = [\n    \"EM-13 Melancholy\",\"EM-14 Dread\",\"EM-15 Longing\",\"EM-16 Nostalgia\",\"EM-17 Awe\",\n    \"EM-18 Intimacy\",\"EM-19 Determination\",\"EM-20 Reverence\",\"EM-21 Defiance\",\n    \"EM-22 Courage\",\"EM-23 Pride\",\"EM-24 Compassion\"\n]\n\n# SYMBOLS: Split into Celebration and Others to enforce balance\nsymbols_celebration = [\n    \"SY-68 Wedding Canopy\",\"SY-69 Feast Table\",\"SY-70 Lantern Festival\",\n    \"SY-71 Maypole\",\"SY-72 Rainbow Bridge\",\"SY-73 Hearth Fire\",\n    \"SY-74 Love Letter\",\"SY-75 Cradle\",\"SY-76 Victory Wreath\",\n    \"SY-77 Wishing Well\",\"SY-78 Flying Kite\",\"SY-79 Music Box\",\n    \"SY-80 Friendship Bracelet\",\"SY-81 First Blossom\",\"SY-82 Lighthouse\",\n    \"SY-83 Shared Cup\",\"SY-84 Open Hand\",\"SY-85 Sunrise Gate\"\n]\nsymbols_other = [\n    \"SY-01 Ouroboros\",\"SY-02 Philosopher's Stone\",\"SY-03 Caduceus\",\"SY-04 Athanor\",\n    \"SY-05 Three Primes\",\"SY-06 Sphinx\",\"SY-07 Minotaur\",\"SY-08 Cerberus\",\n    \"SY-09 Pegasus\",\"SY-10 Hydra\",\"SY-11 Basilisk\",\"SY-12 Chimera\",\n    \"SY-13 Pandora's Box\",\"SY-14 Trojan Horse\",\"SY-15 Ariadne's Thread\",\n    \"SY-16 Golden Fleece\",\"SY-17 Sword in Stone\",\"SY-18 Holy Grail\",\n    \"SY-19 Tower of Babel\",\"SY-20 Ship of Theseus\",\"SY-21 Icarus's Wings\",\n    \"SY-22 Achilles' Heel\",\"SY-23 Glass Slipper\",\"SY-24 Spinning Wheel\",\n    \"SY-25 Magic Mirror\",\"SY-26 Enchanted Rose\",\"SY-27 Red Cloak\",\n    \"SY-28 Poisoned Apple\",\"SY-29 Breadcrumb Trail\",\"SY-30 Beanstalk\",\n    \"SY-31 Pied Piper's Flute\",\"SY-32 Golden Egg\",\"SY-33 Skull\",\n    \"SY-34 Hourglass\",\"SY-35 Half-Burned Candle\",\"SY-36 Wilting Bouquet\",\n    \"SY-37 Death's-Head Moth\",\"SY-38 Broken Crown\",\"SY-39 Stopped Clock\",\n    \"SY-40 Tree of Life\",\"SY-41 All-Seeing Eye\",\"SY-42 Mandala\",\n    \"SY-43 Lotus\",\"SY-44 Ankh\",\"SY-45 Halo/Nimbus\",\"SY-46 Jacob's Ladder\",\n    \"SY-47 Burning Bush\",\"SY-48 Dharma Wheel\",\"SY-49 Broken Column\",\n    \"SY-50 Cornucopia\",\"SY-51 Lyre of Orpheus\",\"SY-52 Masquerade Mask\",\n    \"SY-53 Comedy/Tragedy Masks\",\"SY-54 Scales of Justice\",\"SY-55 Heraldic Lion\",\n    \"SY-56 Compass Rose\",\"SY-57 Eclipse\",\"SY-58 Tidal Wave\",\n    \"SY-59 Aurora Borealis\",\"SY-60 Lightning-Struck Tree\",\"SY-61 Simurgh\",\n    \"SY-62 Faravahar\",\"SY-63 Eternal Flame of Atar\",\"SY-64 Cypress of Kashmar\",\n    \"SY-65 Zahhak's Shoulder Serpents\",\"SY-66 Derafsh Kaviani\",\"SY-67 Gate of All Nations\"\n]\n\n# --- SELECTION LOGIC ---\n\n# 1. Standard Categories: Pick 10 unique\nar_pick = random.sample(archetypes, 10)\ncn_pick = random.sample(concepts, 10)\nsl_pick = random.sample(surreal, 10)\ntx_pick = random.sample(textures, 10)\nsc_pick = random.sample(scatter, 10)\n\n# 2. Emotions: Enforce AT LEAST 4 Joyful/Light\n# Pick 4 strictly from Light\nem_joyful = random.sample(emotions_light, 4)\n# Combine remainder of Light + All Others for the remaining 6 slots\nem_pool_remaining = [e for e in emotions_light if e not in em_joyful] + emotions_other\nem_rest = random.sample(em_pool_remaining, 6)\nem_pick = em_joyful + em_rest\nrandom.shuffle(em_pick) # Shuffle so positive ones aren't always first\n\n# 3. Symbols: Enforce AT LEAST 2 Celebration/Fellowship\n# Pick 2 strictly from Celebration\nsy_celeb = random.sample(symbols_celebration, 2)\n# Combine remainder of Celebration + All Others for the remaining 8 slots\nsy_pool_remaining = [s for s in symbols_celebration if s not in sy_celeb] + symbols_other\nsy_rest = random.sample(sy_pool_remaining, 8)\nsy_pick = sy_celeb + sy_rest\nrandom.shuffle(sy_pick) # Shuffle so celebration ones aren't always first\n\nprint(\"=\" * 60)\nprint(\"RANDOM BATCH — 10 PROMPT BLUEPRINTS (Balanced & Unique)\")\nprint(\"=\" * 60)\nfor i in range(10):\n    print(f\"\\nCurrent batch {i+1:02d}: \"\n          f\"{ar_pick[i]} + {cn_pick[i]} + {sl_pick[i]} + \"\n          f\"{tx_pick[i]} + {sc_pick[i]} + {em_pick[i]} + {sy_pick[i]}\")\nprint(\"\\n\" + \"=\" * 60)\n```\n\n**🛑 STEP 2: WRITE THE PROMPTS**\nUsing **only** the 10 combinations output by the code above, write 10 crowded, surreal, maximalist prompts. Follow these rules:\n\n1.  **Symbol Integration:** The Symbol (`SY`) must be architecturally woven into the scene — not background decoration.\n2.  **Surreal Logic as Driver:** The Surreal Logic (`SL`) must be the primary engine of the scene's impossibility.\n3.  **Crowd the Frame:** The Scatter (`SC`) must fill the space. Empty space is failure.\n4.  **Honor the Randomness:** Embrace weird, unexpected combinations. A Chef + Entropy + Gravity Reversal + Ouroboros is a *gift*, not a problem. The stranger the pairing, the better the Dixit card.\n\n**📝 OUTPUT FORMAT:**\n```\n// [7 Codes exactly as output by the script]\nN. [Dense, maximalist prompt paragraph] in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background --ar 2:3 --niji 6\n```\n\nProceed: run the code, then write the 10 prompts."
+
+sendMessageRepeatedly(msg, n=40, sleep=60)
+#+end_example
+
+*** _
+#+BEGIN_SRC markdown
+Great. Please generate the **Next Batch of 10 Prompts**.
+
+,**🛑 PROTOCOL UPDATE: PLANNING & LOGGING**
+To ensure maximum variety, zero duplication, and full tonal range, you must follow this strict process:
+
+1.  **PLANNING PHASE:** Before writing any prompts, select 10 unique **7-code** combinations from the Matrix below. **Select these purely at random.** Do not try to make them "fit" logically. (e.g., If you pick "Lovers," do not automatically pick "Intimacy"—roll the dice).
+2.  **DEDUPLICATION:** Check your new selection against the **Cumulative Usage Log** from your previous message (if it exists). No individual code should appear more than twice across the full batch of 10. If it does, re-roll that slot.
+3.  **TONAL BALANCE CHECK:** Of the 10 prompts, ensure at least **4** use joyful/positive Emotional Tones (`EM-01` through `EM-12`) and at least **2** use dark/complex tones (`EM-13` through `EM-15`). The remainder should draw from the nuanced middle (`EM-16` through `EM-24`). Additionally, at least **2** prompts must feature a Celebration, Love & Fellowship Symbol (`SY-68` through `SY-85`). If your random selection doesn't meet this, re-roll the Emotion and/or Symbol slots until it does.
+4.  **GENERATION:** Write the 10 prompts based on these fixed codes.
+5.  **LOGGING:** At the very bottom of your response, print the **UPDATED NUMBERED CUMULATIVE LOG** (containing all previous codes + these 10 new ones).
+
+,**🔄 THE GENERATIVE MATRIX (v3.0 — Full Spectrum):**
+,*Select 1 from each category at random.*
+
+,**1. ARCHETYPE (The Anchor) — 55:**
+,*Makers & Seekers:* AR-01 Weaver | AR-02 Architect | AR-03 Gardener | AR-04 Alchemist | AR-05 Cartographer | AR-06 Clockmaker | AR-07 Scientist | AR-08 Inventor | AR-09 Artisan | AR-10 Chef
+,*Rulers & Guides:* AR-11 Monarch | AR-12 Guardian | AR-13 Vizier | AR-14 Shah | AR-15 Mentor | AR-16 Oracle | AR-17 Ferryman | AR-18 Librarian | AR-19 Therapist | AR-20 Elder
+,*Journeyers & Free Spirits:* AR-21 Traveler | AR-22 Dancer | AR-23 Fool | AR-24 Trickster | AR-25 Explorer | AR-26 Dreamer | AR-27 Musician | AR-28 Athlete | AR-29 Ninja | AR-30 Storyteller
+,*Heart & Hearth:* AR-31 Lovers | AR-32 Parent | AR-33 Child | AR-34 Friend | AR-35 Host | AR-36 Celebrant | AR-37 Beloved | AR-38 Twins | AR-39 Healer | AR-40 Matchmaker
+,*Shadow & Solitude:* AR-41 Hermit | AR-42 Shadow | AR-43 Prisoner | AR-44 Widow | AR-45 Vessel
+,*Transcendent:* AR-46 Phoenix | AR-47 Avatar | AR-48 Idol | AR-49 Giant | AR-50 Swarm | AR-51 Beast | AR-52 Mirror | AR-53 Rationalist | AR-54 Romantist | AR-55 Virgin
+
+,**2. CONCEPT (The Theme) — 45:**
+,*Growth & Becoming:* CN-01 Bloom | CN-02 Transformation | CN-03 Origin | CN-04 Resilience | CN-05 Healing | CN-06 Discovery | CN-07 Flight/Liberation
+,*Connection & Togetherness:* CN-08 Fusion/Union | CN-09 Friendship | CN-10 Belonging | CN-11 Tenderness | CN-12 Sensuality | CN-13 Intimacy | CN-14 Generosity
+,*Joy & Celebration:* CN-15 Celebration | CN-16 Play/Joy | CN-17 Humor | CN-18 Triumph | CN-19 Abundance | CN-20 Gratitude | CN-21 Wonder
+,*Stability & Shelter:* CN-22 Anchor/Safety | CN-23 Shelter/Home | CN-24 Balance | CN-25 Comfort | CN-26 Clarity/Epiphany
+,*Movement & Force:* CN-27 Resonance | CN-28 Gravity | CN-29 Velocity | CN-30 Ritual/Cycle
+,*Shadow & Depth:* CN-31 Entropy | CN-32 Silence | CN-33 Hunger/Desire | CN-34 Threshold | CN-35 Labyrinth | CN-36 Illusion | CN-37 Mystery | CN-38 Sacrifice | CN-39 Forbidden | CN-40 Abandonment | CN-41 Grotesque
+,*Time & Memory:* CN-42 Memory/Nostalgia | CN-43 Inheritance | CN-44 Innocence | CN-45 Forgiveness
+
+,**3. SURREAL LOGIC (The Twist — MANDATORY) — 35:**
+SL-01 Scale Inversion | SL-02 Material Transmutation | SL-03 Gravity Reversal | SL-04 Object Personification | SL-05 Literal Metaphor | SL-06 Portal Displacement | SL-07 Anatomical Impossibility | SL-08 Flora/Fauna Fusion | SL-09 Architecture/Nature Fusion | SL-10 Celestial Descent | SL-11 Fluid Solidity | SL-12 Solid Liquidity | SL-13 Infinite Recursion | SL-14 Time Collapse | SL-15 Invisible Presence | SL-16 Displacement | SL-17 Gigantism | SL-18 Containment | SL-19 Synesthesia | SL-20 Shadow Autonomy | SL-21 Sky Replacement | SL-22 Fragmentation | SL-23 Levitation | SL-24 Mechanical Nature | SL-25 Soft Sculpture | SL-26 Inside-Out | SL-27 Duplication | SL-28 Facelessness | SL-29 Dream Logic | SL-30 Weather Containment | SL-31 Edible Architecture | SL-32 Musical Materialization | SL-33 Emotional Weather | SL-34 Memory Projection | SL-35 Toy Transmutation
+
+,**4. TEXTURE PALETTE (The Look) — 32:**
+TX-01 Stained Glass/Magma | TX-02 Velvet/Ash | TX-03 Gold Leaf/Circuitry | TX-04 Floral/Bone | TX-05 Watercolor/Ink | TX-06 Porcelain/Cracks | TX-07 Neon/Concrete | TX-08 Silk/Smoke | TX-09 Constellation/Void | TX-10 Marble/Moss | TX-11 Origami/Paper | TX-12 Feathers/Tar | TX-13 Gemstones/Rust | TX-14 Lace/Steel | TX-15 Fire/Ice | TX-16 Woodgrain/Chrome | TX-17 Clouds/Maps | TX-18 Sand/Mirrors | TX-19 Coral/Pearl | TX-20 Oil Paint/Pixels | TX-21 Leather/Amber | TX-22 Obsidian/Lightning | TX-23 Tapestry/Thorns | TX-24 Mercury/Moonlight | TX-25 Patina/Copper | TX-26 Persian Tilework/Lapis Lazuli | TX-27 Calligraphy/Saffron | TX-28 Honey/Sunlight | TX-29 Wildflower Linen/Denim | TX-30 Carnival Glass/Confetti | TX-31 Beeswax/Parchment | TX-32 Terracotta/Olive Wood
+
+,**5. SCATTER (The Crowd — MANDATORY) — 38:**
+,*Mystery & Shadow:* SC-01 Floating Keys | SC-02 Ribbons | SC-03 Gears | SC-04 Playing Cards | SC-05 Glass Shards | SC-06 Ancient Books | SC-07 Ladders | SC-08 Empty Frames | SC-09 Chess Pieces | SC-10 Strings/Marionette Lines | SC-11 Eyes/Watching Orbs | SC-12 Scattered Coins | SC-13 Dripping Candle Wax
+,*Nature & Wonder:* SC-14 Origami Birds | SC-15 Drifting Lanterns | SC-16 Floating Rocks | SC-17 Vines/Roots | SC-18 Bubbles/Orbs | SC-19 Falling Leaves/Petals | SC-20 Stars/Moons | SC-21 Migrating Butterflies | SC-22 Floating Feathers | SC-23 Spiraling Staircases | SC-24 Pomegranate Seeds | SC-25 Rose Petals & Nightingales | SC-26 Musical Notes
+,*Joy & Celebration:* SC-27 Confetti & Streamers | SC-28 Fireflies & Glowworms | SC-29 Iridescent Soap Bubbles | SC-30 Scattered Wildflowers | SC-31 Floating Balloons | SC-32 Paper Airplanes | SC-33 Ripe Fruit & Berries | SC-34 Dancing Silhouettes | SC-35 Sparklers & Firework Trails | SC-36 Songbirds in Flight | SC-37 Love Letters/Postcards | SC-38 Spilled Wine/Overflowing Goblets
+
+,**6. EMOTION — 24:**
+,*The Light:* EM-01 Euphoria | EM-02 Serenity | EM-03 Vitality | EM-04 Whimsy | EM-05 Relief | EM-06 Wonder | EM-07 Triumph | EM-08 Tenderness | EM-09 Mischief | EM-10 Contentment | EM-11 Gratitude | EM-12 Ecstasy
+,*The Dark:* EM-13 Melancholy | EM-14 Dread | EM-15 Longing
+,*The Complex:* EM-16 Nostalgia | EM-17 Awe | EM-18 Intimacy | EM-19 Determination | EM-20 Reverence | EM-21 Defiance | EM-22 Courage | EM-23 Pride | EM-24 Compassion
+
+,**7. SYMBOL (The Emblem — MANDATORY) — 85:**
+,*Alchemical:* SY-01 Ouroboros | SY-02 Philosopher's Stone | SY-03 Caduceus | SY-04 Athanor | SY-05 Three Primes
+,*Mythological Creatures:* SY-06 Sphinx | SY-07 Minotaur | SY-08 Cerberus | SY-09 Pegasus | SY-10 Hydra | SY-11 Basilisk | SY-12 Chimera
+,*Mythological & Literary Objects:* SY-13 Pandora's Box | SY-14 Trojan Horse | SY-15 Ariadne's Thread | SY-16 Golden Fleece | SY-17 Sword in Stone | SY-18 Holy Grail | SY-19 Tower of Babel | SY-20 Ship of Theseus | SY-21 Icarus's Wings | SY-22 Achilles' Heel
+,*Fairy Tale & Folklore:* SY-23 Glass Slipper | SY-24 Spinning Wheel | SY-25 Magic Mirror | SY-26 Enchanted Rose | SY-27 Red Cloak | SY-28 Poisoned Apple | SY-29 Breadcrumb Trail | SY-30 Beanstalk | SY-31 Pied Piper's Flute | SY-32 Golden Egg
+,*Memento Mori & Vanitas:* SY-33 Skull | SY-34 Hourglass | SY-35 Half-Burned Candle | SY-36 Wilting Bouquet | SY-37 Death's-Head Moth | SY-38 Broken Crown | SY-39 Stopped Clock
+,*Religious & Spiritual:* SY-40 Tree of Life | SY-41 All-Seeing Eye | SY-42 Mandala | SY-43 Lotus | SY-44 Ankh | SY-45 Halo/Nimbus | SY-46 Jacob's Ladder | SY-47 Burning Bush | SY-48 Dharma Wheel
+,*Heraldic & Classical:* SY-49 Broken Column | SY-50 Cornucopia | SY-51 Lyre of Orpheus | SY-52 Masquerade Mask | SY-53 Comedy/Tragedy Masks | SY-54 Scales of Justice | SY-55 Heraldic Lion | SY-56 Compass Rose
+,*Natural Phenomena:* SY-57 Eclipse | SY-58 Tidal Wave | SY-59 Aurora Borealis | SY-60 Lightning-Struck Tree
+,*Persian & Zoroastrian:* SY-61 Simurgh | SY-62 Faravahar | SY-63 Eternal Flame of Atar | SY-64 Cypress of Kashmar | SY-65 Zahhak's Shoulder Serpents | SY-66 Derafsh Kaviani | SY-67 Gate of All Nations
+,*Celebration, Love & Fellowship:* SY-68 Wedding Canopy | SY-69 Feast Table | SY-70 Lantern Festival | SY-71 Maypole | SY-72 Rainbow Bridge | SY-73 Hearth Fire | SY-74 Love Letter | SY-75 Cradle | SY-76 Victory Wreath | SY-77 Wishing Well | SY-78 Flying Kite | SY-79 Music Box | SY-80 Friendship Bracelet | SY-81 First Blossom | SY-82 Lighthouse | SY-83 Shared Cup | SY-84 Open Hand | SY-85 Sunrise Gate
+
+,**📝 OUTPUT FORMAT:**
+1.  **Planning Block:** List the 10 selected 7-code combinations first.
+2.  **Tonal Audit:** Briefly confirm the batch meets the Tonal Balance Check (≥4 Light emotions, ≥2 Dark emotions, ≥2 Celebration/Love/Fellowship symbols).
+3.  **Prompts:**
+    `// [7 Codes with names]`
+    `N. [Long, crowded description] + [Style Suffix]`
+4.  **Cumulative Log:**
+    ```
+    [NUMBERED List of ALL used 7-code strings from Batch 1 to Now]
+    ```
+
+,**MANDATORY STYLE SUFFIX:**
+`in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background --ar 2:3 --niji 6`
+
+Proceed.
+#+END_SRC
+
+#+begin_example js
+msg = "Great. Please generate the **Next Batch of 10 Prompts**.\n\n**🛑 PROTOCOL UPDATE: PLANNING & LOGGING**\nTo ensure maximum variety, zero duplication, and full tonal range, you must follow this strict process:\n\n1.  **PLANNING PHASE:** Before writing any prompts, select 10 unique **7-code** combinations from the Matrix below. **Select these purely at random.** Do not try to make them \"fit\" logically. (e.g., If you pick \"Lovers,\" do not automatically pick \"Intimacy\"—roll the dice).\n2.  **DEDUPLICATION:** Check your new selection against the **Cumulative Usage Log** from your previous message (if it exists). No individual code should appear more than twice across the full batch of 10. If it does, re-roll that slot.\n3.  **TONAL BALANCE CHECK:** Of the 10 prompts, ensure at least **4** use joyful/positive Emotional Tones (`EM-01` through `EM-12`) and at least **2** use dark/complex tones (`EM-13` through `EM-15`). The remainder should draw from the nuanced middle (`EM-16` through `EM-24`). Additionally, at least **2** prompts must feature a Celebration, Love & Fellowship Symbol (`SY-68` through `SY-85`). If your random selection doesn't meet this, re-roll the Emotion and/or Symbol slots until it does.\n4.  **GENERATION:** Write the 10 prompts based on these fixed codes.\n5.  **LOGGING:** At the very bottom of your response, print the **UPDATED NUMBERED CUMULATIVE LOG** (containing all previous codes + these 10 new ones).\n\n**🔄 THE GENERATIVE MATRIX (v3.0 — Full Spectrum):**\n*Select 1 from each category at random.*\n\n**1. ARCHETYPE (The Anchor) — 55:**\n*Makers & Seekers:* AR-01 Weaver | AR-02 Architect | AR-03 Gardener | AR-04 Alchemist | AR-05 Cartographer | AR-06 Clockmaker | AR-07 Scientist | AR-08 Inventor | AR-09 Artisan | AR-10 Chef\n*Rulers & Guides:* AR-11 Monarch | AR-12 Guardian | AR-13 Vizier | AR-14 Shah | AR-15 Mentor | AR-16 Oracle | AR-17 Ferryman | AR-18 Librarian | AR-19 Therapist | AR-20 Elder\n*Journeyers & Free Spirits:* AR-21 Traveler | AR-22 Dancer | AR-23 Fool | AR-24 Trickster | AR-25 Explorer | AR-26 Dreamer | AR-27 Musician | AR-28 Athlete | AR-29 Ninja | AR-30 Storyteller\n*Heart & Hearth:* AR-31 Lovers | AR-32 Parent | AR-33 Child | AR-34 Friend | AR-35 Host | AR-36 Celebrant | AR-37 Beloved | AR-38 Twins | AR-39 Healer | AR-40 Matchmaker\n*Shadow & Solitude:* AR-41 Hermit | AR-42 Shadow | AR-43 Prisoner | AR-44 Widow | AR-45 Vessel\n*Transcendent:* AR-46 Phoenix | AR-47 Avatar | AR-48 Idol | AR-49 Giant | AR-50 Swarm | AR-51 Beast | AR-52 Mirror | AR-53 Rationalist | AR-54 Romantist | AR-55 Virgin\n\n**2. CONCEPT (The Theme) — 45:**\n*Growth & Becoming:* CN-01 Bloom | CN-02 Transformation | CN-03 Origin | CN-04 Resilience | CN-05 Healing | CN-06 Discovery | CN-07 Flight/Liberation\n*Connection & Togetherness:* CN-08 Fusion/Union | CN-09 Friendship | CN-10 Belonging | CN-11 Tenderness | CN-12 Sensuality | CN-13 Intimacy | CN-14 Generosity\n*Joy & Celebration:* CN-15 Celebration | CN-16 Play/Joy | CN-17 Humor | CN-18 Triumph | CN-19 Abundance | CN-20 Gratitude | CN-21 Wonder\n*Stability & Shelter:* CN-22 Anchor/Safety | CN-23 Shelter/Home | CN-24 Balance | CN-25 Comfort | CN-26 Clarity/Epiphany\n*Movement & Force:* CN-27 Resonance | CN-28 Gravity | CN-29 Velocity | CN-30 Ritual/Cycle\n*Shadow & Depth:* CN-31 Entropy | CN-32 Silence | CN-33 Hunger/Desire | CN-34 Threshold | CN-35 Labyrinth | CN-36 Illusion | CN-37 Mystery | CN-38 Sacrifice | CN-39 Forbidden | CN-40 Abandonment | CN-41 Grotesque\n*Time & Memory:* CN-42 Memory/Nostalgia | CN-43 Inheritance | CN-44 Innocence | CN-45 Forgiveness\n\n**3. SURREAL LOGIC (The Twist — MANDATORY) — 35:**\nSL-01 Scale Inversion | SL-02 Material Transmutation | SL-03 Gravity Reversal | SL-04 Object Personification | SL-05 Literal Metaphor | SL-06 Portal Displacement | SL-07 Anatomical Impossibility | SL-08 Flora/Fauna Fusion | SL-09 Architecture/Nature Fusion | SL-10 Celestial Descent | SL-11 Fluid Solidity | SL-12 Solid Liquidity | SL-13 Infinite Recursion | SL-14 Time Collapse | SL-15 Invisible Presence | SL-16 Displacement | SL-17 Gigantism | SL-18 Containment | SL-19 Synesthesia | SL-20 Shadow Autonomy | SL-21 Sky Replacement | SL-22 Fragmentation | SL-23 Levitation | SL-24 Mechanical Nature | SL-25 Soft Sculpture | SL-26 Inside-Out | SL-27 Duplication | SL-28 Facelessness | SL-29 Dream Logic | SL-30 Weather Containment | SL-31 Edible Architecture | SL-32 Musical Materialization | SL-33 Emotional Weather | SL-34 Memory Projection | SL-35 Toy Transmutation\n\n**4. TEXTURE PALETTE (The Look) — 32:**\nTX-01 Stained Glass/Magma | TX-02 Velvet/Ash | TX-03 Gold Leaf/Circuitry | TX-04 Floral/Bone | TX-05 Watercolor/Ink | TX-06 Porcelain/Cracks | TX-07 Neon/Concrete | TX-08 Silk/Smoke | TX-09 Constellation/Void | TX-10 Marble/Moss | TX-11 Origami/Paper | TX-12 Feathers/Tar | TX-13 Gemstones/Rust | TX-14 Lace/Steel | TX-15 Fire/Ice | TX-16 Woodgrain/Chrome | TX-17 Clouds/Maps | TX-18 Sand/Mirrors | TX-19 Coral/Pearl | TX-20 Oil Paint/Pixels | TX-21 Leather/Amber | TX-22 Obsidian/Lightning | TX-23 Tapestry/Thorns | TX-24 Mercury/Moonlight | TX-25 Patina/Copper | TX-26 Persian Tilework/Lapis Lazuli | TX-27 Calligraphy/Saffron | TX-28 Honey/Sunlight | TX-29 Wildflower Linen/Denim | TX-30 Carnival Glass/Confetti | TX-31 Beeswax/Parchment | TX-32 Terracotta/Olive Wood\n\n**5. SCATTER (The Crowd — MANDATORY) — 38:**\n*Mystery & Shadow:* SC-01 Floating Keys | SC-02 Ribbons | SC-03 Gears | SC-04 Playing Cards | SC-05 Glass Shards | SC-06 Ancient Books | SC-07 Ladders | SC-08 Empty Frames | SC-09 Chess Pieces | SC-10 Strings/Marionette Lines | SC-11 Eyes/Watching Orbs | SC-12 Scattered Coins | SC-13 Dripping Candle Wax\n*Nature & Wonder:* SC-14 Origami Birds | SC-15 Drifting Lanterns | SC-16 Floating Rocks | SC-17 Vines/Roots | SC-18 Bubbles/Orbs | SC-19 Falling Leaves/Petals | SC-20 Stars/Moons | SC-21 Migrating Butterflies | SC-22 Floating Feathers | SC-23 Spiraling Staircases | SC-24 Pomegranate Seeds | SC-25 Rose Petals & Nightingales | SC-26 Musical Notes\n*Joy & Celebration:* SC-27 Confetti & Streamers | SC-28 Fireflies & Glowworms | SC-29 Iridescent Soap Bubbles | SC-30 Scattered Wildflowers | SC-31 Floating Balloons | SC-32 Paper Airplanes | SC-33 Ripe Fruit & Berries | SC-34 Dancing Silhouettes | SC-35 Sparklers & Firework Trails | SC-36 Songbirds in Flight | SC-37 Love Letters/Postcards | SC-38 Spilled Wine/Overflowing Goblets\n\n**6. EMOTION — 24:**\n*The Light:* EM-01 Euphoria | EM-02 Serenity | EM-03 Vitality | EM-04 Whimsy | EM-05 Relief | EM-06 Wonder | EM-07 Triumph | EM-08 Tenderness | EM-09 Mischief | EM-10 Contentment | EM-11 Gratitude | EM-12 Ecstasy\n*The Dark:* EM-13 Melancholy | EM-14 Dread | EM-15 Longing\n*The Complex:* EM-16 Nostalgia | EM-17 Awe | EM-18 Intimacy | EM-19 Determination | EM-20 Reverence | EM-21 Defiance | EM-22 Courage | EM-23 Pride | EM-24 Compassion\n\n**7. SYMBOL (The Emblem — MANDATORY) — 85:**\n*Alchemical:* SY-01 Ouroboros | SY-02 Philosopher's Stone | SY-03 Caduceus | SY-04 Athanor | SY-05 Three Primes\n*Mythological Creatures:* SY-06 Sphinx | SY-07 Minotaur | SY-08 Cerberus | SY-09 Pegasus | SY-10 Hydra | SY-11 Basilisk | SY-12 Chimera\n*Mythological & Literary Objects:* SY-13 Pandora's Box | SY-14 Trojan Horse | SY-15 Ariadne's Thread | SY-16 Golden Fleece | SY-17 Sword in Stone | SY-18 Holy Grail | SY-19 Tower of Babel | SY-20 Ship of Theseus | SY-21 Icarus's Wings | SY-22 Achilles' Heel\n*Fairy Tale & Folklore:* SY-23 Glass Slipper | SY-24 Spinning Wheel | SY-25 Magic Mirror | SY-26 Enchanted Rose | SY-27 Red Cloak | SY-28 Poisoned Apple | SY-29 Breadcrumb Trail | SY-30 Beanstalk | SY-31 Pied Piper's Flute | SY-32 Golden Egg\n*Memento Mori & Vanitas:* SY-33 Skull | SY-34 Hourglass | SY-35 Half-Burned Candle | SY-36 Wilting Bouquet | SY-37 Death's-Head Moth | SY-38 Broken Crown | SY-39 Stopped Clock\n*Religious & Spiritual:* SY-40 Tree of Life | SY-41 All-Seeing Eye | SY-42 Mandala | SY-43 Lotus | SY-44 Ankh | SY-45 Halo/Nimbus | SY-46 Jacob's Ladder | SY-47 Burning Bush | SY-48 Dharma Wheel\n*Heraldic & Classical:* SY-49 Broken Column | SY-50 Cornucopia | SY-51 Lyre of Orpheus | SY-52 Masquerade Mask | SY-53 Comedy/Tragedy Masks | SY-54 Scales of Justice | SY-55 Heraldic Lion | SY-56 Compass Rose\n*Natural Phenomena:* SY-57 Eclipse | SY-58 Tidal Wave | SY-59 Aurora Borealis | SY-60 Lightning-Struck Tree\n*Persian & Zoroastrian:* SY-61 Simurgh | SY-62 Faravahar | SY-63 Eternal Flame of Atar | SY-64 Cypress of Kashmar | SY-65 Zahhak's Shoulder Serpents | SY-66 Derafsh Kaviani | SY-67 Gate of All Nations\n*Celebration, Love & Fellowship:* SY-68 Wedding Canopy | SY-69 Feast Table | SY-70 Lantern Festival | SY-71 Maypole | SY-72 Rainbow Bridge | SY-73 Hearth Fire | SY-74 Love Letter | SY-75 Cradle | SY-76 Victory Wreath | SY-77 Wishing Well | SY-78 Flying Kite | SY-79 Music Box | SY-80 Friendship Bracelet | SY-81 First Blossom | SY-82 Lighthouse | SY-83 Shared Cup | SY-84 Open Hand | SY-85 Sunrise Gate\n\n**📝 OUTPUT FORMAT:**\n1.  **Planning Block:** List the 10 selected 7-code combinations first.\n2.  **Tonal Audit:** Briefly confirm the batch meets the Tonal Balance Check (≥4 Light emotions, ≥2 Dark emotions, ≥2 Celebration/Love/Fellowship symbols).\n3.  **Prompts:**\n    `// [7 Codes with names]`\n    `N. [Long, crowded description] + [Style Suffix]`\n4.  **Cumulative Log:**\n    ```\n    [NUMBERED List of ALL used 7-code strings from Batch 1 to Now]\n    ```\n\n**MANDATORY STYLE SUFFIX:**\n`in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background --ar 2:3 --niji 6`\n\nProceed."
+
+sendMessageRepeatedly(msg, n=40, sleep=60)
+#+end_example
+

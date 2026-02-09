@@ -8,8 +8,46 @@ The continue prompt must not hardcode the batch number.
 #+END_SRC
 
 #+BEGIN_SRC markdown
+Adapt the continue step for this agent:
+#+END_SRC
+
+#+BEGIN_SRC markdown
 Put it in 
 ```
 sendMessageRepeatedly("", n=180, sleep=100,)
 ```
+#+END_SRC
+
+** randomization
+#+BEGIN_SRC markdown
+Give a new continue step prompt that explicitly uses Python code to output the 10 random choices from the matrix. Because it is random, there is no need to maintain any cumulative log or any checking, etc. It's completely random, so it's a much easier strategy.
+
+Adjust the code so no element is chosen twice in each batch.
+#+END_SRC
+
+#+BEGIN_SRC markdown
+This continue step doesn't randomize the matrix elements before the generation, so the chosen elements pattern match together. we need to fix this, you know. For example, for lovers, this current continue prompt almost always chooses intimacy. But we want this to be random for all the matrix elements. That's the whole reason we have designed the matrix, to increase the variety and creativity. 
+
+You can keep a log of all the chosen matrix combinations at the end, a cumulative log at the end of each message after the ten prompts. And when we want to create the next batch, you know, the model should first plan and choose the combinations and check them against the cumulative log. And after choosing the ten matrix elements for the ten prompts, then generate the prompts.
+#+END_SRC
+
+* matrix
+#+BEGIN_SRC markdown
+further expand the matrix, especially the elements, you know, currently we are using the tarot elements. I think we can expand this part by a lot by adding other iconic symbols. 
+#+END_SRC
+
+#+BEGIN_SRC markdown
+Expand the matrix by some Persian culture elements and symbolism, because you know we are Iranians.  keep the additions a few. I don't want them to dominate the deck. Just a few, you know, iconic Portion elements in the matrix. Also, so don't have anything Islamic in there  but Zoroastrianism is fine. 
+#+END_SRC
+
+#+BEGIN_SRC markdown
+Don't generate anything. You shouldn't have generated any batches now. We are just refining the prompt. You know, just give me the final updated prompt for the agent.
+#+END_SRC
+
+** positive
+:PROPERTIES:
+:ID:       214b0ed3-e661-46ac-9776-1d56432c0b59
+:END:
+#+BEGIN_SRC markdown
+Our current agent prompt is too dark, you know. I want the prompt to encompass the whole human experience and actually be full of joyful and positive adult experiences, not just the negative one. I want both the negative and the positive.
 #+END_SRC
