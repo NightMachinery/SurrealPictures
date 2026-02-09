@@ -209,3 +209,8 @@ Yes, these are good enough. Before beginning, can you expand the scatter in the 
 And now that everything is ready, write your execution loop into loop.md. I will restart you and tell you to execute based on this file.
 ```
 #+END_SRC
+
+** Easter Eggs
+#+BEGIN_SRC markdown
+Add an Easter eggs category for you know to be able to add Easter eggs support fractional floats for the number that we want to sample per prompt and when it's a float you know probabilistically decide how many of the prompts you know will have one of this category and for the Easter eggs I want you to you know generate a list of Easter egg you know I want you to put generic categories of popular culture of modern Gen Z popular culture things like Harry Potter Disney cartoons Pixar Dreamworks Coraline you know the modern popular culture put it in there and in the look.md emphasize that because these works are copyrighted the agent must manually think of an Easter egg that would remind the viewer of that franchise without explicitly you know mentioning that franchise and yeah thanks 
+#+END_SRC
