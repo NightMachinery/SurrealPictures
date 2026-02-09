@@ -214,3 +214,31 @@ And now that everything is ready, write your execution loop into loop.md. I will
 #+BEGIN_SRC markdown
 Add an Easter eggs category for you know to be able to add Easter eggs support fractional floats for the number that we want to sample per prompt and when it's a float you know probabilistically decide how many of the prompts you know will have one of this category and for the Easter eggs I want you to you know generate a list of Easter egg you know I want you to put generic categories of popular culture of modern Gen Z popular culture things like Harry Potter Disney cartoons Pixar Dreamworks Coraline you know the modern popular culture put it in there and in the look.md emphasize that because these works are copyrighted the agent must manually think of an Easter egg that would remind the viewer of that franchise without explicitly you know mentioning that franchise and yeah thanks 
 #+END_SRC
+
+** _
+#+begin_verse
+please fill all batches without pausing in between
+#+end_verse
+
+** _
+#+begin_src zsh :eval never
+for b in $(seq 1 40); do
+  mod=$((b%10))
+  if [ $mod -eq 6 ]; then
+    python3 matrix_generator.py --se 2 --cp 2 > "prompts/${b}.matrix"
+  elif [ $mod -eq 7 ]; then
+    python3 matrix_generator.py --sy 2.3 --sc 2.4 > "prompts/${b}.matrix"
+  elif [ $mod -eq 8 ]; then
+    python3 matrix_generator.py --cn 0 --se 1.5 --cp 1.5 > "prompts/${b}.matrix"
+  elif [ $mod -eq 9 ]; then
+    python3 matrix_generator.py --ee 0.6 --se 1.3 > "prompts/${b}.matrix"
+  elif [ $mod -eq 0 ]; then
+    python3 matrix_generator.py --sl 1.8 --tx 1.5 --em 1.2 > "prompts/${b}.matrix"
+  else
+    python3 matrix_generator.py > "prompts/${b}.matrix"
+  fi
+done
+
+for b in $(seq 1 40); do printf "%s %s'"\\n" ""'$b" "$(wc -l < prompts/${b}.matrix)"; done | awk '$2!=10{print}'
+#+end_src
+

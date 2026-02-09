@@ -2,6 +2,8 @@
 
 This workflow generates **400 unique, high-detail, ambiguous prompts** using `matrix_generator.py` as blueprint input, while the final prose remains **manually authored** (human touch, no auto prompt-writer script).
 
+By manual, I mean you will write it. You're the human prompt author.
+
 ---
 
 ## 1) Core Creative Rules
