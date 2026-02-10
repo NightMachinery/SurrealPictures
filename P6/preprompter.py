@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+##
+#: * @usage
+#: ** `redo2 20 python preprompter.py`
+##
 from __future__ import annotations
 
 import argparse

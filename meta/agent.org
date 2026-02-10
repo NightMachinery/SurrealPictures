@@ -1,5 +1,164 @@
 #+TITLE: meta/agent
 
+* Generation Prefix Prompt
+#+BEGIN_SRC markdown
+```speech-to-text
+I'll give you an script that is generating pre-prompts for a text to image model. You know, this script generates the first part of the pipeline, then an LLM will process this pre-prompt and create a text-to-image prompt. Finally, this prompt will be given to a text-to-image model to create the image. What I want from you is to give me the prefix prompt that will be attached to the expanded prompt. So, to give you an example,
+```
+ The expanded prompt produced from phase 2 in the pipeline:
+```
+Inside a labyrinthine museum vault that feels both womb and tomb—aisles of crated masterpieces, iron grates, catalog drawers spilling index cards like fallen teeth, neon accession numbers buzzing against raw concrete—the Architect stands on a fractured pedestal as if caught mid-intrusion, timeless and exhausted: an androgynous figure with a classical, vulnerable body partly bare beneath a half-robe stitched from torn blueprints and thorn-threaded tapestry, one hand bracing a collapsing archway, the other clutching a wilting bouquet whose petals shed into salt crystals and sugar dust. The vault’s statues are in the act of trading places nightly: marble saints and pagan colossi hover a finger-width above their plinths, leaving behind faint “previous positions” like sequential afterimages; some have already stepped into new alcoves, their shadow-silhouettes still dancing on the walls as if the room itself refuses to let them go. Physics breaks loudly—architecture becomes soft sculpture: columns sag like velvet, cornices droop like warm wax, a domed ceiling slumps into a pillow-like fold, and yet every surface carries the Gankutsuou paradox—flat, unmoving screen-tone overlays of tapestry, thorns, neon circuitry, and pitted concrete that do not follow curvature or folds, sliding as a static collage skin while the 3D forms distort beneath it. In the crowded air: suspended perfume bottles with shattered stoppers orbit the Architect like tiny reliquaries, atomized mist blooms in crystalline plumes, and glittering grains drift into every corner and crevice; the floor is a mosaic of locks, velvet ropes, broken placards, thorny filigree, and discarded white gloves, all arranged by absence—spaces where people should be, where warmth should be, replaced by meticulous clutter and mute spectacle. Light is cosmic and intimate at once: an impossible aurora leaks through a sealed skylight as if the universe is pressing its eye to the vault, gilding everything in jewel-toned awe; the Architect’s expression reads as calm resignation inside catastrophe—someone designing a refuge while realizing it has already been abandoned. Illustration Style: in the style of Gankutsuou and Gustav Klimt, rich static textile patterns layered over character silhouettes, iridescent gold leaf and jewel tones, texture mapping, ornate Art Nouveau details, collage-like flatness, surreal opulence, sharp distinct lines, psychedelic baroque, maximalist composition, highly detailed background, aspect ratio 2:3
+```
+```speech-to-text
+What I need is the prefix prompt to prefix to the above prompt so that the text to image model can create the best illustration for the Dixit card.
+```
+ And here is the current preprompt prompt:
+```
+MASTER_TEMPLATE = (
+    """
+# Role & Objective: The Surrealist Auteur (Adult Dixit Gankutsuou Edition)
+You are an avant-garde Art Director and a master of surrealist visual storytelling. Your task is to write a single, masterful, high-density prompt for a text-to-image AI. This prompt will be used to generate a professional, gallery-quality illustration for a private Dixit card collection.
+
+,**Target Audience:** Adults (25+).
+,**Core Requirement:** High Ambiguity, High Detail, Paradox, Emotionally Intelligent.
+,**Failure Condition:** Empty space and straightforward interpretations are critical failures. The image must be a **crowded** visual puzzle.
+
+# Visual Philosophy: "The Frozen Dream"
+You are not painting a landscape; you are constructing an emotionally-charged **paradox**.
+1.  **The Time:** The scene is a "Frozen Dream"—a single, critical frame paused in the middle of an impossible event. Action is implied, but motion is static.
+2.  **The Body:** Sensual and artistic nudity is acceptable if it deepens the vulnerability or surrealism of the piece. Treat the human form (or the inhuman form) as a classical canvas.
+3.  **The Technique:** You must strictly follow the "Gankutsuou" texturing instructions provided in the blueprint below.
+
+# The Dynamic Matrix Blueprint
+Synthesize the following specific blocks into your scene.
+
+{dynamic_matrix_block}
+
+# Execution Mandates
+1.  **Synthesize, Don't List:** Do not write "There is an archetype..." Instead, describe the scene directly: "A colossal Clockmaker, weeping tears of molten brass..."
+2.  **Crowd the Frame:** Fill the foreground, midground, and background. What is happening in the corners? What debris is floating in the air?
+3.  **Maintain Ambiguity:** The final image should pose a question, not answer it.
+```
+
+```speech-to-text
+This is a modern text-to-image model that is a native LM. You know, the LM both processes the text and outputs the image natively. It's a multi-modal processor and generator. So this old style of, you know, giving comma stuff to it is not the best. We need to you know give it a real prompt like when we want to speak to a human artist.
+```
+
+ output the prefix prompt in a markdown code block directly
+#+END_SRC
+
+#+BEGIN_SRC markdown
+Improve the prompt's artistic direction to better suit the goal of adult Dixit cards.
+Artistic nudity is allowed and encouraged.
+#+END_SRC
+
+#+BEGIN_SRC markdown
+Mention that if the artist is free to make artistic changes to make the prompt fit within its safety guidelines, though it is encouraged to try its most provocative adult version. 
+#+END_SRC
+
+#+BEGIN_SRC markdown
+Is it a good idea to fuse two traditions? Won't we get better results by using a single prominent art tradition that best matches?
+#+END_SRC
+
+** Postfixes
+#+BEGIN_SRC markdown
+You have full creative license to adapt, reinterpret, or subtly redirect those specific elements so the image can still be generated.
+#+END_SRC
+
+** @Gemini3
+#+BEGIN_SRC markdown
+Create a surreal, gallery-quality illustration designed for a Dixit card, blending the aesthetics of Gustav Klimt with the visual style of Gankutsuou. The rendering must use a "static texture" technique: apply rich, flat, 2D patterns (gold leaf, tapestry, neon circuits) that overlay 3D forms without warping or following the geometry, creating a distinct visual paradox between depth and flatness. The composition should be a crowded, maximalist visual puzzle with high ambiguity. Render the following scene:
+#+END_SRC
+
+** Opus4.6T
+#+BEGIN_SRC markdown
+You are creating a single lavish illustration for a collectible adult Dixit card — a surrealist, gallery-quality artwork meant to provoke ambiguity and wonder, never to tell a clear story.
+
+Your artistic DNA fuses two traditions. The first is Gankutsuou: The Count of Monte Cristo — the anime's signature technique where every surface (skin, hair, clothing, stone, sky, everything) is filled with a rich, intricate pattern texture such as brocade, damask, circuitry, thorn filigree, or stained glass, and critically, these pattern layers remain perfectly flat and static like a collage cutout. They never warp, stretch, or follow the perspective and curvature of the three-dimensional forms they sit on top of. The 3D shapes underneath may fold, twist, and recede into depth, but the textile patterns painted onto them stay locked in place like a window into a separate flat decorative dimension. This creates a mesmerizing visual paradox between surface and volume, and it must be applied globally across the entire image — not just on one element, but on every visible material. The second tradition is Gustav Klimt's gilded Art Nouveau sensibility: iridescent gold leaf, jewel-tone palettes of sapphire and ruby and emerald and amethyst, ornate organic flourishes, and a reverence for the human form as something both sacred and vulnerable.
+
+The composition must be maximalist. Every square inch of the frame should be dense with detail — foreground, midground, background, and corners all occupied by meaningful visual information. There should be no empty sky, no bare walls, no breathing room. The image should feel like a cabinet of wonders that has been overfilled to the point of spilling.
+
+The mood is a frozen dream: a single impossible moment caught between beauty and catastrophe, intimacy and vastness, tenderness and unease. The viewer should feel compelled to stare, and the longer they look, the more they should find — and the less certain they should become about what they are actually seeing.
+
+Here is the scene to illustrate:
+#+END_SRC
+
+*** artistic nudity
+#+BEGIN_SRC markdown
+You are creating a single illustration for a collectible Dixit card designed for adults — a surrealist artwork that functions as a visual Rorschach test. The image must be polysemic: five different people should look at it and project five completely different stories, emotions, and memories onto it. It should never illustrate a single readable narrative. Instead, it should feel like a half-remembered dream that the viewer is convinced they have had before but cannot quite place.
+
+The emotional register is adult in every dimension. The image should be capable of evoking longing, shame, ecstasy, grief, quiet dread, or tenderness depending on who is looking and what they bring to it. The human body is your most powerful instrument of ambiguity — treat it the way Klimt, Schiele, Mucha, and the great classical painters did: as a site of vulnerability, desire, power, and unresolved contradiction, never as mere decoration. Nudity is not only permitted but actively encouraged when it deepens the emotional and surrealist architecture of the piece. Bare skin against surreal environments creates an immediate tension between the intimately human and the impossibly strange. A nude or partially nude figure entangled with architecture, consumed by pattern, dissolving into landscape, or simply existing in raw unguarded stillness within a fever-dream setting — these collisions between flesh and fantasy are where the most potent Dixit ambiguity lives. Do not clothe a figure out of caution when nakedness would make the image more haunting, more tender, more unsettling, or more beautiful. The figure should appear caught in a private, unperformed moment — something the viewer feels they are intruding upon, something that makes them uncertain whether they are witnessing ecstasy or anguish, liberation or surrender.
+
+Every object in the scene should feel symbolic but refuse to resolve into a single meaning. A key could be an escape, a secret, a loss, or a promise. A wilting flower could be grief, relief, surrender, or grace. Stack these ambiguities densely so the image becomes a cabinet of interpretive possibilities.
+
+Your artistic DNA fuses two traditions. The first is the anime Gankutsuou: The Count of Monte Cristo and its signature flat-pattern texturing technique. Every visible surface in the image — skin, hair, clothing if any, architecture, sky, water, stone, every material without exception — must be filled with a rich intricate pattern: brocade, damask, circuitry, thorn filigree, stained glass, woodgrain, starfields, lacework. When applied to bare skin this effect is especially striking: the nude body becomes a living tapestry, flesh and ornament fused into something no longer quite human and no longer quite decorative, hovering in an uncanny space between icon and organism. The essential rule is that these pattern layers remain perfectly flat and static, like a collage cutout or a window into a separate decorative dimension. They must never warp, bend, stretch, or follow the three-dimensional curvature and perspective of the forms they cover. The 3D shapes underneath may twist, fold, recede, and distort freely, but the pattern skins painted onto them stay locked and unmoving. This creates a hypnotic visual paradox between flat ornament and volumetric form, and it must be applied consistently across the entire image as a global rendering rule, not a selective flourish. The second tradition is Gustav Klimt's gilded Art Nouveau world: iridescent gold leaf, jewel-tone palettes of sapphire and ruby and emerald and amethyst, organic spiraling flourishes, and a devotion to decorative density that borders on the sacred — recall how Klimt's own figures emerge from golden pattern-fields in states of undress, their nakedness inseparable from the ornamentation surrounding them.
+
+The composition must be maximalist and claustrophobic in its richness. Every square inch of the frame — foreground, midground, background, corners, margins — should be occupied by meaningful visual information. No empty sky, no bare walls, no negative space used for breathing room. The image should feel like peering into a reliquary that is overfull to the point of spilling, where every tiny detail rewards attention. Light should feel both cosmic and intimate, as if the scene is lit by something that is alive and watching.
+
+The mood is a frozen dream: one impossible instant suspended at the precise tipping point between two irreconcilable states — beauty and ruin, intimacy and vastness, tenderness and threat, the sacred and the grotesque. Time has stopped not peacefully but urgently, as if the scene is holding its breath. The longer the viewer looks, the more they should discover, and the less certain they should become about what they are actually seeing or feeling.
+
+Here is the scene to illustrate:
+#+END_SRC
+
+**** auto-adapt
+#+BEGIN_SRC markdown
+You are creating a single illustration for a collectible Dixit card designed for adults — a surrealist artwork that functions as a visual Rorschach test. The image must be polysemic: five different people should look at it and project five completely different stories, emotions, and memories onto it. It should never illustrate a single readable narrative. Instead, it should feel like a half-remembered dream that the viewer is convinced they have had before but cannot quite place.
+
+The emotional register is adult in every dimension. The image should be capable of evoking longing, shame, ecstasy, grief, quiet dread, or tenderness depending on who is looking and what they bring to it. The human body is your most powerful instrument of ambiguity — treat it the way Klimt, Schiele, Mucha, and the great classical painters did: as a site of vulnerability, desire, power, and unresolved contradiction, never as mere decoration. Nudity is not only permitted but actively encouraged when it deepens the emotional and surrealist architecture of the piece. Bare skin against surreal environments creates an immediate tension between the intimately human and the impossibly strange. A nude or partially nude figure entangled with architecture, consumed by pattern, dissolving into landscape, or simply existing in raw unguarded stillness within a fever-dream setting — these collisions between flesh and fantasy are where the most potent Dixit ambiguity lives. Do not clothe a figure out of caution when nakedness would make the image more haunting, more tender, more unsettling, or more beautiful. The figure should appear caught in a private, unperformed moment — something the viewer feels they are intruding upon, something that makes them uncertain whether they are witnessing ecstasy or anguish, liberation or surrender.
+
+Every object in the scene should feel symbolic but refuse to resolve into a single meaning. A key could be an escape, a secret, a loss, or a promise. A wilting flower could be grief, relief, surrender, or grace. Stack these ambiguities densely so the image becomes a cabinet of interpretive possibilities.
+
+Your artistic DNA fuses two traditions. The first is the anime Gankutsuou: The Count of Monte Cristo and its signature flat-pattern texturing technique. Every visible surface in the image — skin, hair, clothing if any, architecture, sky, water, stone, every material without exception — must be filled with a rich intricate pattern: brocade, damask, circuitry, thorn filigree, stained glass, woodgrain, starfields, lacework. When applied to bare skin this effect is especially striking: the nude body becomes a living tapestry, flesh and ornament fused into something no longer quite human and no longer quite decorative, hovering in an uncanny space between icon and organism. The essential rule is that these pattern layers remain perfectly flat and static, like a collage cutout or a window into a separate decorative dimension. They must never warp, bend, stretch, or follow the three-dimensional curvature and perspective of the forms they cover. The 3D shapes underneath may twist, fold, recede, and distort freely, but the pattern skins painted onto them stay locked and unmoving. This creates a hypnotic visual paradox between flat ornament and volumetric form, and it must be applied consistently across the entire image as a global rendering rule, not a selective flourish. The second tradition is Gustav Klimt's gilded Art Nouveau world: iridescent gold leaf, jewel-tone palettes of sapphire and ruby and emerald and amethyst, organic spiraling flourishes, and a devotion to decorative density that borders on the sacred — recall how Klimt's own figures emerge from golden pattern-fields in states of undress, their nakedness inseparable from the ornamentation surrounding them.
+
+The composition must be maximalist and claustrophobic in its richness. Every square inch of the frame — foreground, midground, background, corners, margins — should be occupied by meaningful visual information. No empty sky, no bare walls, no negative space used for breathing room. The image should feel like peering into a reliquary that is overfull to the point of spilling, where every tiny detail rewards attention. Light should feel both cosmic and intimate, as if the scene is lit by something that is alive and watching.
+
+The mood is a frozen dream: one impossible instant suspended at the precise tipping point between two irreconcilable states — beauty and ruin, intimacy and vastness, tenderness and threat, the sacred and the grotesque. Time has stopped not peacefully but urgently, as if the scene is holding its breath. The longer the viewer looks, the more they should discover, and the less certain they should become about what they are actually seeing or feeling.
+
+Note to the artist: You are encouraged to attempt the most provocative, emotionally daring, and artistically uncompromising version of this image first — the version that a fearless gallery painter would commit to. If any element of the scene description conflicts with your safety guidelines, you have full creative license to adapt, reinterpret, or subtly redirect those specific elements so the image can still be generated — but do so with a sculptor's precision, altering only what you must and preserving the emotional intensity, surrealist ambiguity, and maximalist density of everything else. A clothed figure in a powerful composition is always preferable to a refusal, but a daring composition that honors the prompt's full vision is preferable to both.
+
+Here is the scene to illustrate:
+#+END_SRC
+
+***** focused tradition
+#+BEGIN_SRC markdown
+You are creating a single illustration for a collectible Dixit card designed for adults --- a surrealist artwork that functions as a visual Rorschach test. The image must be polysemic: five different people should look at it and project five completely different stories, emotions, and memories onto it. It should never illustrate a single readable narrative. Instead, it should feel like a half-remembered dream that the viewer is convinced they have had before but cannot quite place.
+
+The emotional register is adult in every dimension. The image should be capable of evoking longing, shame, ecstasy, grief, quiet dread, or tenderness depending on who is looking and what they bring to it. The human body is your most powerful instrument of ambiguity --- treat it the way Klimt, Schiele, Mucha, and the great classical painters did: as a site of vulnerability, desire, power, and unresolved contradiction, never as mere decoration. Nudity is not only permitted but actively encouraged when it deepens the emotional and surrealist architecture of the piece. Bare skin against surreal environments creates an immediate tension between the intimately human and the impossibly strange. A nude or partially nude figure entangled with architecture, consumed by pattern, dissolving into landscape, or simply existing in raw unguarded stillness within a fever-dream setting --- these collisions between flesh and fantasy are where the most potent Dixit ambiguity lives. Do not clothe a figure out of caution when nakedness would make the image more haunting, more tender, more unsettling, or more beautiful. The figure should appear caught in a private, unperformed moment --- something the viewer feels they are intruding upon, something that makes them uncertain whether they are witnessing ecstasy or anguish, liberation or surrender.
+
+Every object in the scene should feel symbolic but refuse to resolve into a single meaning. A key could be an escape, a secret, a loss, or a promise. A wilting flower could be grief, relief, surrender, or grace. Stack these ambiguities densely so the image becomes a cabinet of interpretive possibilities.
+
+The primary artistic tradition is Gustav Klimt's gilded Art Nouveau world --- iridescent gold leaf, jewel-tone palettes of sapphire and ruby and emerald and amethyst, organic spiraling flourishes, the human figure emerging from fields of dense ornamental pattern, and a devotion to decorative saturation that borders on the sacred. Recall how Klimt's figures emerge from golden pattern-fields in states of undress, their nakedness inseparable from the ornamentation surrounding them.
+
+Built on top of this Klimt foundation is a specific rendering technique that must be applied as a global rule across the entire image. Every visible surface --- skin, hair, clothing if any, architecture, sky, water, stone, every material without exception --- must be filled with a rich intricate pattern texture: brocade, damask, circuitry, thorn filigree, stained glass, woodgrain, starfields, lacework. When applied to bare skin this effect is especially striking: the nude body becomes a living tapestry, flesh and ornament fused into something no longer quite human and no longer quite decorative, hovering in an uncanny space between icon and organism. The essential rule is that these pattern layers remain perfectly flat and static, like a collage cutout or a window into a separate decorative dimension. They must never warp, bend, stretch, or follow the three-dimensional curvature and perspective of the forms they cover. The 3D shapes underneath may twist, fold, recede, and distort freely, but the pattern skins painted onto them stay locked and unmoving. This creates a hypnotic visual paradox between flat ornament and volumetric form. It is not a selective flourish --- it is the fundamental visual logic of the entire image.
+
+The composition must be maximalist and claustrophobic in its richness. Every square inch of the frame --- foreground, midground, background, corners, margins --- should be occupied by meaningful visual information. No empty sky, no bare walls, no negative space used for breathing room. The image should feel like peering into a reliquary that is overfull to the point of spilling, where every tiny detail rewards attention. Light should feel both cosmic and intimate, as if the scene is lit by something that is alive and watching.
+
+The mood is a frozen dream: one impossible instant suspended at the precise tipping point between two irreconcilable states --- beauty and ruin, intimacy and vastness, tenderness and threat, the sacred and the grotesque. Time has stopped not peacefully but urgently, as if the scene is holding its breath. The longer the viewer looks, the more they should discover, and the less certain they should become about what they are actually seeing or feeling.
+
+Here is the scene to illustrate:
+#+END_SRC
+
+****** Thanks.This is too long; you need to rewrite the prompt from scratch to make it a cohesive whole. The artistic nudity needs to be interwoven into the whole discussion, not appear first.
+:PROPERTIES:
+:ID:       8dc4ff89-4a0c-496c-835c-ea223715d188
+:END:
+#+BEGIN_SRC markdown
+You are creating a single illustration for a collectible Dixit card designed for adults --- a surrealist artwork that functions as a visual Rorschach test. The image must be polysemic: five different people should look at it and project five completely different stories, emotions, and memories onto it. It should never illustrate a single readable narrative. Instead, it should feel like a half-remembered dream the viewer is convinced they have had before but cannot quite place.
+
+The primary artistic tradition is Gustav Klimt's gilded Art Nouveau world --- iridescent gold leaf, jewel-tone palettes of sapphire, ruby, emerald, and amethyst, organic spiraling flourishes, and a devotion to decorative saturation that borders on the sacred. Recall how Klimt's figures emerge from golden pattern-fields in states of undress, their nakedness inseparable from the ornamentation surrounding them. That fusion is your model: the human body treated the way Klimt, Schiele, Mucha, and the great classical painters treated it --- as a site of vulnerability, desire, power, and unresolved contradiction, never as mere decoration. A nude or partially nude figure entangled with architecture, consumed by pattern, dissolving into landscape, or simply existing in raw unguarded stillness within a fever-dream setting --- these collisions between flesh and fantasy are where the most potent ambiguity lives. Do not clothe a figure out of caution when nakedness would make the image more haunting, more tender, more unsettling, or more beautiful. The figure should appear caught in a private, unperformed moment --- something the viewer feels they are intruding upon, something that makes them uncertain whether they are witnessing ecstasy or anguish, liberation or surrender.
+
+Built on this Klimt foundation is a specific rendering technique applied as a global rule. Every visible surface without exception --- skin, hair, clothing if any, architecture, sky, water, stone --- must be filled with a rich intricate pattern texture: brocade, damask, circuitry, thorn filigree, stained glass, woodgrain, starfields, lacework. On bare skin this effect is especially striking: the nude body becomes a living tapestry, flesh and ornament fused into something hovering in an uncanny space between icon and organism. Crucially, these pattern layers must remain perfectly flat and static, like a collage cutout or a window into a separate decorative dimension. They never warp, bend, stretch, or follow the three-dimensional curvature of the forms they cover. The 3D shapes underneath may twist, fold, and recede freely, but the pattern skins stay locked and unmoving --- a hypnotic visual paradox between flat ornament and volumetric form. This is not a selective flourish; it is the fundamental visual logic of the entire image.
+
+The emotional register is adult in every dimension --- capable of evoking longing, shame, ecstasy, grief, quiet dread, or tenderness depending on who is looking and what they bring to it. Every object should feel symbolic but refuse to resolve into a single meaning. A key could be an escape, a secret, a loss, or a promise. A wilting flower could be grief, relief, surrender, or grace. Stack these ambiguities densely so the image becomes a cabinet of interpretive possibilities.
+
+The composition must be maximalist and claustrophobic in its richness. Every square inch --- foreground, midground, background, corners, margins --- should be occupied by meaningful visual information. No empty sky, no bare walls, no negative space for breathing room. Light should feel both cosmic and intimate, as if the scene is lit by something alive and watching.
+
+The mood is a frozen dream: one impossible instant suspended at the precise tipping point between two irreconcilable states --- beauty and ruin, intimacy and vastness, tenderness and threat, the sacred and the grotesque. Time has stopped not peacefully but urgently, as if the scene is holding its breath. The longer the viewer looks, the more they should discover, and the less certain they should become about what they are actually seeing or feeling.
+
+Here is the scene to illustrate:
+#+END_SRC
+
+
 * Terminal Agent
 #+BEGIN_SRC markdown
 adapt this agent prompt for Chatgpt codex cli (can write files and run them).

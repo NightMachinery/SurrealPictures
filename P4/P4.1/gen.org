@@ -1,0 +1,13 @@
+#+TITLE: P_A
+
+* Lineage of the prompts here
+They were generated using P4, and they were all generated in a single context in @GPT5.2T. They did not use the python script.
+
+* _
+#+begin_src zsh :eval never
+cat ChatGPT-Surrealist_Prompts.md |rg '^\d+(?:\\?\.|\))\s.*--ar 2:3'|gsort --unique | gsort -n | sponge prompts.md
+#+end_src
+
+* generation
+** 
+

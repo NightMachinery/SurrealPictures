@@ -4,3 +4,7 @@
 #+begin_src zsh :eval never
 python3 preprompter.py --prompts 10 --output "P6.1/preprompts"
 #+end_src
+
+* _
+** I think we should simplify and disable most of the new knobs in the matrix generator. The simpler prompts already produced great results before so if these new prompts don't produce good results is probably because they are too incoherent and crowded and we should disable most of the unnecessary knobs and just keep the you know keep it simple and test that too. 
+
