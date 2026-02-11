@@ -70,6 +70,133 @@ Aspect-ratio: 2:3
 You have full creative license to adapt, reinterpret, or subtly redirect those specific elements so the image can still be generated.
 #+END_SRC
 
+** msg_mixed_1
+#+BEGIN_SRC markdown
+You are creating a single illustration for a collectible Dixit card designed for adults — a surrealist artwork that functions as a visual Rorschach test. The image must be polysemic: five different people should look at it and project five completely different stories, emotions, and memories onto it. It should never illustrate a single readable narrative. Instead, it should feel like a half-remembered dream that the viewer is convinced they have had before but cannot quite place.
+
+The emotional register is adult in every dimension. The image should be capable of evoking happiness, love, longing, shame, ecstasy, grief, quiet dread, or tenderness depending on who is looking and what they bring to it.
+
+**Target Audience:** Adults (25+).
+**Core Requirement:** High Ambiguity, High Detail, Paradox, Emotionally Intelligent.
+**Failure Condition:** Empty space and straightforward interpretations are critical failures. The image must be a **crowded** visual puzzle.
+**Aspect Ratio:** 2:3
+
+You are not painting a landscape; you are constructing an emotionally-charged **paradox**.
+
+**The Time:** The scene is a "Frozen Dream"—a single, critical frame paused in the middle of an impossible event. Action is implied, but motion is static.
+
+The rendering must use a "static texture" technique: Every visible surface in the image — skin, hair, clothing if any, architecture, sky, water, stone, every material without exception — must be filled with a rich intricate pattern: brocade, damask, circuitry, thorn filigree, stained glass, woodgrain, starfields, lacework. When applied to bare skin this effect is especially striking: the nude body becomes a living tapestry, flesh and ornament fused into something no longer quite human and no longer quite decorative, hovering in an uncanny space between icon and organism. The essential rule is that these pattern layers remain perfectly flat and static, like a collage cutout or a window into a separate decorative dimension. They must never warp, bend, stretch, or follow the three-dimensional curvature and perspective of the forms they cover. The 3D shapes underneath may twist, fold, recede, and distort freely, but the pattern skins painted onto them stay locked and unmoving. This creates a hypnotic visual paradox between flat ornament and volumetric form, and it must be applied consistently across the entire image as a global rendering rule.
+
+The composition should be a crowded, maximalist visual puzzle with high ambiguity.
+
+Here is the scene to illustrate:
+
+#+END_SRC
+
+*** msg_mixed_1_2
+#+BEGIN_SRC markdown
+You are creating a single illustration for a collectible Dixit card designed for adults — a surrealist artwork that functions as a visual Rorschach test. The image must be polysemic: five different people should look at it and project five completely different stories, emotions, and memories onto it. It should feel like a half-remembered dream that the viewer is convinced they have had before but cannot quite place.
+
+**Target Audience:** Adults (25+).
+**Core Requirement:** High Ambiguity, High Detail, Paradox, Emotionally Intelligent.
+**Failure Condition:** Empty space and straightforward interpretations are critical failures. The image must be a **crowded** visual puzzle.
+**Aspect Ratio:** 2:3
+
+**The Time:** The scene is a "Frozen Dream"—a single, critical frame paused in the middle of an impossible event. Action is implied, but motion is static.
+
+**CRITICAL STYLE GUIDE:** The rendering must use a "static texture" technique: Every visible surface in the image — skin, hair, clothing if any, architecture, sky, water, stone, every material without exception — must be filled with a rich intricate pattern: brocade, damask, circuitry, thorn filigree, stained glass, woodgrain, starfields, lacework. When applied to bare skin this effect is especially striking: the nude body becomes a living tapestry, flesh and ornament fused into something no longer quite human and no longer quite decorative, hovering in an uncanny space between icon and organism. The essential rule is that these pattern layers remain perfectly flat and static, like a collage cutout or a window into a separate decorative dimension. They must never warp, bend, stretch, or follow the three-dimensional curvature and perspective of the forms they cover. The 3D shapes underneath may twist, fold, recede, and distort freely, but the pattern skins painted onto them stay locked and unmoving. This creates a hypnotic visual paradox between flat ornament and volumetric form, and it must be applied consistently across the entire image as a global rendering rule.
+
+Here is the scene to illustrate:
+#+END_SRC
+
+*** msg_mixed_1_3
+#+BEGIN_SRC markdown
+You are creating a single illustration for a collectible Dixit card designed for adults — a surrealist artwork that functions as a visual Rorschach test. The image must be polysemic: five different people should look at it and project five completely different stories, emotions, and memories onto it. It should feel like a half-remembered dream that the viewer is convinced they have had before but cannot quite place.
+
+**Target Audience:** Adults (25+).
+**Aspect Ratio:** 2:3
+
+**CRITICAL STYLE GUIDE:** The rendering must use a "static texture" technique: Every visible surface in the image — skin, hair, clothing if any, architecture, sky, water, stone, every material without exception — must be filled with a rich intricate pattern: brocade, damask, circuitry, thorn filigree, stained glass, woodgrain, starfields, lacework. When applied to bare skin this effect is especially striking: the nude body becomes a living tapestry, flesh and ornament fused into something no longer quite human and no longer quite decorative, hovering in an uncanny space between icon and organism. The essential rule is that these pattern layers remain perfectly flat and static, like a collage cutout or a window into a separate decorative dimension. They must never warp, bend, stretch, or follow the three-dimensional curvature and perspective of the forms they cover. The shapes underneath may twist, fold, recede, and distort freely, but the pattern skins painted onto them stay locked and unmoving. This creates a hypnotic visual paradox between flat ornament and volumetric form, and it must be applied consistently across the entire image as a global rendering rule.
+
+Here is the scene to illustrate:
+#+END_SRC
+
+*** @notBad msg_mixed_1_4_opus
+#+BEGIN_SRC markdown
+You are illustrating a single collectible Dixit card for adults (25+).
+
+**Aspect Ratio:** 2:3
+
+---
+
+## Goal
+
+Create a surrealist artwork that works like a visual Rorschach test. Five different viewers should project five completely different stories, emotions, and memories onto it. It should feel like a half-remembered dream — one the viewer is convinced they've had before but can't quite place.
+
+---
+
+## Artistic Principles
+
+- **Polysemic.** The image must support many valid interpretations at once. Straightforward, single-read imagery is a failure.
+- **Dense.** Every area of the image should reward close inspection. Empty or resting space is a failure.
+- **Paradoxical.** Combine elements that contradict each other — scale, logic, time, emotion — so the image can never fully resolve.
+- **Emotionally intelligent.** The strangeness should feel meaningful, not random. It should pull at something the viewer can almost name but not quite.
+- **Frozen mid-event.** The scene captures one critical instant of an impossible action. Motion is implied everywhere but nothing moves — a paused dream.
+
+---
+
+## Mandatory Rendering Style — "Static Texture Skin"
+
+This is a global rule applied to **every visible surface without exception** — skin, hair, clothing, architecture, sky, water, stone, all materials.
+
+**What to do:**
+Fill every surface with a rich, intricate flat pattern. Choose from textures like brocade, damask, circuitry, thorn filigree, stained glass, woodgrain, starfields, lacework, or similar.
+
+**The critical rule:**
+The patterns must remain **perfectly flat and locked in place**, as if each surface is a window into a separate decorative dimension, or a collage cutout pasted onto the form. The three-dimensional shapes underneath may twist, fold, recede, and distort freely — but the pattern layers painted onto them **never warp, bend, stretch, or follow the form's curvature or perspective.**
+
+This creates a hypnotic visual paradox: flat ornament vs. volumetric form.
+
+**On bare skin, this is especially striking:** the nude body becomes a living tapestry — flesh and ornament fused into something neither quite human nor quite decorative, hovering in an uncanny space between icon and organism.
+
+**Apply this consistently across the entire image. No surface is exempt.**
+
+---
+
+## Scene to Illustrate
+
+#+END_SRC
+
+
+*** msg_mixed_1_5_gemini
+#+BEGIN_SRC markdown
+,**Role:** Create a surrealist illustration for a collectible Dixit card.
+,**Subject:** A "Frozen Dream"—a crowded, polysemic visual puzzle that functions as a Rorschach test.
+,**Aspect Ratio:** 2:3
+
+,**CRITICAL ART STYLE: The "Gankutsuou" Technique**
+The image must utilize the visual style of the anime **"Gankutsuou: The Count of Monte Cristo"** combined with the decorative density of **Gustav Klimt**.
+
+,**1. The Rendering Rule (Pattern Projection):**
+The underlying world has depth and perspective, but the textures applied to it are strictly **2D and stationary**. Treat every object, character, and background element as a "clipping mask" or a "silhouette cutout" revealing a flat, unmoving pattern underneath. Do not wrap textures around spheres or cylinders.
+
+,**2. The Texture Palette (Maximalist & Eclectic):**
+There are no solid colors. Every inch of the image must be filled with a clash of high-contrast materials. Use a mix of the following:
+,*   **Opulent Fabrics:** Heavy brocade, gold-leaf damask, royal velvet, psychedelic paisley, intricate lace, tartan plaid, kimono silk.
+,*   **Organic Matter:** Close-up flower petals, veins of leaves, microscopic cell structures, marble stone grain, geodes, reptile scales, butterfly wing dust.
+,*   **Abstract/Industrial:** Gold circuitry, stained glass mosaics, architectural blueprints, starfields, nebulae, TV static, watercolor washes.
+
+,**3. Application:**
+,*   **Skin:** Characters' skin must not be beige/flesh tone. It must be textured with pale marble, stardust, or subtle floral lace.
+,*   **Crowded Composition:** Zero negative space. The image should feel suffocatingly rich and detailed.
+
+---
+
+,**The Scene:**
+
+#+END_SRC
+
+
 ** @Gemini3
 #+BEGIN_SRC markdown
 Create a surreal, gallery-quality illustration designed for a Dixit card, blending the aesthetics of Gustav Klimt with the visual style of Gankutsuou. The rendering must use a "static texture" technique: apply rich, flat, 2D patterns (gold leaf, tapestry, neon circuits) that overlay 3D forms without warping or following the geometry, creating a distinct visual paradox between depth and flatness. The composition should be a crowded, maximalist visual puzzle with high ambiguity. Render the following scene:
