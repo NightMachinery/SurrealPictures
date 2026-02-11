@@ -129,8 +129,8 @@ CATEGORIES: Dict[str, CategoryDefinition] = {
         weight_field="archetypes",
         template="""
 ### {n}. The Anchor (Subject)
-**Archetype:** {content}
-    *Instruction: These are the protagonists of your visual paradox. Do not depict them generically. Treat them as a mythic, timeless presence. Describe their posture, their attire, the weight of their existence, and, most importantly, how they interact with each other. The social element is central to the piece's emotional core. These archetypes need NOT be human. Anthropomorphism is encouraged.*
+**Archetype{plural_suffix}:** {content}
+    *Instruction: {anchor_subject} of your visual paradox. Make {anchor_object} the dominant focal protagonist of the scene. Portray {anchor_object} with specificity and symbolic weight. Treat {anchor_object} as a mythic, timeless presence. Show {anchor_possessive} agency, motivations, and emotional state{interaction_clause} {social_clause} {non_human_clause}*
 """.strip(),
         tree={
             "Craft": {
@@ -161,6 +161,7 @@ CATEGORIES: Dict[str, CategoryDefinition] = {
                     "The Librarian",
                     "The Therapist",
                     "The Elder",
+                    "The Prophet",
                 ],
             },
             "Journey": {
@@ -218,6 +219,60 @@ CATEGORIES: Dict[str, CategoryDefinition] = {
                     "The Rationalist",
                     "The Romantist",
                     "The Virgin",
+                ],
+            },
+            "Non-Human": {
+                "Animal Totems": [
+                    "The Raven",
+                    "The Octopus",
+                    "The Stag",
+                    "The Wolf",
+                    # "The Moth",
+                    "The Fox",
+                    "The Whale",
+                    "The Spider",
+                    "The Serpent",
+                    "The Crow",
+                    "The Owl",
+                    "The Tiger",
+                    "The Elephant",
+                    "The Bear",
+                    "The Jaguar",
+                    "The Lynx",
+                    "The Swan",
+                    "The Crane",
+                    "The Hare",
+                    "The Tortoise",
+                    "The Bat",
+                    "The Dolphin",
+                    "The Peacock",
+                    "The Horse",
+                    "The Coyote",
+                    "The Hyena",
+                    "The Panther",
+                    "The Falcon",
+                    "The Otter",
+                    "The Ram",
+                ],
+                "Elemental Beings": [
+                    "The Hailstorm",
+                    "The Wildfire",
+                    "The Glacier",
+                    "The Volcano",
+                    "The Tide",
+                    "The Earthquake",
+                ],
+                "Construct Beings": [
+                    "The Golem",
+                    "The Automaton",
+                    "The Marionette",
+                    # "The Puppet",
+                    "The Engine",
+                    "The Colossus",
+                    "The Drone",
+                    "The Statue",
+                    "The Homunculus",
+                    "The Construct",
                 ],
             },
         },
@@ -1666,7 +1721,40 @@ def format_dynamic_block(prompt_data: Mapping[str, List[str]]) -> str:
         section_n += 1
         defn = CATEGORIES[key]
         content_str = " & ".join(items)
-        parts.append(defn.template.format(n=section_n, content=content_str).strip())
+        if key == "ar":
+            singular = len(items) == 1
+            ar_grammar = {
+                "plural_suffix": "" if singular else "s",
+                "anchor_subject": (
+                    "This is the protagonist" if singular else "These are the protagonists"
+                ),
+                "anchor_object": "this archetype" if singular else "these archetypes",
+                "anchor_possessive": "their",
+                "interaction_clause": (
+                    ", including how they choose, hesitate, desire, protect, betray, or transform the world around them."
+                    if singular
+                    else ", and, most importantly, how their choices and emotions collide with each other."
+                ),
+                "social_clause": (
+                    "Let the social element emerge through this archetype's relationships with other beings, objects, or forces."
+                    if singular
+                    else "Let the social element drive the emotional core through alliances, conflict, care, jealousy, devotion, or negotiation."
+                ),
+                "non_human_clause": (
+                    "Anthropomorphize by giving this archetype clear intent, felt emotion, and consequential decisions."
+                    if singular
+                    else "Anthropomorphize by giving each archetype clear intent, felt emotion, and consequential decisions."
+                ),
+            }
+            parts.append(
+                defn.template.format(
+                    n=section_n,
+                    content=content_str,
+                    **ar_grammar,
+                ).strip()
+            )
+        else:
+            parts.append(defn.template.format(n=section_n, content=content_str).strip())
 
     return "\n\n".join(parts)
 
