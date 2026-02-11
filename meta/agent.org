@@ -168,7 +168,7 @@ I want a more aesthethical look, suggest alternative styles.
 which one style do you suggest best?
 #+END_SRC
 
-**** @good guache
+**** @good guache =msg_guache_gpt_1=
 #+BEGIN_SRC markdown
 # Dixit Card Art Style (2:3) — Mature, Gallery-Grade Edition
 
@@ -418,7 +418,7 @@ All surfaces remain **unlettered and unbranded** (no readable text).
 
 #+END_SRC
 
-****** @good @noPrePrompt no scene description
+****** =msg_direct_gpt_1= @good @noPrePrompt no scene description
 #+BEGIN_SRC markdown
 Vertical 2:3 Dixit card illustration in **Stationary Pattern-Projection (Tapestry Collage)** style. The scene has real perspective and depth in shapes, but **all textures are flat, 2D, and stationary**—every object is a silhouette/clipping mask revealing an unmoving pattern layer beneath (no texture wrapping on cylinders/spheres).
 
@@ -437,7 +437,7 @@ All surfaces remain **unlettered and unbranded** (no readable text).
 
 **The Scene:**
 
-[Dream up a most surreal social paradox yourself, be creative!]
+[Dream up a most surreal paradox yourself, be creative! First think of four random elements you want to incorporate, then describe a scene where they all exist together in impossible harmony.]
 #+END_SRC
 
 **** D
