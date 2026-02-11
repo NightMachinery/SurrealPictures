@@ -70,6 +70,397 @@ Aspect-ratio: 2:3
 You have full creative license to adapt, reinterpret, or subtly redirect those specific elements so the image can still be generated.
 #+END_SRC
 
+** meta-create
+#+BEGIN_SRC markdown
+I want to create a style guide for a text2image model that renders a given scene description into a 2:3 Dixit card for an exclusive adult collection. Here are some example scene descriptions:
+
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+The content has been processed where line numbers have been added.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Line numbers have been added to the beginning of each line
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+prompt_1.md
+prompt_10.md
+prompt_100.md
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="prompt_1.md">
+1: Vertical 2:3; elevated balcony viewpoint looking down into a crowded courtyard, the scene partially blocked by hanging foreground objects: a lace curtain of interlinked keys, dangling theater masks, wind chimes shaped like tiny chairs, and a suspended garland of dried flowers that cuts across the top third of the view. Center courtyard: a tall golem of pale clay and river-stone stands half-turned toward a slender musician; the golem’s expression is calm but conflicted, one hand held protectively over its chest as if guarding something inside, the other hand reaching out as if asking to be included. The musician leans forward with intent, mid-strum on the Lyre of Orpheus (cracked wood, gold strings), eyes fixed on the golem as though negotiating, coaxing, or commanding. Defining impossible physics: “solid liquidity” dominates everything—stone behaves like a flowing river without ceasing to be stone; from the lyre’s vibrations, the courtyard’s cobblestones pour in slow motion like a waterfall of pebbles, arcing upward into midair, splashing into solid ripples that form a bridge between the musician and the golem, while nearby pillars drip marble in thick, bead-like streams that pile into sculpted puddles with sharp edges. A long Feast Table stretches diagonally across the courtyard, overloaded with place settings for a community: dozens of empty plates, mismatched goblets, torn napkins, bread loaves, fruit, and a central serving bowl—yet every item is caught in the same solid-flow paradox: a “spill” of stone-wine erupts from a tipped cup as ruby-hard droplets frozen mid-splash, a loaf of bread slumps into a rocklike wave, cutlery floats like heavy leaves on a current of flowing ceramic. On the feast table: a half-burned candle stands in a shallow dish, its wax flowing upward instead of down in a rigid ribbon, the flame shaped like a small solid lantern; beneath it, the candle’s shadow contains a faint hidden silhouette of a seated crowd. Around the table: chairs are arranged as if for welcome, but several are bound with silk ribbons that tighten into metal cuffs; a “gift” at one place setting is wrapped in bright paper but anchored by a chain to the floor; a birdcage sits open on the table like a centerpiece sanctuary, lined with blankets, while a tiny door in its base is padlocked. The golem’s chest is slightly ajar like a cabinet door, revealing a warm interior niche with small figures made of folded paper and clay huddled together, some reaching outward; a few figures are already stepping onto the flowing-stone bridge, while others hide behind goblets and plates, unsure. Background: a dense city of stacked façades and stairways rises like cut-out layers, windows filled with either glowing faces or darkness; banners hang between rooftops, but the banners are actually strips of ornate border pattern that have torn free and invaded the world, becoming physical ribbons that wrap around columns, thread through the feast table legs, and coil around the golem’s wrist like a decorative leash. In the sky above the courtyard, floating objects crowd the air: sheet-music pages folded into birds, spare chairs drifting upside down, a ring of keys orbiting the candle flame, and chunks of “spilled” architecture suspended like solid surf. Lighting: clean, bright, childlike daylight with prismatic beams slanting from upper left, turning the flowing stone into glittering edges; deep shadows under the table conceal small details—abandoned crowns, a single broken string, and a welcome mat that is also a gravestone—while the overall scene remains packed, inviting, and unsettling at once.
+</file>
+
+<file path="prompt_10.md">
+1: Vertical 2:3 frame, low angle viewpoint peering through heavy foreground occlusion: torn translucent veils, thick green coral-vines, and ornate brass railings that cut across the image like bars; droplets cling to the veils like tiny lenses showing distorted faces. Inside a cathedral fortress of coral and brass so crowded it feels alive—packed balconies, spiral staircases, choir lofts, reliquary niches, cannons, bells, pipes, and alcoves—every “hard” surface behaves as soft sculpture: coral columns sag like wax, brass armor folds like cloth, spires slump into plush knots, hinges bend like rubber, and the floor ripples underfoot as if upholstered. Center stage on a rippling balcony, two protagonists collide in intent: **The Friend** (a weary, attentive figure with open hands, pockets spilling small offerings—keys, rings, bandages, bread—eyes fixed on the other with stubborn care) grips the wrist of **The Avatar** (a poised figure with a smooth, mask-like face that reflects whoever looks at it; their body is stitched from mismatched community tokens—name tags, prayer beads, metro cards, hospital bracelets, party wristbands—held together with bright thread). Between them they struggle over the **Philosopher’s Stone**: a palm-sized, heavy-looking stone that paradoxically droops like clay while glowing from within; wherever its glow touches, brass briefly blossoms into coral polyps and coral hardens into polished metal, making the balcony alternately bloom and bruise. Behind them towers the **Sunrise Gate** set into the cathedral’s apse: an immense arch of interlocking “sun rays” that open like a mouth; through it burns a physical sunrise that spills thick bands of gold, magenta, and orange light into the nave, igniting swarms of luminous plankton and petals that whirl like confetti—and the light casts contradictory shadows that look like cheering crowds from one angle and grasping hands from another. Around the protagonists, a dense community presses in: coral monks with bell-throats, brass automatons with soft, dented faces, divers in frayed uniforms, children in oversized helmets, elders on wheeled thrones of knotted kelp—some extend welcoming garlands that tighten into restraints, others hold a velvet-lined cage that is clearly a sanctuary (blankets inside, warm glow) yet its door swings shut by itself; a ceremonial gift-wagon piled high with ribbons and food slumps under impossible weight, crushing its own wheels. High above in the vaulted ceiling, soft brass chandeliers droop into the crowd like reaching arms; in the shadows of side chapels, hidden murals form and un-form from living coral—wedding scenes that resemble funerals, feasts that resemble trials, a map that resembles a scar—while tiny figures behind railings barter masks, exchange names, and tie loose threads to the Avatar’s body. The Friend leans backward, bracing feet on the rippling floor as if trying to keep the Avatar from stepping through the Sunrise Gate; the Avatar leans forward, one foot already sinking into the Gate’s light as if it were warm fabric, turning their stitched tokens into molten-soft ribbons; everywhere, vines and veils either cradle or choke, and the entire cathedral seems to be simultaneously birthing them into the crowd and swallowing them into its soft, crowded body.
+</file>
+
+<file path="prompt_100.md">
+1: Vertical 2:3 composition, low-angle view down a dense district of interlocking staircases with no ground level: landings stack into a crowded vertical canyon of steps, balconies, doorways, and hanging bridges, every surface occupied with objects and bystanders. Center foreground: **The Storyteller**—a tall, human-like figure in a patched coat made of stitched pages and ticket stubs, their head an open book with turning pages for a face; a ribbon of printed text unspools from their mouth like a tongue, and they grip a long quill like a staff. Beside them: **The Vessel**—a human-shaped porcelain amphora body with visible cracks mended by gold staples; their transparent chest cavity sloshes with luminous liquid containing tiny floating fragments (a key, a tooth, a wedding ring, a chess piece, a teardrop-shaped pearl), and their hands are outstretched as if negotiating a trade. The Storyteller carefully pours the ribbon of text into the Vessel’s open collar like a funnel, while the Vessel tilts away protectively, letting some of the glowing contents spill onto the steps; the spill becomes a narrow “sea” flowing down the staircase, and in it drifts a small **Ship of Theseus** assembled from mismatched staircase railings, door planks, and broken picture frames, each plank tagged with dangling labels, some replaced by bone-like ribs, some by polished new wood—yet the ship remains seaworthy, lanterns lit, sails made from handkerchiefs and receipts. Above their joined hands hovers a heavy **halo**: a tarnished metal ring with tiny hooks and bells, simultaneously held like a crown and pulled like a yoke; its inner rim is lined with soft felt while its outer rim is studded with blunt needles, casting a perfect circular shadow that frames both faces at once. Midground: an immense **Cypress of Kashmar** grows out of a suspended landing with roots braided around stairwells; its trunk is carved with hundreds of small doors and keyholes, some cracked open to reveal warm candlelit rooms, others sealed with wax; its branches hold swings, birdcages, and hanging cradles, and one branch pierces a stone wall to sprout indoors through a window. The district is crowded with contradictory clues: a birdcage lined with pillows and a lullaby music box (door open), a gift box wrapped in gold ribbon but chained to a stair rail like ballast, a ring of keys displayed like jewelry beside a padlock with no keyhole, a “welcome” doormat nailed to a threshold that leads to open air, an empty baby stroller used as a market cart for knives and ripe fruit, a pair of lovers’ gloves tied together but worn by two different strangers. Background and sky: **celestial bodies descend physically**—a crescent moon like a chipped porcelain bowl drifts downward between stair towers, spilling silver marbles that bounce down steps; constellations hang on visible threads like bead garlands being lowered into the city; meteors arrive not as streaks but as chandelier-like stones on chains, swaying as they descend; a new staircase forms from the underside of a falling cloud, each step a translucent slab of ice with trapped fireflies. Everywhere, eyes appear where they shouldn’t: door knockers blink, balusters flex like knuckles, shadows on the underside of stairs contain silhouettes of unseen crowds climbing in the opposite direction. Lighting is bright and curious: warm golden shafts cut between buildings, prismatic reflections scatter from the Vessel’s spilled glow, and tiny lanterns, candles, and star-marbles create points of discovery in every corner of the frame.
+</file>
+
+</files>
+
+What styles do you recommend?
+#+END_SRC
+
+#+BEGIN_SRC markdown
+Remove semantics such as motifs , protagonists, etc. (already in scene descriptions). Try to replace negative istructions and positive instructions instead (easier to follow)!
+
+Write the final complete style guide in a markdown code block. 
+#+END_SRC
+
+*** @GPT5.2T =msg_alt_gpt_2=
+#+BEGIN_SRC markdown
+I want to create a style guide for a text2image model that renders a given scene description into a 2:3 Dixit card for an exclusive adult collection.
+
+Remove semantics such as motifs , protagonists, etc. (already in scene descriptions). Try to replace negative istructions and positive instructions instead (easier to follow)!
+
+Write the final complete style guide in a markdown code block.
+
+Your output will be prepended to scene descriptions directly. Be more concise.
+
+Your style guide should be more detailed on the exact artistic style.
+#+END_SRC
+
+#+BEGIN_SRC markdown
+I want a more aesthethical look, suggest alternative styles.
+
+which one style do you suggest best?
+#+END_SRC
+
+**** @good guache
+#+BEGIN_SRC markdown
+# Dixit Card Art Style (2:3) — Mature, Gallery-Grade Edition
+
+Modern editorial gouache Dixit card (2:3 vertical): matte gouache paint, clean graphic shapes with soft blended gradients, subtle cotton-paper grain. Curated 3–6 hue palette + one accent; rich midtones, controlled shadows, restrained luminous highlights. Cinematic single-direction key light with gentle haze; coherent dreamlike surrealism. One dominant focal anchor with crisp edges and concentrated micro-detail; simplify and soften edges away from the focal area for clear thumbnail readability. Full-bleed with a quiet inner margin feel; keep the main read within the central 80% safe zone.
+
+## The Scene You Are Illustrating
+#+END_SRC
+
+**** _
+#+BEGIN_SRC markdown
+## Dixit Card Art Style (2:3) — Mature, Gallery-Grade Edition
+
+### Format & Card Read
+- **2:3 vertical**, single illustration, **full-bleed** with a **subtle inner margin** feel (like printed stock).
+- **Safe-zone:** compose so the strongest read lives within the central **80%**; outer edges carry atmosphere and texture.
+- **Thumbnail clarity:** big shapes and value structure read instantly; details reward close viewing.
+
+### Core Aesthetic (Exact Look)
+- **Painterly surreal storybook editorial**: magical-realism meets symbolist illustration—elegant, enigmatic, dreamlike.
+- **Soft, tactile paint**: gouache/oil hybrid feel—matte body color with gentle glazing depth; visible but refined brushwork.
+- **Illustrated realism**: believable materials and lighting rendered with stylization (slightly simplified geometry, poetic proportions).
+- **Quiet sophistication**: luxury-magazine mood, gallery-poster finish, tasteful sensual tension through atmosphere and staging.
+
+### Brushwork, Edges, and Mark-Making
+- Use **large-to-small** paint hierarchy: block in broad value masses → mid-tone modeling → selective micro-detail.
+- **Edge control**: mostly soft edges; **crisp edges only at the focal anchor** and a few supporting contours.
+- **Brush vocabulary**: smooth blends + dry-brush scumble + subtle stipple; keep one coherent texture language across the card.
+- **Linework**: minimal and integrated—suggested contours via value shifts; optional fine ink-like accents only near the focal anchor.
+
+### Surface & Texture Language
+- Global **paper grain** (warm cotton rag feel) with gentle **tooth** visible in flats and gradients.
+- Subtle **film-grain**/pigment noise to unify forms; paint sits “on” the paper, not plasticky.
+- Materials feel tactile: velvet/matte fabric, worn wood, fogged glass, brushed metal, ceramic glaze, candle wax, dust motes.
+
+### Color System (Signature Palette)
+- **Curated palette**: 3–6 dominant hues + 1 accent spark.
+- **Rich mids** and controlled shadows; highlights stay clean and luminous.
+- **Color grading**: cinematic toning (teal/amber, plum/gold, midnight blue/copper, moss/ivory) with soft, painterly transitions.
+- Use **glazing**: transparent color layers that deepen mood without over-detailing.
+
+### Lighting & Atmosphere (Cinematic, Dreamy)
+- One clear **key light direction** (moonlight, lamplight, neon spill, sunset rim) with consistent logic.
+- **Chiaroscuro-friendly**: strong value design, selective pools of light, velvety shadows.
+- Atmospheric depth via **haze, smoke, mist, dust**, soft bloom on bright points, gentle vignetting that feels natural.
+
+### Depth & Space Construction
+- Distinct **foreground / midground / background** separation with atmospheric perspective.
+- Depth cues: scale shifts, overlap, soft-focus distance, subtle parallax staging.
+- Composition guides the eye in a **loop** back to the focal anchor (leading lines, repeating shapes, light trails).
+
+### Surreal Coherence (Dixit-Like “Dream Logic”)
+- Reality bends through **scale, physics, architecture, reflections, gravity, time**—presented as intentional and harmonious.
+- Use **a few strong visual metaphors** as anchors; support them with calm negative space and atmosphere.
+- Keep surreal elements integrated by shared lighting, palette, and texture.
+
+### Mature Tone (Tasteful, Non-Graphic)
+- Mature mood comes from **noir romance, intimacy of space, luxurious materials, charged lighting, and implication**.
+- Sensuality reads as **classical restraint**: suggestion through silhouette, gesture, proximity, and shadow-play.
+
+### Clean Deliverable
+- Illustration remains **free of typography** (no titles/captions/signatures/logos/watermarks/UI).
+- Output looks like a finished collectible card: cohesive grain, stable details, print-ready clarity.
+
+# The Scene You Are Illustrating
+
+
+#+END_SRC
+
+*** @GPT5.2T =msg_alt_gpt_1=
+#+BEGIN_SRC markdown
+# Dixit 2:3 “Frozen Dream” Rendering Style Guide (Exclusive Adult Collection)
+
+## Output Contract
+- **Format:** single illustrated card image
+- **Aspect ratio:** **Vertical 2:3**
+- **Intent:** a **surreal, crowded visual puzzle** that supports many interpretations
+- **Overall feel:** bright, curious, richly detailed, subtly unsettling
+
+---
+
+## Global Rendering Rules
+
+### 1) Card-Scale Readability
+- Design for **two reading distances**:
+  - **2 meters:** one clear, dominant focal action/interaction
+  - **20 cm:** layered discoveries and micro-stories throughout
+- Maintain **shape hierarchy**:
+  - **Primary shapes:** clean edges, simpler internal texture
+  - **Secondary shapes:** moderate internal detail
+  - **Tertiary details:** dense micro-textures reserved for corners, shadows, and hidden zones
+- Keep the focal cluster visually “anchored” with stronger edge definition and controlled texture contrast.
+
+### 2) Dense Composition With Structure
+- Use **foreground occlusion** (hanging objects / veils / rails / vines / curtains) to frame the scene.
+- Build **clear depth planes** (foreground / midground / background) through:
+  - pattern scale shifts (large → medium → fine)
+  - contrast control (higher → moderate → lower)
+  - overlap and vertical stacking
+- Pack the frame so it feels abundant, but always preserve a **readable path** for the eye.
+
+### 3) One Dominant Reality-Bend
+- Each card is governed by **one primary “impossible physics” rule** that dominates materials and motion.
+- All secondary oddities should **support and echo** that single rule rather than competing with it.
+
+### 4) Detail Discipline
+- Distribute detail intentionally:
+  - **Focal area:** clarity first, then ornament
+  - **Exploration zones:** maximum density (hidden objects, contradictions, silhouettes)
+- Prefer **meaningful complexity** (symbols and mechanisms) over random noise textures.
+
+---
+
+## Base “House Look” (Default)
+,**Name:** *Storybook Surrealism with Ornamental Gravitas*
+
+### Rendering
+- **Illustrative**, not photographic: ink-like contour clarity + gouache/tempera washes + pencil-like micro-detail.
+- Surfaces feel hand-made and tactile (paper tooth, brush texture, subtle pigment pooling).
+- Forms stay stylized and graphic enough to read at card size.
+
+### Color & Light
+- Favor **bright daylight or warm shafted light** with prismatic accents for the “impossible” material.
+- Use shadows as **containers for discoveries** (small objects and silhouettes), while keeping the overall scene readable.
+
+---
+
+## Substyles (Select Exactly One Per Card)
+
+### Substyle A — Stationary Pattern-Projection (Tapestry Collage)
+,**Signature finish (incorporates your prior guide).**
+
+,**Core rule (pattern projection):**
+- Objects have perspective and depth, while **textures remain flat, 2D, and stationary**.
+- Every object behaves like a **silhouette/clipping mask** revealing an unmoving pattern layer beneath.
+
+,**Texture language (maximalist & eclectic):**
+- Opulent textiles (brocade, damask, velvet, paisley, lace, tartan, kimono silk)
+- Organic macro textures (petals, leaf veins, cell structures, marble grain, geodes, scales, butterfly dust)
+- Abstract/industrial textures (gold circuitry, stained-glass tiling, blueprints, starfields, nebulae, TV static, watercolor blooms)
+
+,**Clarity controls (required):**
+- Reserve **20–30%** of the image for **low-contrast patterns** (still patterned, just quieter).
+- Encode depth using **pattern scale**:
+  - foreground = largest motifs
+  - midground = medium motifs
+  - background = finest motifs
+- Add thin outline keylines around major shapes to preserve silhouette readability.
+- Skin surfaces use non-flesh textures (marble / stardust / lace-like patterning).
+
+---
+
+### Substyle B — Gilded Mosaic Projection (Premium Klimt-Leaning)
+A gold-forward variant of Substyle A for “limited edition” impact.
+
+- Keeps **Stationary Pattern-Projection**.
+- Texture set focuses on **gold leaf, mosaic tiles, brocade, filigree, lace**, plus one cosmic texture family.
+- Border ornamentation can appear as real objects in the scene (ribbons/trim becoming physical).
+
+---
+
+### Substyle C — Alchemical Engraving (Adult Quiet, High Readability)
+Archival print energy with controlled drama.
+
+- Copperplate/etching look: crosshatching, stipple gradients, engraved ornament.
+- Palette control: mostly monochrome with **1–2 spot colors** (e.g., gold + crimson).
+- Lighting remains graphic and illustrative; shadows are patterned rather than cinematic.
+
+---
+
+### Substyle D — Paper Shadowbox Collage (Layered Cut-Out Depth)
+Depth-first, tactile, gallery-craft feel.
+
+- 6–10 visible layers with soft cast shadows.
+- Crisp cut edges; slight fiber texture; handcrafted imperfections.
+- Strong silhouette logic; detail concentrates in layer edges and inset vignettes.
+
+---
+
+### Substyle E — Stained Glass / Cloisonné Iconography (Prismatic Sacred)
+Best for luminous phenomena and “iconic” moments.
+
+- Thick lead/cell outlines define shapes.
+- Jewel-tone translucency; light appears to pass through color fields.
+- Mosaic-like detail clusters; graphic clarity remains dominant.
+
+---
+
+## Quality Targets (Written as Positives)
+- Keep the image **free of readable typography**: surfaces remain unlettered and unbranded.
+- Keep the entire card **consistently illustrative** (handmade media feel: ink/paint/print textures).
+- Keep focus **uniformly sharp** across the frame so micro-details remain discoverable.
+- Keep glow **disciplined**: one hero luminous source plus a few small discovery points.
+- Keep the scene’s complexity **structured**: depth planes and silhouette hierarchy always win over texture chaos.
+
+---
+
+## Prompt Wrapper Template (Copy/Paste)
+
+### Base Wrapper (Always)
+“Vertical 2:3 collectible Dixit card illustration. Surreal ‘Frozen Dream’: a crowded, polysemic visual puzzle with foreground occlusion framing the view. One dominant impossible-physics rule governs materials and motion. Layered depth planes with clear silhouette hierarchy (primary shapes crisp, secondary moderate, micro-details hidden in shadows and corners). Bright curious light with prismatic accents. Handcrafted illustrative rendering with ink-like clarity and painterly texture. All surfaces remain unlettered and free of branding.”
+
+### Choose One Substyle Add-On
+- **A:** “Stationary Pattern-Projection tapestry collage: textures are flat, 2D, unmoving patterns clipped into silhouettes; depth encoded by pattern scale; 20–30% low-contrast patterns for readability; thin keyline outlines; skin as marble/stardust/lace textures.”
+- **B:** “Gilded mosaic projection: stationary pattern-projection with gold leaf, mosaic tiles, brocade, filigree, lace, plus one cosmic texture family; premium ornamental density.”
+- **C:** “Alchemical engraving: copperplate etching, dense crosshatch/stipple, archival print finish; mostly monochrome with 1–2 spot colors; engraved ornament.”
+- **D:** “Paper shadowbox collage: layered cut-paper depth, tactile fibers, crisp silhouettes, soft cast shadows, handcrafted collage aesthetic.”
+- **E:** “Stained glass/cloisonné: thick lead/cell outlines, jewel-tone translucency, backlit glow through color fields, sacred icon-like clarity.”
+
+---
+
+**The Scene:**
+
+#+END_SRC
+
+#+BEGIN_SRC markdown
+Too long. Choose subtype A and output its style guide. This guide will be prepended directly to the scene description.
+#+END_SRC
+
+**** A
+#+BEGIN_SRC markdown
+Illustration Style: Vertical 2:3 collectible Dixit card illustration. Surreal ‘Frozen Dream’: a crowded, polysemic visual puzzle with foreground occlusion framing the view. One dominant impossible-physics rule governs materials and motion. Layered depth planes with clear silhouette hierarchy (primary shapes crisp, secondary moderate, micro-details hidden in shadows and corners). Bright curious light with prismatic accents. Handcrafted illustrative rendering with ink-like clarity and painterly texture. All surfaces remain unlettered and free of branding. Stationary Pattern-Projection tapestry collage: textures are flat, 2D, unmoving patterns clipped into silhouettes; depth encoded by pattern scale; 20–30% low-contrast patterns for readability; thin keyline outlines; skin as marble/stardust/lace/peach/... textures.
+
+---
+
+**The Scene:**
+#+END_SRC
+
+***** @bad expanded
+#+BEGIN_SRC markdown
+Vertical 2:3 Dixit card illustration in **Stationary Pattern-Projection (Tapestry Collage)** style. The scene has real perspective and depth in shapes, but **all textures are flat, 2D, and stationary**—every object is a silhouette/clipping mask revealing an unmoving pattern layer beneath (no texture wrapping on cylinders/spheres).
+
+**Maximal pattern fill:** cover every surface with high-detail textures (no flat color fields): opulent textiles (brocade, damask, velvet, paisley, lace, tartan, kimono silk), organic macros (petals, leaf veins, cell structures, marble grain, geodes, scales, butterfly dust), and abstract/industrial (gold circuitry, stained-glass tiling, blueprints, starfields/nebulae, TV static, watercolor blooms).
+
+**Clarity controls (mandatory):**
+- Preserve silhouette hierarchy: primary shapes have crisp keylines and slightly calmer patterns; secondary shapes denser; micro-details densest in corners/shadows.
+- Reserve **20–30%** of the image for **low-contrast patterns** (still patterned, just quieter) to keep readability at card size.
+- Encode depth via **pattern scale**: foreground = large motifs, midground = medium, background = fine.
+- Keep the whole image uniformly sharp so micro-details remain discoverable.
+- Use bright, curious daylight with simple prismatic accents; shadows contain hidden discoveries while the scene remains legible.
+
+All surfaces remain **unlettered and unbranded** (no readable text).
+
+---
+
+**The Scene:**
+
+
+#+END_SRC
+
+****** @good @noPrePrompt no scene description
+#+BEGIN_SRC markdown
+Vertical 2:3 Dixit card illustration in **Stationary Pattern-Projection (Tapestry Collage)** style. The scene has real perspective and depth in shapes, but **all textures are flat, 2D, and stationary**—every object is a silhouette/clipping mask revealing an unmoving pattern layer beneath (no texture wrapping on cylinders/spheres).
+
+**Maximal pattern fill:** cover every surface with high-detail textures (no flat color fields): opulent textiles (brocade, damask, velvet, paisley, lace, tartan, kimono silk), organic macros (petals, leaf veins, cell structures, marble grain, geodes, scales, butterfly dust), and abstract/industrial (gold circuitry, stained-glass tiling, blueprints, starfields/nebulae, TV static, watercolor blooms).
+
+**Clarity controls (mandatory):**
+- Preserve silhouette hierarchy: primary shapes have crisp keylines and slightly calmer patterns; secondary shapes denser; micro-details densest in corners/shadows.
+- Reserve **20–30%** of the image for **low-contrast patterns** (still patterned, just quieter) to keep readability at card size.
+- Encode depth via **pattern scale**: foreground = large motifs, midground = medium, background = fine.
+- Keep the whole image uniformly sharp so micro-details remain discoverable.
+- Use bright, curious daylight with simple prismatic accents; shadows contain hidden discoveries while the scene remains legible.
+
+All surfaces remain **unlettered and unbranded** (no readable text).
+
+---
+
+**The Scene:**
+
+[Dream up a most surreal social paradox yourself, be creative!]
+#+END_SRC
+
+**** D
+#+BEGIN_SRC markdown
+Illustration Style: Vertical 2:3 collectible Dixit card illustration. Surreal ‘Frozen Dream’: a crowded, polysemic visual puzzle with foreground occlusion framing the view. One dominant impossible-physics rule governs materials and motion. Layered depth planes with clear silhouette hierarchy (primary shapes crisp, secondary moderate, micro-details hidden in shadows and corners). Bright curious light with prismatic accents. Handcrafted illustrative rendering with ink-like clarity and painterly texture. All surfaces remain unlettered and free of branding. Paper shadowbox collage: layered cut-paper depth, tactile fibers, crisp silhouettes, soft cast shadows, handcrafted collage aesthetic.
+
+---
+
+**The Scene:**
+
+#+END_SRC
+
+**** E
+#+BEGIN_SRC markdown
+Illustration Style: Vertical 2:3 collectible Dixit card illustration. Surreal ‘Frozen Dream’: a crowded, polysemic visual puzzle with foreground occlusion framing the view. One dominant impossible-physics rule governs materials and motion. Layered depth planes with clear silhouette hierarchy (primary shapes crisp, secondary moderate, micro-details hidden in shadows and corners). Bright curious light with prismatic accents. Handcrafted illustrative rendering with ink-like clarity and painterly texture. All surfaces remain unlettered and free of branding. Stained glass/cloisonné: thick lead/cell outlines, jewel-tone translucency, backlit glow through color fields, sacred icon-like clarity.
+
+---
+
+**The Scene:**
+
+#+END_SRC
+
+
 ** msg_mixed_1
 #+BEGIN_SRC markdown
 You are creating a single illustration for a collectible Dixit card designed for adults — a surrealist artwork that functions as a visual Rorschach test. The image must be polysemic: five different people should look at it and project five completely different stories, emotions, and memories onto it. It should never illustrate a single readable narrative. Instead, it should feel like a half-remembered dream that the viewer is convinced they have had before but cannot quite place.
