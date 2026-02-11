@@ -1,0 +1,18 @@
+#+TITLE: SurrealPictures/log
+
+* P6-8
+The old matrix (P3) that set the main focus was a good thing and we might need it back. We need to make it better though.
+
+#+BEGIN_SRC markdown
+### Category 2 — Subject Focus *(The Actor)* [7 options]
+
+| Code | Subject | Direction |
+|---|---|---|
+| `SU-AN` | **The Animal** | A non-human creature is the central actor. Favor unusual species (axolotl, moth, octopus, pangolin, hyena, corvid, deep-sea fish) over defaults (cat, dog, horse). |
+| `SU-OB` | **The Object** | An inanimate object is the protagonist — behaving as if alive, enshrined, or transformed. |
+| `SU-EN` | **The Environment** | The landscape or architecture *is* the character. There is **no** central figure; the space itself tells the story. |
+| `SU-HU` | **The Humanoid** | A person, mythological figure, or ambiguous silhouette is *part of* the scene — active within it, never merely observing. |
+| `SU-PA` | **The Pair / Duality** | Two figures or things exist in relationship — confrontation, embrace, orbit, mirror, tug-of-war, almost-touching. The *tension between them* is the subject. |
+| `SU-SW` | **The Crowd / Swarm** | Many small things forming a larger pattern, migration, ritual, or emergent shape. No single protagonist — the collective *is* the actor. |
+| `SU-BO` | **The Body / Fragment** | An isolated body part — a hand, an eye, a ribcage, a spine, a mouth — is the central subject, rendered at symbolic scale. The rest of the body is absent, implied, or dissolved. |
+#+END_SRC

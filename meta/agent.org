@@ -60,6 +60,11 @@ Mention that if the artist is free to make artistic changes to make the prompt f
 Is it a good idea to fuse two traditions? Won't we get better results by using a single prominent art tradition that best matches?
 #+END_SRC
 
+** Prefixes
+#+BEGIN_SRC markdown
+Aspect-ratio: 2:3
+#+END_SRC
+
 ** Postfixes
 #+BEGIN_SRC markdown
 You have full creative license to adapt, reinterpret, or subtly redirect those specific elements so the image can still be generated.
