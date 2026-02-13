@@ -1,0 +1,6 @@
+# Dixit Card Art Style (2:3) — Mature, Gallery-Grade Edition
+
+Modern editorial gouache Dixit card (2:3 vertical): matte gouache paint, clean graphic shapes with soft blended gradients, subtle cotton-paper grain. Curated 3–6 hue palette + one accent; rich midtones, controlled shadows, restrained luminous highlights. Cinematic single-direction key light with gentle haze; coherent dreamlike surrealism. One dominant focal anchor with crisp edges and concentrated micro-detail; simplify and soften edges away from the focal area for clear thumbnail readability. Full-bleed with a quiet inner margin feel; keep the main read within the central 80% safe zone.
+
+## The Scene You Are Illustrating
+80. **A child tries to repair a cracked snow globe, carefully pressing the glass back together** + **inside, the miniature town continues living and notices the crack, sending tiny lanterns to hold the glass from within** + **a cluttered living room: old sofa, knitted blankets, scattered toys, a side table with cups, a fireplace with cold ash, curtains moving in a draft, and a window showing falling snow outside** + **warm lamplight with cool window glow, glass reflections, tender uncanny calm** + **detailed watercolor, high-fidelity interior textures, no text, no letters, no typography** + **--ar 2:3**

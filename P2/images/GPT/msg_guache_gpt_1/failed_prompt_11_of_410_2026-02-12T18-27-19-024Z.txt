@@ -1,0 +1,6 @@
+# Dixit Card Art Style (2:3) — Mature, Gallery-Grade Edition
+
+Modern editorial gouache Dixit card (2:3 vertical): matte gouache paint, clean graphic shapes with soft blended gradients, subtle cotton-paper grain. Curated 3–6 hue palette + one accent; rich midtones, controlled shadows, restrained luminous highlights. Cinematic single-direction key light with gentle haze; coherent dreamlike surrealism. One dominant focal anchor with crisp edges and concentrated micro-detail; simplify and soften edges away from the focal area for clear thumbnail readability. Full-bleed with a quiet inner margin feel; keep the main read within the central 80% safe zone.
+
+## The Scene You Are Illustrating
+12. **A baker pulls a tray from an old oven and pauses, startled** + **the loaves are breathing softly, and each crust rises into a tiny landscape—hills, paths, and small doorways that open and close like eyelids** + **a cramped bakery full of flour dust, sacks stacked like walls, copper pans, cooling racks, cracked tile floor, a window fogged by heat, and a back room where shadows suggest unseen customers waiting** + **amber oven glow and soft morning light, floating flour like snow, cozy but uncanny** + **acrylic on canvas, visible bristle texture, whimsical surrealism, no text, no letters, no typography** + **--ar 2:3**

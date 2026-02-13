@@ -94,7 +94,7 @@ Design a highly intentional and **Polysemic** image. This means the image contai
 
 **The "Multiple Narrative" Rule:**
 Infuse the scene with an overwhelming amount of layered meaning.
-*   **Conflicting Clues:** Place objects together that tell different stories (e.g., a cage that functions as a sanctuary, or a gift that acts as a heavy burden).
+*   **Conflicting Clues:** Place objects together that tell different stories.
 *   **Psychological Depth:** Set a mature, rich, and playful emotional tone. Evoke complex feelings, both positive and negative.
 *   **The Test:** Construct the imagery so that three different viewers will see distinct themes.
 

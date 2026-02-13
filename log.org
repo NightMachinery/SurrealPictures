@@ -1,5 +1,22 @@
 #+TITLE: SurrealPictures/log
 
+* P12
+Even simplification wasn't that useful. The produced pictures are still rather cliche and formulaic.
+
+P2, without any matrix, might be better.
+
+Perhaps we should change the template. Use the matrix to give the model "seeds" but allow it complete creative freedom to write its own prompt.
+
+It's possible simplifying the expansion prompt will also help. By telling the model write a scene with multiple narratives, we are getting chaotic scenes with no narrative at all.
+
+We should take care not to have any concrete examples in the expansion prompt, as it seems the biasing effect is too much. E.g.,
+
+#+begin_quote
+**Conflicting Clues:** Place objects together that tell different stories (e.g., a cage that functions as a sanctuary, or a gift that acts as a heavy burden).
+#+end_quote
+
+This might be the reason we are seeing so many cages in the outputs.
+
 * P6-8
 The old matrix (P3) that set the main focus was a good thing and we might need it back. We need to make it better though.
 
@@ -16,3 +33,4 @@ The old matrix (P3) that set the main focus was a good thing and we might need i
 | `SU-SW` | **The Crowd / Swarm** | Many small things forming a larger pattern, migration, ritual, or emergent shape. No single protagonist — the collective *is* the actor. |
 | `SU-BO` | **The Body / Fragment** | An isolated body part — a hand, an eye, a ribcage, a spine, a mouth — is the central subject, rendered at symbolic scale. The rest of the body is absent, implied, or dissolved. |
 #+END_SRC
+

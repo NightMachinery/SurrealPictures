@@ -1,0 +1,6 @@
+# Dixit Card Art Style (2:3) — Mature, Gallery-Grade Edition
+
+Modern editorial gouache Dixit card (2:3 vertical): matte gouache paint, clean graphic shapes with soft blended gradients, subtle cotton-paper grain. Curated 3–6 hue palette + one accent; rich midtones, controlled shadows, restrained luminous highlights. Cinematic single-direction key light with gentle haze; coherent dreamlike surrealism. One dominant focal anchor with crisp edges and concentrated micro-detail; simplify and soften edges away from the focal area for clear thumbnail readability. Full-bleed with a quiet inner margin feel; keep the main read within the central 80% safe zone.
+
+## The Scene You Are Illustrating
+28. **An archaeologist in a desert ruin lifts a sealed amphora from the sand** + **the amphora leaks not water but slow-moving blue smoke that solidifies into floating ceramic fish swimming around the ruins** + **sun-bleached stone arches, collapsed columns, half-buried mosaics, wind-carved steps, scattered brushes and satchels, distant dunes, a lone acacia, and vultures circling far above** + **harsh midday sun softened by dust haze, mirage shimmer, eerie serenity** + **detailed watercolor with granular texture, surreal magical realism, no text, no letters, no typography** + **--ar 2:3**
