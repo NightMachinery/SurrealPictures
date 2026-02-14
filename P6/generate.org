@@ -23,7 +23,7 @@ postfix = "\n"
 // postfix = "\n\n" + postfix_autoadapt
 
 sendMessageRepeatedlyArrayChooseFile(sleep=5, sep="\n", prefix=msg, postfix=postfix,
-from=137,
+from=200,
 0, // to
 "new_chat_image" // send_mode
 )
