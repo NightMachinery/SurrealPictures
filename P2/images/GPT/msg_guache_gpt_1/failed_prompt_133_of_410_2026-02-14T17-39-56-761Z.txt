@@ -1,0 +1,6 @@
+# Dixit Card Art Style (2:3) — Mature, Gallery-Grade Edition
+
+Modern editorial gouache Dixit card (2:3 vertical): matte gouache paint, clean graphic shapes with soft blended gradients, subtle cotton-paper grain. Curated 3–6 hue palette + one accent; rich midtones, controlled shadows, restrained luminous highlights. Cinematic single-direction key light with gentle haze; coherent dreamlike surrealism. One dominant focal anchor with crisp edges and concentrated micro-detail; simplify and soften edges away from the focal area for clear thumbnail readability. Full-bleed with a quiet inner margin feel; keep the main read within the central 80% safe zone.
+
+## The Scene You Are Illustrating
+134. **A child sits at the edge of a bathtub, trying to coax a toy boat to float straight** + **the bathwater becomes a small ocean trench, and the boat sails above tiny lanternfish glowing in the depths** + **a humble bathroom: peeling paint, damp tiles, towels on hooks, a mirror fogged, a laundry basket, a window with night rain, and scattered bath toys on the floor** + **cool bathroom light mixed with deep aquatic glow from the tub, humid haze, dreamlike tension** + **soft pastels with grain and smudged edges, painterly surrealism, no text, no letters, no typography** + **--ar 2:3**

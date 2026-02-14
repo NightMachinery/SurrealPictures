@@ -1,0 +1,6 @@
+# Dixit Card Art Style (2:3) — Mature, Gallery-Grade Edition
+
+Modern editorial gouache Dixit card (2:3 vertical): matte gouache paint, clean graphic shapes with soft blended gradients, subtle cotton-paper grain. Curated 3–6 hue palette + one accent; rich midtones, controlled shadows, restrained luminous highlights. Cinematic single-direction key light with gentle haze; coherent dreamlike surrealism. One dominant focal anchor with crisp edges and concentrated micro-detail; simplify and soften edges away from the focal area for clear thumbnail readability. Full-bleed with a quiet inner margin feel; keep the main read within the central 80% safe zone.
+
+## The Scene You Are Illustrating
+106. **A librarian closes a heavy book and ties it with twine, as if to keep it asleep** + **the twine tightens by itself, and faint luminous shapes press outward from the cover like trapped butterflies** + **a late-night library desk: scattered bookmarks, ink bottles, wax seals, a green-shaded lamp, towering shelves behind, ladders, and tall windows showing snow falling outside** + **warm desk-lamp pool against cool window light, drifting dust, quiet tension** + **oil painting, luminous chiaroscuro and textured strokes, no text, no letters, no typography** + **--ar 2:3**

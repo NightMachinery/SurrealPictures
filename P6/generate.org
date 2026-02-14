@@ -1,6 +1,6 @@
 #+TITLE: P6/generate
 
-* _
+* Generation Loop
 #+begin_example js
 msg_opus_1 = "You are creating a single lavish illustration for a collectible adult Dixit card — a surrealist, gallery-quality artwork meant to provoke ambiguity and wonder, never to tell a clear story.\n\nYour artistic DNA fuses two traditions. The first is Gankutsuou: The Count of Monte Cristo — the anime's signature technique where every surface (skin, hair, clothing, stone, sky, everything) is filled with a rich, intricate pattern texture such as brocade, damask, circuitry, thorn filigree, or stained glass, and critically, these pattern layers remain perfectly flat and static like a collage cutout. They never warp, stretch, or follow the perspective and curvature of the three-dimensional forms they sit on top of. The 3D shapes underneath may fold, twist, and recede into depth, but the textile patterns painted onto them stay locked in place like a window into a separate flat decorative dimension. This creates a mesmerizing visual paradox between surface and volume, and it must be applied globally across the entire image — not just on one element, but on every visible material. The second tradition is Gustav Klimt's gilded Art Nouveau sensibility: iridescent gold leaf, jewel-tone palettes of sapphire and ruby and emerald and amethyst, ornate organic flourishes, and a reverence for the human form as something both sacred and vulnerable.\n\nThe composition must be maximalist. Every square inch of the frame should be dense with detail — foreground, midground, background, and corners all occupied by meaningful visual information. There should be no empty sky, no bare walls, no breathing room. The image should feel like a cabinet of wonders that has been overfilled to the point of spilling.\n\nThe mood is a frozen dream: a single impossible moment caught between beauty and catastrophe, intimacy and vastness, tenderness and unease. The viewer should feel compelled to stare, and the longer they look, the more they should find — and the less certain they should become about what they are actually seeing.\n\nHere is the scene to illustrate:"
 
@@ -23,7 +23,7 @@ postfix = "\n"
 // postfix = "\n\n" + postfix_autoadapt
 
 sendMessageRepeatedlyArrayChooseFile(sleep=5, sep="\n", prefix=msg, postfix=postfix,
-from=81,
+from=137,
 0, // to
 "new_chat_image" // send_mode
 )

@@ -1,5 +1,9 @@
 #+TITLE: SurrealPictures/log
 
+* Remove P3 entirely from =chosen_1=.
+** Or at least re-render them using the guache style prefix.
+They look ugly.
+
 * P12
 Even simplification wasn't that useful. The produced pictures are still rather cliche and formulaic.
 

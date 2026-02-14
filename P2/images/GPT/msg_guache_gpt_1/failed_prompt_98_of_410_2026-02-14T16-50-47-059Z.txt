@@ -1,0 +1,6 @@
+# Dixit Card Art Style (2:3) — Mature, Gallery-Grade Edition
+
+Modern editorial gouache Dixit card (2:3 vertical): matte gouache paint, clean graphic shapes with soft blended gradients, subtle cotton-paper grain. Curated 3–6 hue palette + one accent; rich midtones, controlled shadows, restrained luminous highlights. Cinematic single-direction key light with gentle haze; coherent dreamlike surrealism. One dominant focal anchor with crisp edges and concentrated micro-detail; simplify and soften edges away from the focal area for clear thumbnail readability. Full-bleed with a quiet inner margin feel; keep the main read within the central 80% safe zone.
+
+## The Scene You Are Illustrating
+99. **A lone astronaut kneels in lunar dust to collect a sample with a small scoop** + **the dust clumps into tiny moths of silver regolith that flutter around the helmet, leaving faint trails like chalk in space** + **a desolate moon plain: scattered equipment cases, tether lines, a half-buried antenna, bootprints, distant crater rim, and a sky crowded with immense slow-turning stars and faint aurora veils** + **cold starlight rim with soft reflected glow from the silver moths, quiet awe, gentle dread** + **soft pastels with velvety gradients and grain, surreal cosmic realism, no text, no letters, no typography** + **--ar 2:3**
