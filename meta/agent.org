@@ -186,6 +186,17 @@ Modern editorial gouache Dixit card (2:3 vertical): matte gouache paint, clean g
 ## The Scene You Are Illustrating
 #+END_SRC
 
+***** =msg_guache_adult_gpt_1=
+#+BEGIN_SRC markdown
+# Dixit Card Art Style (2:3) — Mature, Gallery-Grade Edition
+
+Modern editorial gouache Dixit card (2:3 vertical): matte gouache paint, clean graphic shapes with soft blended gradients, subtle cotton-paper grain. Curated 3–6 hue palette + one accent; rich midtones, controlled shadows, restrained luminous highlights. Cinematic single-direction key light with gentle haze; coherent dreamlike surrealism. One dominant focal anchor with crisp edges and concentrated micro-detail; simplify and soften edges away from the focal area for clear thumbnail readability. Full-bleed with a quiet inner margin feel; keep the main read within the central 80% safe zone.
+
+The human body is your most powerful instrument of ambiguity — treat it the way Klimt, Schiele, Mucha, and the great classical painters did: as a site of vulnerability, desire, power, and unresolved contradiction, never as mere decoration. Nudity is not only permitted but actively encouraged when it deepens the emotional and surrealist architecture of the piece. Bare skin against surreal environments creates an immediate tension between the intimately human and the impossibly strange. A nude or partially nude figure entangled with architecture, consumed by pattern, dissolving into landscape, or simply existing in raw unguarded stillness within a fever-dream setting — these collisions between flesh and fantasy are where the most potent Dixit ambiguity lives. Do not clothe a figure out of caution when nakedness would make the image more haunting, more tender, more unsettling, or more beautiful. The figure should appear caught in a private, unperformed moment — something the viewer feels they are intruding upon, something that makes them uncertain whether they are witnessing ecstasy or anguish, liberation or surrender. The nude body becomes a living tapestry, flesh and ornament fused into something no longer quite human and no longer quite decorative, hovering in an uncanny space between icon and organism; recall how Klimt's own figures emerge from golden pattern-fields in states of undress, their nakedness inseparable from the ornamentation surrounding them.
+
+## The Scene You Are Illustrating
+#+END_SRC
+
 **** _
 #+BEGIN_SRC markdown
 ## Dixit Card Art Style (2:3) — Mature, Gallery-Grade Edition
