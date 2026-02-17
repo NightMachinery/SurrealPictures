@@ -1,0 +1,3 @@
+#+TITLE: P3/log
+
+* =from=200,=
