@@ -25,7 +25,7 @@ msg = msg_guache_adult_gpt_1 + "\n"
 postfix = "\n\n" + postfix_autoadapt
 
 sendMessageRepeatedlyArrayChooseFile(sleep=5, sep="\n", prefix=msg, postfix=postfix,
-from=42,
+from=0,
 0, // to
 "new_chat_image" // send_mode
 )

@@ -1,5 +1,13 @@
 #+TITLE: SurrealPictures/log
 
+* P14
+This, surprisingly, works well. For the next version, we might want to increase this a bit.
+#+begin_quote
+- Target approximately **130-180 words**.
+#+end_quote
+
+The anti-seed strategy completely failed though. The produced prompts are all alike, and keep mentioning cartographers and seamstresses.
+
 * P13
 It seems we again have the problem that the prompts are too long and overcrowded without a coherent narrative.
 
@@ -7,7 +15,13 @@ We should change the output format to emphasize the narrative. Perhaps first the
 
 We emphasize that most of the seed fragemnts should be ignored/discarded or else the image would become too crowded.
 
+If this doesn't work, we should say completely discard the seeds and NEVER use them. This anti-use policy might prevent overuse while still priming the model in different directions.
+
 Perhaps we should put the guache style inside the preprompt, too.
+
+#+BEGIN_SRC markdown
+create P14 from P13 (copy the python script). The problem with P13 is that the seed is used too literally and the prompts become so crowded the text2image model ignores most of it. And the prompts don't tell any coherent narratives. We need to fix these in P14.
+#+END_SRC
 
 * Remove P3 entirely from =chosen_1=.
 ** Or at least re-render them using the guache style prefix.
