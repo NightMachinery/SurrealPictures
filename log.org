@@ -1,5 +1,14 @@
 #+TITLE: SurrealPictures/log
 
+* P13
+It seems we again have the problem that the prompts are too long and overcrowded without a coherent narrative.
+
+We should change the output format to emphasize the narrative. Perhaps first the model should write what fragemnts it wants to use in this generation, biased by the random seed.
+
+We emphasize that most of the seed fragemnts should be ignored/discarded or else the image would become too crowded.
+
+Perhaps we should put the guache style inside the preprompt, too.
+
 * Remove P3 entirely from =chosen_1=.
 ** Or at least re-render them using the guache style prefix.
 They look ugly.

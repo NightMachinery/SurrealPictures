@@ -1,0 +1,138 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import importlib.util
+import random
+from pathlib import Path
+from typing import List, Mapping, Sequence
+
+MASTER_TEMPLATE = (
+    """
+# Role: Lead Surrealist Art Director (Dixit Project)
+
+**Objective:**
+You are tasked with generating one unique, high-fidelity text-to-image prompt for a custom deck for the board game *Dixit*. The cards are 2:3.
+
+**Core Challenge:**
+Dixit relies on ambiguity and narrative.
+- **Narrative Depth:** the image should feel like a frozen moment from a strange fairy tale. Something must be *happening*.
+- **Rich, Detailed Backgrounds:** avoid plain/minimal backgrounds; environment should be textured, layered, and story-relevant. The setting is just as important as the subject(s).
+
+## Aesthetic Guidelines
+- **Style:** Whimsical, painterly, surrealism, magical realism. Think Marie Cardouat meets Shaun Tan or Salvador Dalí.
+- **Medium:** I'll prepend the graphical medium (e.g., modern editorial gouache) to each prompt later. Don't mention anything in this respect to allow reusing the same prompt with multiple mediums.
+- **Mood:** playful, adult, magical, soft yet unsettling, dreamlike.
+
+## Creative Freedom (Important)
+Use the seed below only as a **priming nudge**, not as a strict recipe.
+You are free to **completely ignore**, reinterpret, merge, or transform any seed fragment. You SHOULD THINK OF NEW IDEAS, SYMBOLS, ENVIRONMENTS, CHARACTERS, ANIMALS, EMOTIONS, SURREAL TWISTS, ETC. that are not given to you on a platter. THINK OUTSIDE THE BOX!
+Prioritize image quality, originality, and narrative coherence over literal seed compliance.
+
+## Deterministic Random Seed
+- Seed fragments: {seed_fragments}
+
+## Output Requirements
+- Return only the final prompt text.
+
+## Optional Structure (flexible)
+`[Narrative Action/Subject] + [Surreal Twists] + [Emotions] + [Rich Environment] + [Lighting & Atmosphere]`
+""".strip()
+    + "\n"
+)
+
+
+def load_p12_module():
+    p12_path = Path(__file__).resolve().parent / "p12_helper.py"
+    spec = importlib.util.spec_from_file_location("p13_p12_helper", p12_path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Failed to load P12 preprompter from: {p12_path}")
+    module = importlib.util.module_from_spec(spec)
+    import sys
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+def next_prompt_index(output_dir: Path) -> int:
+    existing = list(output_dir.glob("prompt_*.md"))
+    if not existing:
+        return 1
+
+    max_num = 0
+    for f in existing:
+        parts = f.stem.split("prompt_")
+        if len(parts) >= 2 and parts[-1].isdigit():
+            max_num = max(max_num, int(parts[-1]))
+    return max_num + 1
+
+
+def flatten_seed_fragments(
+    prompt_data: Mapping[str, List[str]],
+    category_order: Sequence[str],
+    seed_value: int,
+) -> List[str]:
+    fragments: List[str] = []
+    for key in category_order:
+        fragments.extend(prompt_data.get(key, []))
+
+    rng = random.Random(seed_value)
+    rng.shuffle(fragments)
+    return fragments
+
+
+def generate_seed_values(prompt_count: int, base_seed: int | None) -> List[int]:
+    if base_seed is None:
+        rng = random.SystemRandom()
+    else:
+        rng = random.Random(base_seed)
+    return [rng.randint(0, 2**63 - 1) for _ in range(prompt_count)]
+
+
+def write_preprompts(
+    structs: Sequence[Mapping[str, List[str]]],
+    output_dir: str,
+    category_order: Sequence[str],
+    base_seed: int | None,
+) -> None:
+    out = Path(output_dir)
+    out.mkdir(parents=True, exist_ok=True)
+
+    start_idx = next_prompt_index(out)
+    seed_values = generate_seed_values(len(structs), base_seed)
+
+    for offset, data in enumerate(structs):
+        seed_value = seed_values[offset]
+        seed_fragments_list = flatten_seed_fragments(data, category_order, seed_value)
+        seed_fragments = " | ".join(seed_fragments_list) if seed_fragments_list else "(none)"
+
+        filled = MASTER_TEMPLATE.format(
+            seed_value=seed_value,
+            seed_fragments=seed_fragments,
+        )
+
+        file_index = start_idx + offset
+        path = out / f"prompt_{file_index:d}.md"
+        path.write_text(filled, encoding="utf-8")
+
+        if offset == 0:
+            print(f"File numbering started at: prompt_{file_index:d}.md")
+
+    print(f"Successfully generated {len(structs)} P13 pre-prompts in: {out.resolve()}")
+
+
+def main() -> None:
+    p12 = load_p12_module()
+    p12.validate_definitions()
+    cfg = p12.parse_args()
+    structs = p12.generate_matrix_structs(cfg)
+
+    write_preprompts(
+        structs=structs,
+        output_dir=cfg.output_dir,
+        category_order=p12.CATEGORY_ORDER,
+        base_seed=cfg.seed,
+    )
+
+
+if __name__ == "__main__":
+    main()
