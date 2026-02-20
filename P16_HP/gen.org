@@ -1,0 +1,6 @@
+#+TITLE: P16_HP
+
+* _
+#+BEGIN_SRC markdown
+Rewrite the helper in `P16_HP` to include seed fragments for a Harry Potter-fanon Dixit card collection.
+#+END_SRC
